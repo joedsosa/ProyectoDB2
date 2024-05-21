@@ -69,6 +69,7 @@ public static MongoDatabase database = null;
         JP_PuestosOfrecidosEmpresa.setVisible(false);
         JP_SolicitudesEmpresas.setVisible(false);
         JP_PuestosOfrecidosEmpresa.setVisible(false);
+        System.out.println("Hola");
 
     }
 private static boolean connect() {
