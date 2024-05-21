@@ -70,7 +70,7 @@ public static MongoDatabase database = null;
         JP_SolicitudesEmpresas.setVisible(false);
         JP_PuestosOfrecidosEmpresa.setVisible(false);
         System.out.println("Hola");
-
+        System.out.println("prueba");
     }
 private static boolean connect() {
         if (mongoClient == null) {
