@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyectodb2;
 
+
 import java.util.Scanner;
 import java.util.Properties;
 import javax.swing.JFrame;
@@ -50,7 +51,10 @@ public class LogIn extends javax.swing.JFrame {
         JP_PuestosOfrecidosEmpresa.setVisible(false);
         JP_SolicitudesEmpresas.setVisible(false);
         JP_PuestosOfrecidosEmpresa.setVisible(false);
-
+        String uri = "mongodb://localhost:27017";
+        
+       
+        
     }
 
     /**
