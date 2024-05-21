@@ -4,13 +4,21 @@
  */
 package com.mycompany.proyectodb2;
 
-
 import java.util.Scanner;
 import java.util.Properties;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.lang.System;
 import java.lang.*;
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import java.util.ArrayList;
+import java.util.List;
 //import com.mongodb.*;
 //import org.bson.BsonDocument;
 //import org.bson.BsonInt64;
@@ -21,13 +29,19 @@ import java.lang.*;
  *
  * @author HTS
  */
-public class LogIn extends javax.swing.JFrame {
 
+
+
+
+public class LogIn extends javax.swing.JFrame {
+public static MongoClient mongoClient = null;
+public static MongoDatabase database = null;
     /**
      * Creates new form LogIn
      */
     public LogIn() {
         initComponents();
+        mando();
         this.setExtendedState(MAXIMIZED_BOTH);
         JP_Contrataciones.setVisible(false);
         JP_CrearEmpresa.setVisible(false);
@@ -55,12 +69,71 @@ public class LogIn extends javax.swing.JFrame {
         JP_PuestosOfrecidosEmpresa.setVisible(false);
         JP_SolicitudesEmpresas.setVisible(false);
         JP_PuestosOfrecidosEmpresa.setVisible(false);
-        String uri = "mongodb://localhost:27017";
-        
-       
-        
+
+    }
+private static boolean connect() {
+        if (mongoClient == null) {
+            try {
+                ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017");
+                MongoClientSettings settings = MongoClientSettings.builder()
+                        .applyConnectionString(connectionString)
+                        .build();
+                mongoClient = MongoClients.create(settings);
+                database = mongoClient.getDatabase("empresa_db");
+                System.out.println("Connected to MongoDB successfully.");
+                return true;
+            } catch (Exception e) {
+                System.err.println("Failed to connect to MongoDB: " + e.getMessage());
+                return false;
+            }
+        }
+        return true;
     }
 
+    public static MongoCollection<Document> getCollection(String collectionName) {
+        if (!connect()) {
+            throw new RuntimeException("Failed to connect to MongoDB.");
+        }
+        return database.getCollection(collectionName);
+    }
+
+    public static void insertDocument(String collectionName, Document document) {
+        MongoCollection<Document> collection = getCollection(collectionName);
+        collection.insertOne(document);
+        System.out.println("Document inserted successfully into collection: " + collectionName);
+    }
+
+    public static List<Document> findDocuments(String collectionName) {
+        MongoCollection<Document> collection = getCollection(collectionName);
+        return collection.find().into(new ArrayList<>());
+    }
+
+    public static void close() {
+        if (mongoClient != null) {
+            mongoClient.close();
+            mongoClient = null;
+            System.out.println("Disconnected from MongoDB.");
+        }
+    }
+
+    public static void mando(){
+        try {
+            // Insert a document
+            Document doc = new Document("name", "Project A")
+                    .append("description", "A sample project")
+                    .append("status", "active");
+            insertDocument("proyecto", doc);
+
+            // Find and print all documents
+            List<Document> documents = findDocuments("proyecto");
+            for (Document document : documents) {
+                System.out.println(document.toJson());
+            }
+        } finally {
+            // Close the connection
+            close();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -3854,7 +3927,7 @@ public class LogIn extends javax.swing.JFrame {
     private void JB_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_LogInMouseClicked
         String username = TF_UserName.getText();
         String password = TF_Password.getText();
-        
+
     }//GEN-LAST:event_JB_LogInMouseClicked
 
     private void JB_CrudAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrudAdminMouseClicked
