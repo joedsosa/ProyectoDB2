@@ -5,8 +5,11 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 //prueba
+
 public class PersonaDAO {
 
     private final MongoCollection<Document> collection;
@@ -64,13 +67,13 @@ public class PersonaDAO {
     public Persona buscarPersonaPorId(String id) {
         MongoDatabase database = conexion.obtenerBaseDatos();
         MongoCollection<Document> collection = database.getCollection("personas");
-
-        Document query = new Document("_id", id);
+        ObjectId objectId = new ObjectId(id);
+        Document query = new Document("_id", objectId);
         Document result = collection.find(query).first();
 
         if (result != null) {
             Persona persona = new Persona();
-            persona.setId(result.getString("_id"));
+            persona.setId(result.getObjectId("_id").toString());
             persona.setNombre(result.getString("nombre"));
             persona.setApellidos(result.getString("apellidos"));
             persona.setDni(result.getString("dni"));
@@ -114,16 +117,19 @@ public class PersonaDAO {
             req.setPuestosNO(requisitos.getString("puestosno"));
             req.setPuestosSI(requisitos.getString("puestossi"));
             req.setSalario(requisitos.getInteger("salario"));
-
+            persona.setRequisitos(req);
+            
             Document datosLaborales = (Document) result.get("datosLaborales");
             DatosLaborales dat = new DatosLaborales();
             dat.setHistorialEmp(datosLaborales.getString("historial"));
             dat.setAniosExperiencia(datosLaborales.getInteger("aniosexperiencia"));
+            persona.setDatosLaborales(dat);
 
             Document datosProfesionales = (Document) result.get("datosProfesionales");
             DatosProfesionales prof = new DatosProfesionales();
             prof.setHabilidades(datosProfesionales.getString("habilidades"));
             prof.setExpLab(datosProfesionales.getBoolean("expLab"));
+            persona.setDatosProfesionales(prof);
             return persona;
         } else {
             return null;
@@ -142,8 +148,8 @@ public class PersonaDAO {
     public void actualizarPersona(Persona persona) {
         MongoDatabase database = conexion.obtenerBaseDatos();
         MongoCollection<Document> collection = database.getCollection("personas");
-
-        Document query = new Document("_id", persona.getId());
+        ObjectId objectId = new ObjectId(persona.getId());
+        Document query = new Document("_id", objectId);
         Document update = new Document("$set", new Document("nombre", persona.getNombre())
                 .append("apellidos", persona.getApellidos())
                 .append("dni", persona.getDni())
@@ -160,22 +166,22 @@ public class PersonaDAO {
                 .append("datosSanitarios", new Document("grupoSanguineo", persona.getDatosSanitarios().getGrupoSanguineo())
                         .append("alergias", persona.getDatosSanitarios().getAlergias())
                         .append("enfermedadesCronicas", persona.getDatosSanitarios().getEnfermedadesCronicas()))
-                .append("datosLegales", new Document("servicioMilitar", persona.getDatosLegales().isServicioMilitar())).append("estadolegal", persona.getDatosLegales().getEstadoLegal())
-                .append("antecedentes", persona.getDatosLegales().isAntecedentesPenales())
-                .append("promedio", persona.getDatosLegales().getPromedioGrad())
-                .append("niveledu", persona.getDatosLegales().getNivelEducacion())
-                .append("institucion", persona.getDatosLegales().getInstitucionEducativa())
-                .append("titulos", persona.getDatosLegales().getTitulosObtenidos())
-                .append("especializacion", persona.getDatosLegales().getEspecializacion())
-                .append("requisitos", new Document("puestossi", persona.getRequisitos().getPuestosSI()))
-                .append("puestosno", persona.getRequisitos().getPuestosNO())
-                .append("disponibilidad", persona.getRequisitos().getDisponibilidad())
-                .append("contrato", persona.getRequisitos().getContrato())
-                .append("salario", persona.getRequisitos().getSalario())
-                .append("datosLaborales", new Document("historial", persona.getDatosLaborales().getHistorialEmp()))
-                .append("aniosexperiencia", persona.getDatosLaborales().getAniosExperiencia())
-                .append("datosProfesionales", new Document("habilidades", persona.getDatosProfesionales().getHabilidades()))
-                .append("expLab", persona.getDatosProfesionales().isExpLab()));
+                .append("datosLegales", new Document("servicioMilitar", persona.getDatosLegales().isServicioMilitar()).append("estadolegal", persona.getDatosLegales().getEstadoLegal())
+                        .append("antecedentes", persona.getDatosLegales().isAntecedentesPenales())
+                        .append("promedio", persona.getDatosLegales().getPromedioGrad())
+                        .append("niveledu", persona.getDatosLegales().getNivelEducacion())
+                        .append("institucion", persona.getDatosLegales().getInstitucionEducativa())
+                        .append("titulos", persona.getDatosLegales().getTitulosObtenidos())
+                        .append("especializacion", persona.getDatosLegales().getEspecializacion()))
+                .append("requisitos", new Document("puestossi", persona.getRequisitos().getPuestosSI())
+                        .append("puestosno", persona.getRequisitos().getPuestosNO())
+                        .append("disponibilidad", persona.getRequisitos().getDisponibilidad())
+                        .append("contrato", persona.getRequisitos().getContrato())
+                        .append("salario", persona.getRequisitos().getSalario()))
+                .append("datosLaborales", new Document("historial", persona.getDatosLaborales().getHistorialEmp())
+                        .append("aniosexperiencia", persona.getDatosLaborales().getAniosExperiencia()))
+                .append("datosProfesionales", new Document("habilidades", persona.getDatosProfesionales().getHabilidades())
+                        .append("expLab", persona.getDatosProfesionales().isExpLab())));
 
         collection.updateOne(query, update);
     }
@@ -190,7 +196,7 @@ public class PersonaDAO {
 
     private Persona convertirDocumentoAPersona(Document result) {
         Persona persona = new Persona();
-        persona.setId(result.getString("_id"));
+        persona.setId(result.getObjectId("_id").toString());
         persona.setNombre(result.getString("nombre"));
         persona.setApellidos(result.getString("apellidos"));
         persona.setDni(result.getString("dni"));
@@ -234,21 +240,25 @@ public class PersonaDAO {
         req.setPuestosNO(requisitos.getString("puestosno"));
         req.setPuestosSI(requisitos.getString("puestossi"));
         req.setSalario(requisitos.getInteger("salario"));
+        persona.setRequisitos(req);
 
         Document datosLaborales = (Document) result.get("datosLaborales");
         DatosLaborales dat = new DatosLaborales();
         dat.setHistorialEmp(datosLaborales.getString("historial"));
         dat.setAniosExperiencia(datosLaborales.getInteger("aniosexperiencia"));
+        persona.setDatosLaborales(dat);
 
         Document datosProfesionales = (Document) result.get("datosProfesionales");
         DatosProfesionales prof = new DatosProfesionales();
         prof.setHabilidades(datosProfesionales.getString("habilidades"));
         prof.setExpLab(datosProfesionales.getBoolean("expLab"));
+        persona.setDatosProfesionales(prof);
         return persona;
     }
-     public List<Persona> obtenerTodasLasPersonas() {
+
+    public List<Persona> obtenerTodasLasPersonas() {
         List<Persona> personas = new ArrayList<>();
-        try (MongoCursor<Document> cursor = collection.find().iterator()) {
+        try ( MongoCursor<Document> cursor = collection.find().iterator()) {
             while (cursor.hasNext()) {
                 Document personaDocument = cursor.next();
                 Persona persona = convertirDocumentoAPersona(personaDocument);

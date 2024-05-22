@@ -31,8 +31,6 @@ public class Persona {
     public void setDatosProfesionales(DatosProfesionales datosProfesionales) {
         this.datosProfesionales = datosProfesionales;
     }
-
-    
     
     public DatosLaborales getDatosLaborales() {
         return datosLaborales;

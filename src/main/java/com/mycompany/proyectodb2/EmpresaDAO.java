@@ -28,11 +28,29 @@ public class EmpresaDAO {
     }
 
     // Método para actualizar una empresa existente
+//    public void actualizarEmpresa(Empresa empresa) {
+//        Document empresaDocument = convertirEmpresaADocumento(empresa);
+//        String idEmpresa = empresa.getId(); // Suponiendo que la empresa tiene un ID único
+//        Document filtro = new Document("_id", idEmpresa);
+//        collection.replaceOne(filtro, empresaDocument);
+//    }
+    
+    
     public void actualizarEmpresa(Empresa empresa) {
-        Document empresaDocument = convertirEmpresaADocumento(empresa);
-        String idEmpresa = empresa.getId(); // Suponiendo que la empresa tiene un ID único
-        Document filtro = new Document("_id", idEmpresa);
-        collection.replaceOne(filtro, empresaDocument);
+        MongoDatabase database = conexion.obtenerBaseDatos();
+        MongoCollection<Document> collection = database.getCollection("empresas");
+        ObjectId objectId = new ObjectId(empresa.getId());
+        Document query = new Document("_id", objectId);
+        System.out.println(empresa.getId()+"     hopla");
+        Document update = new Document("$set", new Document("nombre", empresa.getNombre())
+                .append("CIF", empresa.getCIF())
+                .append("direccion", empresa.getDireccion())
+                .append("telefono", empresa.getTelefono())
+                .append("email", empresa.getEmail())
+                .append("sectorActividad", empresa.getSectorActividad())
+                .append("usuario", empresa.getUsuario()) // Agregar usuario
+                .append("contrasena", empresa.getContrasena()));
+        collection.updateOne(query, update);
     }
 
     // Método para eliminar una empresa
@@ -94,6 +112,16 @@ public class EmpresaDAO {
 
     public Empresa buscarEmpresaPorUsuario(String usuario) {
         Document filtro = new Document("usuario", usuario);
+        Document resultado = collection.find(filtro).first();
+        if (resultado != null) {
+            return convertirDocumentoAEmpresa(resultado);
+        }
+        return null; // Retorna null si no se encontró ningún resultado
+    }
+    
+    public Empresa buscarEmpresaPorId(String id) {
+        ObjectId objectId = new ObjectId(id);
+        Document filtro = new Document("_id", objectId);
         Document resultado = collection.find(filtro).first();
         if (resultado != null) {
             return convertirDocumentoAEmpresa(resultado);

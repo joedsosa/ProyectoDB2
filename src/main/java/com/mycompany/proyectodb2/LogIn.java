@@ -220,73 +220,66 @@ public class LogIn extends javax.swing.JFrame {
         TF_ModDireccionPersona = new javax.swing.JTextField();
         jLabel97 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        TF_ModFechaNaciemientoPersona = new javax.swing.JTextField();
+        TF_ModFechaNacPersona = new javax.swing.JTextField();
         TF_ModIdPersona = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        TF_ModDNINaciemientoPersona = new javax.swing.JTextField();
+        jLabel99 = new javax.swing.JLabel();
+        TF_ModUsuarioPersona = new javax.swing.JTextField();
+        jLabel60 = new javax.swing.JLabel();
+        TF_ModpassPersona = new javax.swing.JTextField();
         JP_ModPersonaFamiliares_Sanitarios = new javax.swing.JPanel();
         TF_ModConyugePersona = new javax.swing.JTextField();
-        TF_Mod2HijoPersona = new javax.swing.JTextField();
         CB_ModGrupoSanguineoPersona = new javax.swing.JComboBox<>();
         JB_ModSiguienteLegales_AcademicosPersonas = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel98 = new javax.swing.JLabel();
-        TF_ModDependiente2Persona = new javax.swing.JTextField();
         jLabel104 = new javax.swing.JLabel();
         jLabel105 = new javax.swing.JLabel();
         TF_ModAlergiasPersona = new javax.swing.JTextField();
         jLabel106 = new javax.swing.JLabel();
-        TF_ModEnfermedadesCronicasPersona = new javax.swing.JTextField();
+        TF_ModEnfCronPersonas = new javax.swing.JTextField();
         jLabel107 = new javax.swing.JLabel();
-        TF_ModDependiente3Persona = new javax.swing.JTextField();
-        TF_ModDependiente1Persona = new javax.swing.JTextField();
-        TF_Mod3HijoPersona = new javax.swing.JTextField();
-        TF_Mod1HijoPersona = new javax.swing.JTextField();
         jLabel108 = new javax.swing.JLabel();
         CB_ModEstadoCivilPersona = new javax.swing.JComboBox<>();
+        JS_ModNumHijos = new javax.swing.JSpinner();
         JP_ModPersonaLegales_Academicos = new javax.swing.JPanel();
-        TF_ModAntecedentesPenalesPersona = new javax.swing.JTextField();
         CB_ModNivelEducacionPersona = new javax.swing.JComboBox<>();
         JB_ModSiguienteProfecionales_LaboralesPersona = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel109 = new javax.swing.JLabel();
-        TF_ModDNIPersona = new javax.swing.JTextField();
         jLabel110 = new javax.swing.JLabel();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
         jl_TelefonoCompania5 = new javax.swing.JLabel();
-        TF_ModTitulosObtenidos2Persona = new javax.swing.JTextField();
         TF_ModEspecializacionPersona = new javax.swing.JTextField();
         jLabel113 = new javax.swing.JLabel();
-        TF_ModInstitucionEducativaPersona = new javax.swing.JTextField();
+        TF_ModInstitucionPersona = new javax.swing.JTextField();
         CB_ModEstadoLegalPersona = new javax.swing.JComboBox<>();
-        TF_ModTitulosObtenidos3Persona = new javax.swing.JTextField();
         TF_ModrTitulosObtenidos1Persona = new javax.swing.JTextField();
-        jLabel114 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
-        JS_ModPromedioGraduacionPersona = new javax.swing.JSpinner();
-        CB_ModServicioMilitarPersona = new javax.swing.JComboBox<>();
+        JS_ModPromPersona = new javax.swing.JSpinner();
+        CB_ModAntecePersona = new javax.swing.JComboBox<>();
         jLabel35 = new javax.swing.JLabel();
+        CB_ModServiciorPersona = new javax.swing.JComboBox<>();
         JP_ModPersonaProfesional_Laboral = new javax.swing.JPanel();
-        TF_ModHabilidadesPersona = new javax.swing.JTextField();
-        TF_ModCertificaciones2Persona = new javax.swing.JTextField();
-        CB_ModExperienciaLaboralPersona = new javax.swing.JComboBox<>();
+        CB_ModExperienciaPersona = new javax.swing.JComboBox<>();
         JB_ModSiguienteRequisitos_CondicionesPersona = new javax.swing.JButton();
-        jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel116 = new javax.swing.JLabel();
         jLabel117 = new javax.swing.JLabel();
         jLabel118 = new javax.swing.JLabel();
-        TF_ModCertificaciones3Persona = new javax.swing.JTextField();
-        TF_ModCertificaciones1Persona = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        TA_ModHistorialEmpleoPersona = new javax.swing.JTextArea();
+        TA_ModHistorialPersona = new javax.swing.JTextArea();
         jLabel119 = new javax.swing.JLabel();
         jLabel120 = new javax.swing.JLabel();
         jLabel131 = new javax.swing.JLabel();
-        JS_CrearAñosExperienciaPersona = new javax.swing.JSpinner();
+        JS_ModAñosExperienciaPersona = new javax.swing.JSpinner();
+        jScrollPane23 = new javax.swing.JScrollPane();
+        TA_ModHabiPersona = new javax.swing.JTextArea();
         JP_ModPersonaRequisitos_Condiciones = new javax.swing.JPanel();
         JB_ConfirmarModPersona = new javax.swing.JButton();
         jLabel121 = new javax.swing.JLabel();
@@ -294,11 +287,11 @@ public class LogIn extends javax.swing.JFrame {
         TA_ModPuestosDeseadosPersona = new javax.swing.JTextArea();
         jLabel122 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        TA_ModPuestosNoDeseadosPersona = new javax.swing.JTextArea();
+        TA_ModPuestosNoPersona = new javax.swing.JTextArea();
         jLabel123 = new javax.swing.JLabel();
         JS_ModSalarioDeseadoPersona = new javax.swing.JSpinner();
         jLabel124 = new javax.swing.JLabel();
-        CB_ModDisponibilidadHorariaPersona = new javax.swing.JComboBox<>();
+        CB_ModDisponibilidadPersona = new javax.swing.JComboBox<>();
         CB_ModTipoContratoPersona = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
         jLabel125 = new javax.swing.JLabel();
@@ -349,6 +342,10 @@ public class LogIn extends javax.swing.JFrame {
         TF_ModCorreoEmpresa = new javax.swing.JTextField();
         TF_ModTelefonoEmpresa = new javax.swing.JTextField();
         jLabel138 = new javax.swing.JLabel();
+        jl_TelefonoCompania10 = new javax.swing.JLabel();
+        TF_ModContraEmpresa = new javax.swing.JTextField();
+        jLabel207 = new javax.swing.JLabel();
+        TF_ModUsuarioEmpresa = new javax.swing.JTextField();
         JP_EliminarEmpresa = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
         JT_EliminarEmpresa = new javax.swing.JTable();
@@ -704,6 +701,11 @@ public class LogIn extends javax.swing.JFrame {
         JB_CRUDEmpresas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JB_CRUDEmpresasMouseClicked(evt);
+            }
+        });
+        JB_CRUDEmpresas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CRUDEmpresasActionPerformed(evt);
             }
         });
 
@@ -1478,7 +1480,7 @@ public class LogIn extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel23.setText("Fecha Nacimiento");
         JP_ModPersonaPersonal.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 260, 30));
-        JP_ModPersonaPersonal.add(TF_ModFechaNaciemientoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 310, 30));
+        JP_ModPersonaPersonal.add(TF_ModFechaNacPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 310, 30));
 
         TF_ModIdPersona.setEditable(false);
         JP_ModPersonaPersonal.add(TF_ModIdPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 310, 30));
@@ -1487,13 +1489,29 @@ public class LogIn extends javax.swing.JFrame {
         jLabel75.setText("Id de Persona");
         JP_ModPersonaPersonal.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 130, -1));
 
+        jLabel59.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel59.setText("DNI");
+        JP_ModPersonaPersonal.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 260, 30));
+
+        TF_ModDNINaciemientoPersona.setEditable(false);
+        JP_ModPersonaPersonal.add(TF_ModDNINaciemientoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 310, 30));
+
+        jLabel99.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel99.setText("Usuario");
+        JP_ModPersonaPersonal.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 450, 79, -1));
+        JP_ModPersonaPersonal.add(TF_ModUsuarioPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 490, 310, 30));
+
+        jLabel60.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel60.setText("Contraseña");
+        JP_ModPersonaPersonal.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 550, 260, 30));
+        JP_ModPersonaPersonal.add(TF_ModpassPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 590, 310, 30));
+
         jPanel3.add(JP_ModPersonaPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 970));
 
         JP_ModPersonaFamiliares_Sanitarios.setBackground(new java.awt.Color(255, 255, 255));
         JP_ModPersonaFamiliares_Sanitarios.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_ModPersonaFamiliares_Sanitarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         JP_ModPersonaFamiliares_Sanitarios.add(TF_ModConyugePersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 310, 30));
-        JP_ModPersonaFamiliares_Sanitarios.add(TF_Mod2HijoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 310, 30));
 
         CB_ModGrupoSanguineoPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
         CB_ModGrupoSanguineoPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -1512,15 +1530,11 @@ public class LogIn extends javax.swing.JFrame {
                 JB_ModSiguienteLegales_AcademicosPersonasMouseClicked(evt);
             }
         });
-        JP_ModPersonaFamiliares_Sanitarios.add(JB_ModSiguienteLegales_AcademicosPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
+        JP_ModPersonaFamiliares_Sanitarios.add(JB_ModSiguienteLegales_AcademicosPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 198, 58));
 
         jLabel25.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel25.setText("Hijos");
         JP_ModPersonaFamiliares_Sanitarios.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 129, 30));
-
-        jLabel27.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel27.setText("Dependientes");
-        JP_ModPersonaFamiliares_Sanitarios.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 160, 30));
 
         jLabel28.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel28.setText("Conyuge");
@@ -1529,7 +1543,6 @@ public class LogIn extends javax.swing.JFrame {
         jLabel98.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel98.setText("Datos Familiares");
         JP_ModPersonaFamiliares_Sanitarios.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, 25));
-        JP_ModPersonaFamiliares_Sanitarios.add(TF_ModDependiente2Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 310, 30));
 
         jLabel104.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel104.setText("Datos Sanitarios");
@@ -1543,15 +1556,11 @@ public class LogIn extends javax.swing.JFrame {
         jLabel106.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel106.setText("Enfermedades Cronicas");
         JP_ModPersonaFamiliares_Sanitarios.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 180, 240, -1));
-        JP_ModPersonaFamiliares_Sanitarios.add(TF_ModEnfermedadesCronicasPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 210, 310, 30));
+        JP_ModPersonaFamiliares_Sanitarios.add(TF_ModEnfCronPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 210, 310, 30));
 
         jLabel107.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel107.setText("Estado Civil");
         JP_ModPersonaFamiliares_Sanitarios.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 25));
-        JP_ModPersonaFamiliares_Sanitarios.add(TF_ModDependiente3Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 310, 30));
-        JP_ModPersonaFamiliares_Sanitarios.add(TF_ModDependiente1Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 310, 30));
-        JP_ModPersonaFamiliares_Sanitarios.add(TF_Mod3HijoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 310, 30));
-        JP_ModPersonaFamiliares_Sanitarios.add(TF_Mod1HijoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 310, 30));
 
         jLabel108.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel108.setText("Alergias");
@@ -1564,15 +1573,15 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
         JP_ModPersonaFamiliares_Sanitarios.add(CB_ModEstadoCivilPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 146, 30));
+        JP_ModPersonaFamiliares_Sanitarios.add(JS_ModNumHijos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 120, 40));
 
         jPanel3.add(JP_ModPersonaFamiliares_Sanitarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
         JP_ModPersonaLegales_Academicos.setBackground(new java.awt.Color(255, 255, 255));
         JP_ModPersonaLegales_Academicos.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_ModPersonaLegales_Academicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JP_ModPersonaLegales_Academicos.add(TF_ModAntecedentesPenalesPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 310, 30));
 
-        CB_ModNivelEducacionPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EGB", "BUP", "COU", " " }));
+        CB_ModNivelEducacionPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EGB", "BUP", "COU" }));
         CB_ModNivelEducacionPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB_ModNivelEducacionPersonaActionPerformed(evt);
@@ -1589,20 +1598,19 @@ public class LogIn extends javax.swing.JFrame {
                 JB_ModSiguienteProfecionales_LaboralesPersonaMouseClicked(evt);
             }
         });
-        JP_ModPersonaLegales_Academicos.add(JB_ModSiguienteProfecionales_LaboralesPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
+        JP_ModPersonaLegales_Academicos.add(JB_ModSiguienteProfecionales_LaboralesPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 198, 58));
 
         jLabel29.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel29.setText("Antecedentes Penales");
-        JP_ModPersonaLegales_Academicos.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 210, 30));
+        JP_ModPersonaLegales_Academicos.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 210, 30));
 
         jLabel30.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel30.setText("Estado Legal");
-        JP_ModPersonaLegales_Academicos.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 150, 30));
+        JP_ModPersonaLegales_Academicos.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 150, 30));
 
         jLabel109.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel109.setText("Datos Legales");
         JP_ModPersonaLegales_Academicos.add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, 25));
-        JP_ModPersonaLegales_Academicos.add(TF_ModDNIPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 310, 30));
 
         jLabel110.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel110.setText("Datos Academicos");
@@ -1614,18 +1622,17 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel112.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel112.setText("Especializacion");
-        JP_ModPersonaLegales_Academicos.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 430, 140, -1));
+        JP_ModPersonaLegales_Academicos.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 350, 140, -1));
 
         jl_TelefonoCompania5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jl_TelefonoCompania5.setText("Promedio de Graduacion");
-        JP_ModPersonaLegales_Academicos.add(jl_TelefonoCompania5, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 510, 230, -1));
-        JP_ModPersonaLegales_Academicos.add(TF_ModTitulosObtenidos2Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 340, 310, 30));
-        JP_ModPersonaLegales_Academicos.add(TF_ModEspecializacionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 460, 310, 30));
+        JP_ModPersonaLegales_Academicos.add(jl_TelefonoCompania5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 230, -1));
+        JP_ModPersonaLegales_Academicos.add(TF_ModEspecializacionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 380, 310, 30));
 
         jLabel113.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel113.setText("Institucion Educativa");
         JP_ModPersonaLegales_Academicos.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 180, 200, -1));
-        JP_ModPersonaLegales_Academicos.add(TF_ModInstitucionEducativaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 210, 310, 30));
+        JP_ModPersonaLegales_Academicos.add(TF_ModInstitucionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 210, 310, 30));
 
         CB_ModEstadoLegalPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ciudadano", "Residente Permanente", "Estudiante Internacional", "Trabajador con visado temporal", " " }));
         CB_ModEstadoLegalPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -1633,46 +1640,47 @@ public class LogIn extends javax.swing.JFrame {
                 CB_ModEstadoLegalPersonaActionPerformed(evt);
             }
         });
-        JP_ModPersonaLegales_Academicos.add(CB_ModEstadoLegalPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 146, 30));
-        JP_ModPersonaLegales_Academicos.add(TF_ModTitulosObtenidos3Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 380, 310, 30));
+        JP_ModPersonaLegales_Academicos.add(CB_ModEstadoLegalPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 146, 30));
         JP_ModPersonaLegales_Academicos.add(TF_ModrTitulosObtenidos1Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 300, 310, 30));
-
-        jLabel114.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel114.setText("DNI");
-        JP_ModPersonaLegales_Academicos.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 25));
 
         jLabel115.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel115.setText("Nivel de Educacion");
         JP_ModPersonaLegales_Academicos.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 80, 190, -1));
-        JP_ModPersonaLegales_Academicos.add(JS_ModPromedioGraduacionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 540, 90, 30));
+        JP_ModPersonaLegales_Academicos.add(JS_ModPromPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 90, 30));
 
-        CB_ModServicioMilitarPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " " }));
-        CB_ModServicioMilitarPersona.addActionListener(new java.awt.event.ActionListener() {
+        CB_ModAntecePersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " " }));
+        CB_ModAntecePersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_ModServicioMilitarPersonaActionPerformed(evt);
+                CB_ModAntecePersonaActionPerformed(evt);
             }
         });
-        JP_ModPersonaLegales_Academicos.add(CB_ModServicioMilitarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 146, 30));
+        JP_ModPersonaLegales_Academicos.add(CB_ModAntecePersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 146, 30));
 
         jLabel35.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel35.setText("Servicio Militar");
-        JP_ModPersonaLegales_Academicos.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 210, 30));
+        JP_ModPersonaLegales_Academicos.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 210, 30));
+
+        CB_ModServiciorPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " " }));
+        CB_ModServiciorPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_ModServiciorPersonaActionPerformed(evt);
+            }
+        });
+        JP_ModPersonaLegales_Academicos.add(CB_ModServiciorPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 146, 30));
 
         jPanel3.add(JP_ModPersonaLegales_Academicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
         JP_ModPersonaProfesional_Laboral.setBackground(new java.awt.Color(255, 255, 255));
         JP_ModPersonaProfesional_Laboral.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_ModPersonaProfesional_Laboral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JP_ModPersonaProfesional_Laboral.add(TF_ModHabilidadesPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 300, 30));
-        JP_ModPersonaProfesional_Laboral.add(TF_ModCertificaciones2Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 310, 30));
 
-        CB_ModExperienciaLaboralPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " ", " " }));
-        CB_ModExperienciaLaboralPersona.addActionListener(new java.awt.event.ActionListener() {
+        CB_ModExperienciaPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " ", " " }));
+        CB_ModExperienciaPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_ModExperienciaLaboralPersonaActionPerformed(evt);
+                CB_ModExperienciaPersonaActionPerformed(evt);
             }
         });
-        JP_ModPersonaProfesional_Laboral.add(CB_ModExperienciaLaboralPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 146, 39));
+        JP_ModPersonaProfesional_Laboral.add(CB_ModExperienciaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 146, 39));
 
         JB_ModSiguienteRequisitos_CondicionesPersona.setBackground(new java.awt.Color(44, 65, 114));
         JB_ModSiguienteRequisitos_CondicionesPersona.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -1685,13 +1693,9 @@ public class LogIn extends javax.swing.JFrame {
         });
         JP_ModPersonaProfesional_Laboral.add(JB_ModSiguienteRequisitos_CondicionesPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
 
-        jLabel31.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel31.setText("Certificaciones");
-        JP_ModPersonaProfesional_Laboral.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 160, 30));
-
         jLabel32.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel32.setText("Habilidades");
-        JP_ModPersonaProfesional_Laboral.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 170, 30));
+        JP_ModPersonaProfesional_Laboral.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 170, 30));
 
         jLabel116.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel116.setText("Datos Profesionales");
@@ -1703,18 +1707,16 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel118.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         JP_ModPersonaProfesional_Laboral.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, 43, -1));
-        JP_ModPersonaProfesional_Laboral.add(TF_ModCertificaciones3Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 310, 30));
-        JP_ModPersonaProfesional_Laboral.add(TF_ModCertificaciones1Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 310, 30));
 
-        TA_ModHistorialEmpleoPersona.setColumns(20);
-        TA_ModHistorialEmpleoPersona.setRows(5);
-        jScrollPane4.setViewportView(TA_ModHistorialEmpleoPersona);
+        TA_ModHistorialPersona.setColumns(20);
+        TA_ModHistorialPersona.setRows(5);
+        jScrollPane4.setViewportView(TA_ModHistorialPersona);
 
         JP_ModPersonaProfesional_Laboral.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 110, 310, 100));
 
         jLabel119.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel119.setText("Experiencia Laboral");
-        JP_ModPersonaProfesional_Laboral.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 25));
+        JP_ModPersonaProfesional_Laboral.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, 25));
 
         jLabel120.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel120.setText("Años de experiencia");
@@ -1723,7 +1725,13 @@ public class LogIn extends javax.swing.JFrame {
         jLabel131.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel131.setText("Historial de empleo (empresa, cargo, fecha)");
         JP_ModPersonaProfesional_Laboral.add(jLabel131, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 80, 390, -1));
-        JP_ModPersonaProfesional_Laboral.add(JS_CrearAñosExperienciaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 270, 170, 40));
+        JP_ModPersonaProfesional_Laboral.add(JS_ModAñosExperienciaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 270, 170, 40));
+
+        TA_ModHabiPersona.setColumns(20);
+        TA_ModHabiPersona.setRows(5);
+        jScrollPane23.setViewportView(TA_ModHabiPersona);
+
+        JP_ModPersonaProfesional_Laboral.add(jScrollPane23, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 310, 100));
 
         jPanel3.add(JP_ModPersonaProfesional_Laboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
@@ -1756,9 +1764,9 @@ public class LogIn extends javax.swing.JFrame {
         jLabel122.setText("Puestos no deseados");
         JP_ModPersonaRequisitos_Condiciones.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, 25));
 
-        TA_ModPuestosNoDeseadosPersona.setColumns(20);
-        TA_ModPuestosNoDeseadosPersona.setRows(5);
-        jScrollPane6.setViewportView(TA_ModPuestosNoDeseadosPersona);
+        TA_ModPuestosNoPersona.setColumns(20);
+        TA_ModPuestosNoPersona.setRows(5);
+        jScrollPane6.setViewportView(TA_ModPuestosNoPersona);
 
         JP_ModPersonaRequisitos_Condiciones.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 360, -1));
 
@@ -1771,8 +1779,8 @@ public class LogIn extends javax.swing.JFrame {
         jLabel124.setText("Requisitos de condiciones de empleo");
         JP_ModPersonaRequisitos_Condiciones.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 350, -1));
 
-        CB_ModDisponibilidadHorariaPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde", "Noche", " ", " " }));
-        JP_ModPersonaRequisitos_Condiciones.add(CB_ModDisponibilidadHorariaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 140, 146, 39));
+        CB_ModDisponibilidadPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde", "Noche" }));
+        JP_ModPersonaRequisitos_Condiciones.add(CB_ModDisponibilidadPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 140, 146, 39));
 
         CB_ModTipoContratoPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Contrato Indefinido", "Contrato Temporal", "Contrato para la formacion", "Contrato en practicas", " " }));
         JP_ModPersonaRequisitos_Condiciones.add(CB_ModTipoContratoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 250, 146, 39));
@@ -1838,7 +1846,7 @@ public class LogIn extends javax.swing.JFrame {
                 .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127)
                 .addComponent(JB_ConfirmarEliminarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(451, Short.MAX_VALUE))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
 
         jPanel3.add(JP_EliminarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
@@ -2008,25 +2016,25 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel67.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel67.setText("Id de Empresa");
-        JP_ModEmpresa.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, -1, 25));
+        JP_ModEmpresa.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 430, -1, 25));
 
         TF_ModIdEmpresa.setEditable(false);
-        JP_ModEmpresa.add(TF_ModIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 310, 30));
+        JP_ModEmpresa.add(TF_ModIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 310, 30));
 
         jLabel134.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel134.setText("Sector de Actividad");
-        JP_ModEmpresa.add(jLabel134, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 190, -1));
-        JP_ModEmpresa.add(TF_ModSectorActividadEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 310, 30));
-        JP_ModEmpresa.add(TF_ModNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 310, 30));
-        JP_ModEmpresa.add(TF_ModCIFEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 310, 30));
+        JP_ModEmpresa.add(jLabel134, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 190, -1));
+        JP_ModEmpresa.add(TF_ModSectorActividadEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 310, 30));
+        JP_ModEmpresa.add(TF_ModNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 310, 30));
+        JP_ModEmpresa.add(TF_ModCIFEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 310, 30));
 
         jLabel135.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel135.setText("Nombre de Empresa");
-        JP_ModEmpresa.add(jLabel135, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 190, -1));
+        JP_ModEmpresa.add(jLabel135, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 190, -1));
 
         jLabel136.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel136.setText("CIF");
-        JP_ModEmpresa.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 43, -1));
+        JP_ModEmpresa.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 43, -1));
         JP_ModEmpresa.add(TF_ModDireccionEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 120, 310, 30));
 
         jLabel137.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -2042,6 +2050,16 @@ public class LogIn extends javax.swing.JFrame {
         jLabel138.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel138.setText("Correo Electronico");
         JP_ModEmpresa.add(jLabel138, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 270, 180, -1));
+
+        jl_TelefonoCompania10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jl_TelefonoCompania10.setText("Contraseña");
+        JP_ModEmpresa.add(jl_TelefonoCompania10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 350, 202, -1));
+        JP_ModEmpresa.add(TF_ModContraEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 380, 310, 30));
+
+        jLabel207.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel207.setText("Usuario");
+        JP_ModEmpresa.add(jLabel207, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 180, -1));
+        JP_ModEmpresa.add(TF_ModUsuarioEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 310, 30));
 
         jPanel6.add(JP_ModEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 970));
 
@@ -3866,6 +3884,10 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_CrearPersonaMouseClicked
 
     private void JB_ModificarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarPersonaMouseClicked
+        personaDAO = new PersonaDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Nombre", "Apellido", "Usuario"}, 0);
+        JT_ModPersona.setModel(tableModel);
+        llenarTablaModPersona();
         JP_CrearPersonaPersonal.setVisible(false);
         JP_EliminarPersona.setVisible(false);
         JP_ModPersonaPersonal.setVisible(true);
@@ -3909,7 +3931,128 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_ModSiguientePersonaPersonalMouseClicked
 
     private void JT_ModPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_ModPersonaMouseClicked
+        int selectedRow = JT_ModPersona.getSelectedRow();
+        if (selectedRow >= 0) {
+            String selectedId = tableModel.getValueAt(selectedRow, 0).toString();
+            Persona selectedPersona = personaDAO.buscarPersonaPorId(selectedId);
+            System.out.println(selectedPersona.getNombre());
+            if (selectedPersona != null) {
+                TF_ModIdPersona.setText(selectedId);
+                TF_ModNombrePersona.setText(selectedPersona.getNombre());
+                TF_ModApellidoPersona.setText(selectedPersona.getApellidos());
+                TF_ModFechaNacPersona.setText(selectedPersona.getFecha_nac());
+                TF_ModDNINaciemientoPersona.setText(selectedPersona.getDni());
+                TF_ModDireccionPersona.setText(selectedPersona.getDireccion());
+                TF_ModCorreoPersona.setText(selectedPersona.getEmail());
+                TF_ModpassPersona.setText(selectedPersona.getContrasena());
+                TF_ModUsuarioPersona.setText(selectedPersona.getUsuario());
+                TF_ModCelularPersona.setText(selectedPersona.getTelefono());
+                if (selectedPersona.getGenero().equalsIgnoreCase("Mujer")) {
+                    CB_ModGeneroPersona.setSelectedIndex(0);
+                } else {
+                    CB_ModGeneroPersona.setSelectedIndex(1);
+                }
 
+                if (selectedPersona.getDatosFamiliares().getEstadoCivil().equalsIgnoreCase("Soltero")) {
+                    CB_ModEstadoCivilPersona.setSelectedIndex(0);
+                } else {
+                    CB_ModEstadoCivilPersona.setSelectedIndex(1);
+                }
+                TF_ModConyugePersona.setText(selectedPersona.getDatosFamiliares().getNombreConyuge());
+                JS_ModNumHijos.setValue(selectedPersona.getDatosFamiliares().getNumeroHijos());
+                TF_ModAlergiasPersona.setText(selectedPersona.getDatosSanitarios().getAlergias());
+                TF_ModEnfCronPersonas.setText(selectedPersona.getDatosSanitarios().getEnfermedadesCronicas());
+                switch (selectedPersona.getDatosSanitarios().getGrupoSanguineo()) {
+                    case "A+":
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(0);
+                        break;
+                    case "A-":
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(1);
+                        break;
+                    case "B+":
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(2);
+                        break;
+                    case "B-":
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(3);
+                        break;
+                    case "O+":
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(4);
+                        break;
+                    case "O-":
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(5);
+                        break;
+                    case "AB+":
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(6);
+                        break;
+                    default:
+                        CB_ModGrupoSanguineoPersona.setSelectedIndex(7);
+                        break;
+                }
+
+                switch (selectedPersona.getDatosLegales().getEstadoLegal()) {
+                    case "Ciudadano":
+                        CB_ModEstadoLegalPersona.setSelectedIndex(0);
+                        break;
+                    case "Residente Permanente":
+                        CB_ModEstadoLegalPersona.setSelectedIndex(1);
+                        break;
+                    case "Estudiante Internacional":
+                        CB_ModEstadoLegalPersona.setSelectedIndex(2);
+                        break;
+                    default:
+                        CB_ModEstadoLegalPersona.setSelectedIndex(3);
+                        break;
+                }
+                if (selectedPersona.getDatosLegales().isAntecedentesPenales()) {
+                    CB_ModAntecePersona.setSelectedIndex(0);
+                } else {
+                    CB_ModAntecePersona.setSelectedIndex(1);
+                }
+                if (selectedPersona.getDatosLegales().isServicioMilitar()) {
+                    CB_ModServiciorPersona.setSelectedIndex(0);
+                } else {
+                    CB_ModServiciorPersona.setSelectedIndex(1);
+                }
+                JS_ModPromPersona.setValue(selectedPersona.getDatosLegales().getPromedioGrad());
+                if (selectedPersona.getDatosLegales().getNivelEducacion().equalsIgnoreCase("EGB")) {
+                    CB_ModNivelEducacionPersona.setSelectedIndex(0);
+                } else if (selectedPersona.getDatosLegales().getNivelEducacion().equalsIgnoreCase("BUP")) {
+                    CB_ModNivelEducacionPersona.setSelectedIndex(1);
+                } else {
+                    CB_ModNivelEducacionPersona.setSelectedIndex(2);
+                }
+                TF_ModInstitucionPersona.setText(selectedPersona.getDatosLegales().getInstitucionEducativa());
+                TF_ModrTitulosObtenidos1Persona.setText(selectedPersona.getDatosLegales().getTitulosObtenidos());
+                TF_ModEspecializacionPersona.setText(selectedPersona.getDatosLegales().getEspecializacion());
+                TA_ModHabiPersona.setText(selectedPersona.getDatosProfesionales().getHabilidades());
+                if (selectedPersona.getDatosProfesionales().isExpLab()) {
+                    CB_ModExperienciaPersona.setSelectedIndex(0);
+                } else {
+                    CB_ModExperienciaPersona.setSelectedIndex(1);
+                }
+                TA_ModHistorialPersona.setText(selectedPersona.getDatosLaborales().getHistorialEmp());
+                JS_ModAñosExperienciaPersona.setValue(selectedPersona.getDatosLaborales().getAniosExperiencia());
+                TA_ModPuestosDeseadosPersona.setText(selectedPersona.getRequisitos().getPuestosSI());
+                TA_ModPuestosNoPersona.setText(selectedPersona.getRequisitos().getPuestosNO());
+                if (selectedPersona.getRequisitos().getDisponibilidad().equalsIgnoreCase("Mañana")) {
+                    CB_ModDisponibilidadPersona.setSelectedIndex(0);
+                } else if (selectedPersona.getRequisitos().getDisponibilidad().equalsIgnoreCase("Tarde")) {
+                    CB_ModDisponibilidadPersona.setSelectedIndex(1);
+                } else {
+                    CB_ModDisponibilidadPersona.setSelectedIndex(2);
+                }
+                if (selectedPersona.getRequisitos().getContrato().equalsIgnoreCase("Contrato Indefinido")) {
+                    CB_ModTipoContratoPersona.setSelectedIndex(0);
+                } else if (selectedPersona.getRequisitos().getContrato().equalsIgnoreCase("Contrato Temporal")) {
+                    CB_ModTipoContratoPersona.setSelectedIndex(1);
+                } else if (selectedPersona.getRequisitos().getContrato().equalsIgnoreCase("Contrato para la formacion")) {
+                    CB_ModTipoContratoPersona.setSelectedIndex(2);
+                } else {
+                    CB_ModTipoContratoPersona.setSelectedIndex(3);
+                }
+                JS_ModSalarioDeseadoPersona.setValue(selectedPersona.getRequisitos().getSalario());
+            }
+        }
 
     }//GEN-LAST:event_JT_ModPersonaMouseClicked
 
@@ -4023,39 +4166,28 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_CB_ModEstadoLegalPersonaActionPerformed
 
     private void JB_ConfirmarModPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarModPersonaMouseClicked
-        JOptionPane.showMessageDialog(this, "La persona se ha modificado exitosamente");
-        JP_ModPersonaRequisitos_Condiciones.setVisible(false);
+
+        modpersona();
 
         TF_ModIdPersona.setText("");
         TF_ModNombrePersona.setText("");
         TF_ModApellidoPersona.setText("");
-        TF_ModFechaNaciemientoPersona.setText("");
+        TF_ModFechaNacPersona.setText("");
         TF_ModDireccionPersona.setText("");
         TF_ModCelularPersona.setText("");
         TF_ModCorreoPersona.setText("");
         TF_ModConyugePersona.setText("");
-        TF_Mod1HijoPersona.setText("");
-        TF_Mod2HijoPersona.setText("");
-        TF_Mod3HijoPersona.setText("");
-        TF_ModDependiente1Persona.setText("");
-        TF_ModDependiente2Persona.setText("");
-        TF_ModDependiente3Persona.setText("");
         TF_ModAlergiasPersona.setText("");
-        TF_ModEnfermedadesCronicasPersona.setText("");
-        TF_ModDNIPersona.setText("");
-        TF_ModAntecedentesPenalesPersona.setText("");
-        TF_ModInstitucionEducativaPersona.setText("");
+        TF_ModEnfCronPersonas.setText("");
+        TF_ModInstitucionPersona.setText("");
         TF_ModrTitulosObtenidos1Persona.setText("");
-        TF_ModTitulosObtenidos2Persona.setText("");
-        TF_ModTitulosObtenidos3Persona.setText("");
         TF_ModEspecializacionPersona.setText("");
-        TF_ModHabilidadesPersona.setText("");
-        TF_ModCertificaciones1Persona.setText("");
-        TF_ModCertificaciones2Persona.setText("");
-        TF_ModCertificaciones3Persona.setText("");
-        TA_ModHistorialEmpleoPersona.setText("");
+        TA_ModHistorialPersona.setText("");
         TA_ModPuestosDeseadosPersona.setText("");
-        TA_ModPuestosNoDeseadosPersona.setText("");
+        TA_ModPuestosNoPersona.setText("");
+
+        JOptionPane.showMessageDialog(this, "La persona se ha modificado exitosamente");
+        JP_ModPersonaRequisitos_Condiciones.setVisible(false);
 
         JF_CrudPersonas.setVisible(false);
 
@@ -4073,18 +4205,18 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CB_CrearEstadoLegalPersonaActionPerformed
 
-    private void CB_ModServicioMilitarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ModServicioMilitarPersonaActionPerformed
+    private void CB_ModAntecePersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ModAntecePersonaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CB_ModServicioMilitarPersonaActionPerformed
+    }//GEN-LAST:event_CB_ModAntecePersonaActionPerformed
 
     private void JB_ModSiguienteRequisitos_CondicionesPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModSiguienteRequisitos_CondicionesPersonaMouseClicked
-        JP_CrearPersonaProfesional_Laboral.setVisible(false);
-        JP_CrearPersonaRequisitos_Condiciones.setVisible(true);
+        JP_ModPersonaProfesional_Laboral.setVisible(false);
+        JP_ModPersonaRequisitos_Condiciones.setVisible(true);
     }//GEN-LAST:event_JB_ModSiguienteRequisitos_CondicionesPersonaMouseClicked
 
-    private void CB_ModExperienciaLaboralPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ModExperienciaLaboralPersonaActionPerformed
+    private void CB_ModExperienciaPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ModExperienciaPersonaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CB_ModExperienciaLaboralPersonaActionPerformed
+    }//GEN-LAST:event_CB_ModExperienciaPersonaActionPerformed
 
     private void JB_CrearEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearEmpresaMouseClicked
         JP_EliminarEmpresa.setVisible(false);
@@ -4093,6 +4225,12 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_CrearEmpresaMouseClicked
 
     private void JB_ModificarEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarEmpresaMouseClicked
+        empresaDAO = new EmpresaDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        // Configurar el modelo de la tabla
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Nombre", "CIF", "Usuario"}, 0);
+        JT_ModEmpresa.setModel(tableModel);
+        llenarTablaEliminarEmpresa();
+
         JP_CrearEmpresa.setVisible(false);
         JP_EliminarEmpresa.setVisible(false);
         JP_ModEmpresa.setVisible(true);
@@ -4110,7 +4248,31 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_EliminarEmpresaMouseClicked
 
     private void JB_ConfirmarModEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarModEmpresaMouseClicked
+        String nombre = TF_ModNombreEmpresa.getText();
+        String cif = TF_ModCIFEmpresa.getText();
+        String direccion = TF_ModDireccionEmpresa.getText();
+        String telefono = TF_ModTelefonoEmpresa.getText();
+        String email = TF_ModCorreoEmpresa.getText();
+        String sectorActividad = TF_ModSectorActividadEmpresa.getText();
+        String usuario = TF_ModUsuarioEmpresa.getText(); // Obtener usuario
+        String contrasena = TF_ModContraEmpresa.getText(); // Obtener contraseña
+
+        // Crear una instancia de la clase Empresa con los datos ingresados\
+        int selectedRow = JT_ModEmpresa.getSelectedRow();
+        Empresa empresa = new Empresa();
+        empresa.setId(tableModel.getValueAt(selectedRow, 0).toString());
+        empresa.setNombre(nombre);
+        empresa.setCIF(cif);
+        empresa.setDireccion(direccion);
+        empresa.setTelefono(telefono);
+        empresa.setEmail(email);
+        empresa.setSectorActividad(sectorActividad);
+        empresa.setUsuario(usuario); // Establecer usuario
+        empresa.setContrasena(contrasena);
+        empresaDAO.actualizarEmpresa(empresa);
+
         JP_ModEmpresa.setVisible(false);
+
         JOptionPane.showMessageDialog(this, "La empresa se ha modificado exitosamente");
 
         TF_ModIdEmpresa.setText("");
@@ -4120,6 +4282,8 @@ public class LogIn extends javax.swing.JFrame {
         TF_ModDireccionEmpresa.setText("");
         TF_ModTelefonoEmpresa.setText("");
         TF_ModCorreoEmpresa.setText("");
+        TF_ModContraEmpresa.setText("");
+        TF_ModUsuarioEmpresa.setText("");
 
         JF_CrudEmpresa.setVisible(false);
 
@@ -4131,19 +4295,29 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_ConfirmarModEmpresaMouseClicked
 
     private void JT_ModEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_ModEmpresaMouseClicked
-        JP_ModEmpresa.setVisible(false);
-        JOptionPane.showMessageDialog(this, "La empresa se ha modificado exitosamente");
-        JF_CrudEmpresa.setVisible(false);
-
-        JF_Admin.pack();
-        JF_Admin.setLocationRelativeTo(this);
-        JF_Admin.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        JF_Admin.setVisible(true);
+        int selectedRow = JT_ModEmpresa.getSelectedRow();
+        if (selectedRow >= 0) {
+            String selectedId = tableModel.getValueAt(selectedRow, 0).toString();
+            System.out.println(selectedId + " de la tabla");
+            Empresa selectedEmpresa = empresaDAO.buscarEmpresaPorId(selectedId);
+            System.out.println(selectedEmpresa + "   codigo empresa, objeto");
+            if (selectedEmpresa != null) {
+                TF_ModIdEmpresa.setText(selectedId);
+                TF_ModSectorActividadEmpresa.setText(selectedEmpresa.getSectorActividad());
+                TF_ModNombreEmpresa.setText(selectedEmpresa.getSectorActividad());
+                TF_ModCIFEmpresa.setText(selectedEmpresa.getCIF());
+                TF_ModDireccionEmpresa.setText(selectedEmpresa.getDireccion());
+                TF_ModTelefonoEmpresa.setText(selectedEmpresa.getTelefono());
+                TF_ModCorreoEmpresa.setText(selectedEmpresa.getEmail());
+                TF_ModContraEmpresa.setText(selectedEmpresa.getContrasena());
+                TF_ModUsuarioEmpresa.setText(selectedEmpresa.getUsuario());
+            }
+        }
 
     }//GEN-LAST:event_JT_ModEmpresaMouseClicked
 
     private void JB_ConfirmarEliminarEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarEliminarEmpresaMouseClicked
-         int selectedRow = JT_EliminarEmpresa.getSelectedRow();
+        int selectedRow = JT_EliminarEmpresa.getSelectedRow();
         if (selectedRow != -1) {
             String id = (String) tableModel.getValueAt(selectedRow, 0);
             empresaDAO.eliminarEmpresa(id);
@@ -4509,6 +4683,14 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JB_ConfirmarCrearEmpresaActionPerformed
 
+    private void JB_CRUDEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CRUDEmpresasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_CRUDEmpresasActionPerformed
+
+    private void CB_ModServiciorPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ModServiciorPersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_ModServiciorPersonaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4847,7 +5029,21 @@ public class LogIn extends javax.swing.JFrame {
         }
     }
 
+    private void llenarTablaModPersona() {
+        List<Persona> personas = personaDAO.obtenerTodasLasPersonas();
+        for (Persona persona : personas) {
+            tableModel.addRow(new Object[]{persona.getId(), persona.getNombre(), persona.getApellidos(), persona.getUsuario()});
+        }
+    }
+
     private void llenarTablaEliminarEmpresa() {
+        List<Empresa> empresas = empresaDAO.obtenerTodasLasEmpresas();
+        for (Empresa empresa : empresas) {
+            tableModel.addRow(new Object[]{empresa.getId(), empresa.getNombre(), empresa.getCIF(), empresa.getUsuario()});
+        }
+    }
+
+    private void llenarTablaModEmpresa() {
         List<Empresa> empresas = empresaDAO.obtenerTodasLasEmpresas();
         for (Empresa empresa : empresas) {
             tableModel.addRow(new Object[]{empresa.getId(), empresa.getNombre(), empresa.getCIF(), empresa.getUsuario()});
@@ -4872,19 +5068,20 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_CrearServicioMilitarPersona;
     private javax.swing.JComboBox<String> CB_CrearServicioMilitarPuesto;
     private javax.swing.JComboBox<String> CB_CrearTipoContratoPersona;
+    private javax.swing.JComboBox<String> CB_ModAntecePersona;
     private javax.swing.JComboBox<String> CB_ModContratoPuesto;
-    private javax.swing.JComboBox<String> CB_ModDisponibilidadHorariaPersona;
+    private javax.swing.JComboBox<String> CB_ModDisponibilidadPersona;
     private javax.swing.JComboBox<String> CB_ModEstadoCivilPersona;
     private javax.swing.JComboBox<String> CB_ModEstadoLegalPersona;
-    private javax.swing.JComboBox<String> CB_ModExperienciaLaboralPersona;
+    private javax.swing.JComboBox<String> CB_ModExperienciaPersona;
     private javax.swing.JComboBox<String> CB_ModExperienciaPuesto;
     private javax.swing.JComboBox<String> CB_ModGeneroPersona;
     private javax.swing.JComboBox<String> CB_ModGeneroPuesto;
     private javax.swing.JComboBox<String> CB_ModGrupoSanguineoPersona;
     private javax.swing.JComboBox<String> CB_ModHorarioSueldo;
     private javax.swing.JComboBox<String> CB_ModNivelEducacionPersona;
-    private javax.swing.JComboBox<String> CB_ModServicioMilitarPersona;
     private javax.swing.JComboBox<String> CB_ModServicioMilitarPuesto;
+    private javax.swing.JComboBox<String> CB_ModServiciorPersona;
     private javax.swing.JComboBox<String> CB_ModTipoContratoPersona;
     private javax.swing.JLabel DNI;
     private javax.swing.JButton EMPRESA;
@@ -4971,15 +5168,16 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel JP_PuestosDispiniblesPersona;
     private javax.swing.JPanel JP_PuestosOfrecidosEmpresa;
     private javax.swing.JPanel JP_SolicitudesEmpresas;
-    private javax.swing.JSpinner JS_CrearAñosExperienciaPersona;
     private javax.swing.JSpinner JS_CrearAñosExperienciaPuesto;
     private javax.swing.JSpinner JS_CrearPromedioGraduacionPersona;
     private javax.swing.JSpinner JS_CrearPromedioGraduacionPuesto;
     private javax.swing.JSpinner JS_CrearSalarioDeseadoPersona;
     private javax.swing.JSpinner JS_CrearSueldoPuesto;
     private javax.swing.JSpinner JS_CrearYearsExperienciaPersona;
+    private javax.swing.JSpinner JS_ModAñosExperienciaPersona;
     private javax.swing.JSpinner JS_ModAñosExperienciaPuesto;
-    private javax.swing.JSpinner JS_ModPromedioGraduacionPersona;
+    private javax.swing.JSpinner JS_ModNumHijos;
+    private javax.swing.JSpinner JS_ModPromPersona;
     private javax.swing.JSpinner JS_ModPromedioGraduacionPuesto;
     private javax.swing.JSpinner JS_ModSalarioDeseadoPersona;
     private javax.swing.JSpinner JS_ModSueldoPuesto;
@@ -5005,9 +5203,10 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextArea TA_CrearPuestosNoDeseadosPersona;
     private javax.swing.JTextArea TA_CrearSolicitudPuestoDeseado;
     private javax.swing.JTextArea TA_CrearSolicitudPuestoNoDeseado;
-    private javax.swing.JTextArea TA_ModHistorialEmpleoPersona;
+    private javax.swing.JTextArea TA_ModHabiPersona;
+    private javax.swing.JTextArea TA_ModHistorialPersona;
     private javax.swing.JTextArea TA_ModPuestosDeseadosPersona;
-    private javax.swing.JTextArea TA_ModPuestosNoDeseadosPersona;
+    private javax.swing.JTextArea TA_ModPuestosNoPersona;
     private javax.swing.JTextField TF_BarraBusquedaEmpresa;
     private javax.swing.JTextField TF_BarraBusquedaPersona;
     private javax.swing.JTextField TF_CodigoReferenciaSolicitudEliminar;
@@ -5077,37 +5276,27 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextField TF_MiSolicitudEstadoSolicitudPersona;
     private javax.swing.JTextField TF_MiSolicitudNombreEmpresaPersona;
     private javax.swing.JTextField TF_MiSolicitudPuestoTrabajoaPersona;
-    private javax.swing.JTextField TF_Mod1HijoPersona;
-    private javax.swing.JTextField TF_Mod2HijoPersona;
-    private javax.swing.JTextField TF_Mod3HijoPersona;
     private javax.swing.JTextField TF_ModAlergiasPersona;
-    private javax.swing.JTextField TF_ModAntecedentesPenalesPersona;
     private javax.swing.JTextField TF_ModAntecedentesPuesto;
     private javax.swing.JTextField TF_ModApellidoPersona;
     private javax.swing.JTextField TF_ModCIFEmpresa;
     private javax.swing.JTextField TF_ModCelularPersona;
-    private javax.swing.JTextField TF_ModCertificaciones1Persona;
-    private javax.swing.JTextField TF_ModCertificaciones2Persona;
-    private javax.swing.JTextField TF_ModCertificaciones3Persona;
+    private javax.swing.JTextField TF_ModContraEmpresa;
     private javax.swing.JTextField TF_ModConyugePersona;
     private javax.swing.JTextField TF_ModCorreoEmpresa;
     private javax.swing.JTextField TF_ModCorreoPersona;
-    private javax.swing.JTextField TF_ModDNIPersona;
-    private javax.swing.JTextField TF_ModDependiente1Persona;
-    private javax.swing.JTextField TF_ModDependiente2Persona;
-    private javax.swing.JTextField TF_ModDependiente3Persona;
+    private javax.swing.JTextField TF_ModDNINaciemientoPersona;
     private javax.swing.JTextField TF_ModDireccionEmpresa;
     private javax.swing.JTextField TF_ModDireccionPersona;
     private javax.swing.JTextField TF_ModDireccionPuesto;
-    private javax.swing.JTextField TF_ModEnfermedadesCronicasPersona;
+    private javax.swing.JTextField TF_ModEnfCronPersonas;
     private javax.swing.JTextField TF_ModEnfermedadesPuesto;
     private javax.swing.JTextField TF_ModEspecializacionPersona;
-    private javax.swing.JTextField TF_ModFechaNaciemientoPersona;
-    private javax.swing.JTextField TF_ModHabilidadesPersona;
+    private javax.swing.JTextField TF_ModFechaNacPersona;
     private javax.swing.JTextField TF_ModHabilidadesPuesto;
     private javax.swing.JTextField TF_ModIdEmpresa;
     private javax.swing.JTextField TF_ModIdPersona;
-    private javax.swing.JTextField TF_ModInstitucionEducativaPersona;
+    private javax.swing.JTextField TF_ModInstitucionPersona;
     private javax.swing.JTextField TF_ModNivelEducacionPuesto;
     private javax.swing.JTextField TF_ModNombreEmpresa;
     private javax.swing.JTextField TF_ModNombrePersona;
@@ -5115,8 +5304,9 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextField TF_ModTelefonoEmpresa;
     private javax.swing.JTextField TF_ModTipodePuesto;
     private javax.swing.JTextField TF_ModTituloPuesto;
-    private javax.swing.JTextField TF_ModTitulosObtenidos2Persona;
-    private javax.swing.JTextField TF_ModTitulosObtenidos3Persona;
+    private javax.swing.JTextField TF_ModUsuarioEmpresa;
+    private javax.swing.JTextField TF_ModUsuarioPersona;
+    private javax.swing.JTextField TF_ModpassPersona;
     private javax.swing.JTextField TF_ModrTitulosObtenidos1Persona;
     private javax.swing.JPasswordField TF_Password;
     private javax.swing.JTextField TF_UserName;
@@ -5137,7 +5327,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
-    private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel117;
@@ -5238,6 +5427,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel204;
     private javax.swing.JLabel jLabel205;
     private javax.swing.JLabel jLabel206;
+    private javax.swing.JLabel jLabel207;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel213;
     private javax.swing.JLabel jLabel214;
@@ -5250,11 +5440,9 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -5283,7 +5471,9 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
@@ -5321,6 +5511,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -5367,6 +5558,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
+    private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane25;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -5378,6 +5570,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel jl_TelefonoCompania;
     private javax.swing.JLabel jl_TelefonoCompania1;
+    private javax.swing.JLabel jl_TelefonoCompania10;
     private javax.swing.JLabel jl_TelefonoCompania2;
     private javax.swing.JLabel jl_TelefonoCompania3;
     private javax.swing.JLabel jl_TelefonoCompania4;
@@ -5390,4 +5583,156 @@ public class LogIn extends javax.swing.JFrame {
 private PersonaDAO personaDAO;
     private EmpresaDAO empresaDAO;
     private DefaultTableModel tableModel;
+
+    private void modpersona() {
+        int selectedRow = JT_ModPersona.getSelectedRow();
+        String name = TF_ModNombrePersona.getText();
+        String apellido = TF_ModApellidoPersona.getText();
+        String direction = TF_ModDireccionPersona.getText();
+        String gmail = TF_ModCorreoPersona.getText();
+        String phone = TF_ModCelularPersona.getText();
+        String user = TF_ModUsuarioPersona.getText();
+        String pass = TF_ModpassPersona.getText();
+        String fechaNacimiento = TF_ModFechaNacPersona.getText();
+        String genero = CB_ModGeneroPersona.getSelectedItem().toString();
+        String puestosDeseados = TA_ModPuestosDeseadosPersona.getText();
+        String puestosNoDeseados = TA_ModPuestosNoPersona.getText();
+        String horario = CB_ModDisponibilidadPersona.getSelectedItem().toString();
+        String contrato = CB_ModTipoContratoPersona.getSelectedItem().toString();
+        int salario = (int) JS_ModSalarioDeseadoPersona.getValue();
+        String EstadoCivil = CB_ModEstadoCivilPersona.getSelectedItem().toString();
+        String novi = TF_ModConyugePersona.getText();
+        int numhijos = (int) JS_ModNumHijos.getValue();
+        String alergis = TF_ModAlergiasPersona.getText();
+        String enfermedades = TF_ModEnfCronPersonas.getText();
+        String sangre = CB_ModGrupoSanguineoPersona.getSelectedItem().toString();
+        String identidaddni = TF_ModDNINaciemientoPersona.getText();
+        String estadoLegal = CB_ModEstadoLegalPersona.getSelectedItem().toString();
+        String antecedentes = CB_ModAntecePersona.getSelectedItem().toString();
+        String servicioMilitarYN = CB_ModServiciorPersona.getSelectedItem().toString();
+        String nivelEducativo = CB_ModNivelEducacionPersona.getSelectedItem().toString();
+        String institucion = TF_ModInstitucionPersona.getText();
+        String titulo1 = TF_ModrTitulosObtenidos1Persona.getText();
+        String especializacion = TF_ModEspecializacionPersona.getText();
+        int promedio = (Integer) JS_ModPromPersona.getValue();
+        String experiencia = CB_ModExperienciaPersona.getSelectedItem().toString();
+        String habilidades = TA_ModHabiPersona.getText();
+        String historial = TA_ModHistorialPersona.getText();
+        int yearsExperiencia = (Integer) JS_ModAñosExperienciaPersona.getValue();
+
+        try {
+            String nombre = name;
+            String apellidos = apellido;
+            String dni = identidaddni;
+            String direccion = direction;
+            String telefono = phone;
+            String email = gmail;
+            String usuario = user;
+            String contrasena = pass;
+
+            // Datos familiares
+            String estadoCivilFamiliar = EstadoCivil;
+            int numeroHijos = numhijos;
+            String nombreConyuge = novi;
+
+            // Datos sanitarios
+            String grupoSanguineo = sangre;
+            String alergias = alergis;
+            String enfermedadesCronicas = enfermedades;
+
+            // Datos legales
+            boolean servicioMilitar;
+            if (servicioMilitarYN.equalsIgnoreCase("SI")) {
+                servicioMilitar = true;
+            } else {
+                servicioMilitar = false;
+            }
+            boolean ant;
+            if (antecedentes.equalsIgnoreCase("SI")) {
+                ant = true;
+            } else {
+                ant = false;
+            }
+            boolean tieneExp;
+            if (experiencia.equalsIgnoreCase("SI")) {
+                tieneExp = true;
+            } else {
+                tieneExp = false;
+            }
+
+            DatosProfesionales prof = new DatosProfesionales();
+            prof.setExpLab(tieneExp);
+            prof.setHabilidades(habilidades);
+
+            DatosLaborales dl = new DatosLaborales();
+            dl.setAniosExperiencia(yearsExperiencia);
+            dl.setHistorialEmp(historial);
+
+            RequisitosTrabajo req = new RequisitosTrabajo();
+            req.setContrato(contrato);
+            req.setDisponibilidad(horario);
+            req.setPuestosNO(puestosNoDeseados);
+            req.setPuestosSI(puestosDeseados);
+            req.setSalario(salario);
+
+            // Crear instancias de las clases de datos anidados
+            DatosFamiliares datosFamiliares = new DatosFamiliares();
+            datosFamiliares.setEstadoCivil(estadoCivilFamiliar);
+            datosFamiliares.setNumeroHijos(numeroHijos);
+            datosFamiliares.setNombreConyuge(nombreConyuge);
+
+            DatosSanitarios datosSanitarios = new DatosSanitarios();
+            datosSanitarios.setGrupoSanguineo(grupoSanguineo);
+            datosSanitarios.setAlergias(alergias);
+            datosSanitarios.setEnfermedadesCronicas(enfermedadesCronicas);
+
+            DatosLegales datosLegales = new DatosLegales();
+            datosLegales.setServicioMilitar(servicioMilitar);
+            datosLegales.setAntecedentesPenales(ant);
+            datosLegales.setEspecializacion(especializacion);
+            datosLegales.setEstadoLegal(estadoLegal);
+            datosLegales.setInstitucionEducativa(institucion);
+            datosLegales.setNivelEducacion(nivelEducativo);
+            datosLegales.setPromedioGrad(promedio);
+            datosLegales.setTitulosObtenidos(titulo1);
+
+            // Crear una instancia de la clase Persona con los datos ingresados
+            Persona persona = new Persona();
+            persona.setId(tableModel.getValueAt(selectedRow, 0).toString());
+            persona.setNombre(nombre);
+            persona.setApellidos(apellidos);
+            persona.setDni(dni);
+            persona.setDireccion(direccion);
+            persona.setTelefono(telefono);
+            persona.setEmail(email);
+            persona.setUsuario(usuario); // Establecer usuario
+            persona.setContrasena(contrasena); // Establecer contraseña
+            persona.setDatosFamiliares(datosFamiliares);
+            persona.setDatosSanitarios(datosSanitarios);
+            persona.setDatosLegales(datosLegales);
+            persona.setRequisitos(req);
+            persona.setFecha_nac(fechaNacimiento);
+            persona.setDatosLaborales(dl);
+            persona.setDatosProfesionales(prof);
+            persona.setGenero(genero);
+
+            // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
+            ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
+
+            // Crear una instancia de la clase PersonaDAO para realizar las operaciones en la base de datos
+            PersonaDAO personaDAO = new PersonaDAO(conexion);
+
+            // Insertar la persona en la base de datos
+            personaDAO.actualizarPersona(persona);
+
+            // Cerrar la conexión a la base de datos
+            conexion.cerrarConexion();
+
+            // Mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Persona modificada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            // Mostrar mensaje de error en caso de excepción
+            JOptionPane.showMessageDialog(null, "Error al modificar la persona: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
