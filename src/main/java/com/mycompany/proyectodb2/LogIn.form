@@ -848,7 +848,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JTextField" name="TF_CrearFechaNaciemientoPersona">
+                <Component class="javax.swing.JTextField" name="TF_CrearFechaPersona">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="850" y="100" width="310" height="30"/>
@@ -1685,7 +1685,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="JS_ModA&#xf1;osExperienciaPersona">
+                <Component class="javax.swing.JSpinner" name="JS_CrearYearsExperienciaPersona">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="920" y="300" width="170" height="40"/>

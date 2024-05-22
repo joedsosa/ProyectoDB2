@@ -194,7 +194,7 @@ private static boolean connect() {
         jLabel79 = new javax.swing.JLabel();
         TF_CrearApellidoPersona = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        TF_CrearFechaNaciemientoPersona = new javax.swing.JTextField();
+        TF_CrearFechaPersona = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         CB_CrearGeneroPersona = new javax.swing.JComboBox<>();
         jLabel65 = new javax.swing.JLabel();
@@ -260,7 +260,7 @@ private static boolean connect() {
         TA_CrearHistorialEmpleoPersona = new javax.swing.JTextArea();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
-        JS_ModAñosExperienciaPersona = new javax.swing.JSpinner();
+        JS_CrearYearsExperienciaPersona = new javax.swing.JSpinner();
         jLabel132 = new javax.swing.JLabel();
         JP_CrearPersonaRequisitos_Condiciones = new javax.swing.JPanel();
         JB_ConfirmarCrearPersona = new javax.swing.JButton();
@@ -1155,7 +1155,7 @@ private static boolean connect() {
         jLabel14.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel14.setText("Fecha Nacimiento");
         JP_CrearPersonaPersonal.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, 260, 30));
-        JP_CrearPersonaPersonal.add(TF_CrearFechaNaciemientoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 310, 30));
+        JP_CrearPersonaPersonal.add(TF_CrearFechaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 310, 30));
 
         jLabel17.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel17.setText("Genero");
@@ -1403,7 +1403,7 @@ private static boolean connect() {
         jLabel96.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel96.setText("Historial de empleo (empresa, cargo, fecha)");
         JP_CrearPersonaProfesional_Laboral.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 80, 390, -1));
-        JP_CrearPersonaProfesional_Laboral.add(JS_ModAñosExperienciaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 300, 170, 40));
+        JP_CrearPersonaProfesional_Laboral.add(JS_CrearYearsExperienciaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 300, 170, 40));
 
         jLabel132.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel132.setText("Años de experiencia");
@@ -3427,14 +3427,16 @@ private static boolean connect() {
             jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel31Layout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
-                .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JB_PuestosOfrecidos, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(JB_SolicitudesEmpleo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(JB_PuestosOfrecidos, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(8, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel31Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel58)
                 .addGap(45, 45, 45))
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JB_SolicitudesEmpleo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel31Layout.setVerticalGroup(
             jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3443,9 +3445,9 @@ private static boolean connect() {
                 .addComponent(jLabel58)
                 .addGap(42, 42, 42)
                 .addComponent(JB_PuestosOfrecidos, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addGap(110, 110, 110)
                 .addComponent(JB_SolicitudesEmpleo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         jPanel30.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, -1));
@@ -3983,6 +3985,16 @@ private static boolean connect() {
 
     private void JB_CrearSiguientePersonalPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguientePersonalPersonaMouseClicked
         JP_CrearPersonaPersonal.setVisible(false);
+        String id = TF_CrearIdPersona.getText();
+        String nombre = TF_CrearNombrePersona.getText();
+        String apellido = TF_CrearApellidoPersona.getText();
+        String direccion = TF_DireccionCrearPersona.getText();
+        String email = TF_CrearCorreoPersona.getText();
+        String telefono = TF_CrearCelular.getText();
+        String usuario = TF_CrearUsuarioPersona.getText();
+        String contrasena = TF_CrearPasswordPersona.getText();
+        String fechaNacimiento = TF_CrearFechaPersona.getText();
+        String genero = CB_CrearGeneroPersona.getSelectedItem().toString();
         JP_CrearPersonaFamiliares_Sanitarios.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguientePersonalPersonaMouseClicked
 
@@ -3992,6 +4004,17 @@ private static boolean connect() {
 
     private void JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked
         JP_CrearPersonaFamiliares_Sanitarios.setVisible(false);
+        String EstadoCivil = CB_CrearEstadoCivilPersona.getSelectedItem().toString();
+        String conyuge = TF_CrearConyugePersona.getText();
+        String hijo1 = TF_Crear1HijoPersona.getText();
+        String hijo2 = TF_Crear2HijoPersona.getText();
+        String hijo3 = TF_Crear3HijoPersona.getText();
+        String dependiente1 = TF_CrearDependiente1Persona.getText();
+        String dependiente2 = TF_CrearDependiente2Persona.getText();
+        String dependiente3 = TF_CrearDependiente3Persona.getText();
+        String alergias = TF_CrearAlergiasPersona.getText();
+        String enfermedades = TF_CrearEnfermedadesCronicasPersona.getText();
+        String sangre = CB_CrearGrupoSanguineoPersona.getSelectedItem().toString();
         JP_CrearPersonaLegales_Academicos.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked
 
@@ -4001,6 +4024,17 @@ private static boolean connect() {
 
     private void JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked
         JP_CrearPersonaLegales_Academicos.setVisible(false);
+        String dni = TF_CrearDNIPersona.getText();
+        String estadoLegal = CB_CrearEstadoLegalPersona.getSelectedItem().toString();
+        String antecedentes = TF_CrearAntecedentesPenalesPersona.getText();
+        String servicioMilitar = CB_CrearServicioMilitarPersona.getSelectedItem().toString();
+        String nivelEducativo = CB_CrearNivelEducacionPersona.getSelectedItem().toString();
+        String institucion = TF_CrearInstitucionEducativaPersona.getText();
+        String titulo1 = TF_CrearTitulosObtenidos1Persona.getText();
+        String titulo2 = TF_CrearTitulosObtenidos2Persona.getText();
+        String titulo3 = TF_CrearTitulosObtenidos3Persona.getText();
+        String especializacion = TF_CrearEspecializacionPersona.getText();
+        int promedio = (Integer) JS_CrearPromedioGraduacionPersona.getValue();
         JP_CrearPersonaProfesional_Laboral.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked
 
@@ -4010,19 +4044,32 @@ private static boolean connect() {
 
     private void JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked
         JP_CrearPersonaProfesional_Laboral.setVisible(false);
+        String experiencia = CB_CrearExperienciaLaboralPersona.getSelectedItem().toString();
+        String habilidades = TF_CrearHabilidadesPersona.getText();
+        String certificacion1 = TF_CrearCertificaciones1Persona.getText();
+        String certificacion2 = TF_CrearCertificaciones2Persona.getText();
+        String certificacion3 = TF_CrearCertificaciones3Persona.getText();
+        String historial = TA_CrearHistorialEmpleoPersona.getText();
+        int yearsExperiencia = (Integer) JS_CrearYearsExperienciaPersona.getValue();
         JP_CrearPersonaRequisitos_Condiciones.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked
 
     private void JB_ConfirmarCrearPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearPersonaMouseClicked
+        String puestosDeseados = TA_CrearPuestosDeseadosPersona.getText();
+        String puestosNoDeseados = TA_CrearPuestosNoDeseadosPersona.getText();
+        String horario = CB_CrearDisponibilidadHorariaPersona.getSelectedItem().toString();
+        String contrato = CB_CrearTipoContratoPersona.getSelectedItem().toString();
+        Double salario = (Double) JS_CrearSalarioDeseadoPersona.getValue();
+        
         JOptionPane.showMessageDialog(this, "La persona se ha creado exitosamente");
         JP_CrearPersonaRequisitos_Condiciones.setVisible(false);
-
+        
         TF_CrearIdPersona.setText("");
         TF_CrearUsuarioPersona.setText("");
         TF_CrearPasswordPersona.setText("");
         TF_CrearNombrePersona.setText("");
         TF_CrearApellidoPersona.setText("");
-        TF_CrearFechaNaciemientoPersona.setText("");
+        TF_CrearFechaPersona.setText("");
         TF_DireccionCrearPersona.setText("");
         TF_CrearCelular.setText("");
         TF_CrearCorreoPersona.setText("");
@@ -4691,7 +4738,7 @@ private static boolean connect() {
     private javax.swing.JSpinner JS_CrearPromedioGraduacionPuesto;
     private javax.swing.JSpinner JS_CrearSalarioDeseadoPersona;
     private javax.swing.JSpinner JS_CrearSueldoPuesto;
-    private javax.swing.JSpinner JS_ModAñosExperienciaPersona;
+    private javax.swing.JSpinner JS_CrearYearsExperienciaPersona;
     private javax.swing.JSpinner JS_ModAñosExperienciaPuesto;
     private javax.swing.JSpinner JS_ModPromedioGraduacionPersona;
     private javax.swing.JSpinner JS_ModPromedioGraduacionPuesto;
@@ -4748,7 +4795,7 @@ private static boolean connect() {
     private javax.swing.JTextField TF_CrearEnfermedadesCronicasPersona;
     private javax.swing.JTextField TF_CrearEnfermedadesPuesto;
     private javax.swing.JTextField TF_CrearEspecializacionPersona;
-    private javax.swing.JTextField TF_CrearFechaNaciemientoPersona;
+    private javax.swing.JTextField TF_CrearFechaPersona;
     private javax.swing.JTextField TF_CrearHabilidadesPersona;
     private javax.swing.JTextField TF_CrearHabilidadesPuesto;
     private javax.swing.JTextField TF_CrearIdEmpresa;
