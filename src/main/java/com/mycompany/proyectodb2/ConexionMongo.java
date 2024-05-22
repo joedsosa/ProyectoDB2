@@ -6,22 +6,18 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 
 public class ConexionMongo {
-    private static final String HOST = "localhost";
-    private static final int PUERTO = 27017;
-    private static final String NOMBRE_BASE_DATOS = "empresa_db";
-
     private MongoClient cliente;
     private MongoDatabase baseDatos;
 
-    public ConexionMongo() {
-        conectar();
+    public ConexionMongo(String host, int puerto, String nombreBaseDatos) {
+        conectar(host, puerto, nombreBaseDatos);
     }
 
-    private void conectar() {
+    private void conectar(String host, int puerto, String nombreBaseDatos) {
         try {
-            ConnectionString connectionString = new ConnectionString("mongodb://" + HOST + ":" + PUERTO);
+            ConnectionString connectionString = new ConnectionString("mongodb://" + host + ":" + puerto);
             cliente = MongoClients.create(connectionString);
-            baseDatos = cliente.getDatabase(NOMBRE_BASE_DATOS);
+            baseDatos = cliente.getDatabase(nombreBaseDatos);
             System.out.println("Conexión a MongoDB establecida");
         } catch (Exception e) {
             System.err.println("Error al conectar a MongoDB: " + e.getMessage());

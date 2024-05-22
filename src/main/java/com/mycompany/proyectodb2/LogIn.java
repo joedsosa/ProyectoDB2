@@ -19,6 +19,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import java.util.ArrayList;
 import java.util.List;
+
 //import com.mongodb.*;
 //import org.bson.BsonDocument;
 //import org.bson.BsonInt64;
@@ -29,19 +30,17 @@ import java.util.List;
  *
  * @author HTS
  */
-
-
-
-
 public class LogIn extends javax.swing.JFrame {
-public static MongoClient mongoClient = null;
-public static MongoDatabase database = null;
+
+    public static MongoClient mongoClient = null;
+    public static MongoDatabase database = null;
+
     /**
      * Creates new form LogIn
      */
     public LogIn() {
         initComponents();
-        mando();
+        addAdmin();
         this.setExtendedState(MAXIMIZED_BOTH);
         JP_Contrataciones.setVisible(false);
         JP_CrearEmpresa.setVisible(false);
@@ -72,69 +71,7 @@ public static MongoDatabase database = null;
         System.out.println("Hola");
         System.out.println("prueba");
     }
-private static boolean connect() {
-        if (mongoClient == null) {
-            try {
-                ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017");
-                MongoClientSettings settings = MongoClientSettings.builder()
-                        .applyConnectionString(connectionString)
-                        .build();
-                mongoClient = MongoClients.create(settings);
-                database = mongoClient.getDatabase("empresa_db");
-                System.out.println("Connected to MongoDB successfully.");
-                return true;
-            } catch (Exception e) {
-                System.err.println("Failed to connect to MongoDB: " + e.getMessage());
-                return false;
-            }
-        }
-        return true;
-    }
 
-    public static MongoCollection<Document> getCollection(String collectionName) {
-        if (!connect()) {
-            throw new RuntimeException("Failed to connect to MongoDB.");
-        }
-        return database.getCollection(collectionName);
-    }
-
-    public static void insertDocument(String collectionName, Document document) {
-        MongoCollection<Document> collection = getCollection(collectionName);
-        collection.insertOne(document);
-        System.out.println("Document inserted successfully into collection: " + collectionName);
-    }
-
-    public static List<Document> findDocuments(String collectionName) {
-        MongoCollection<Document> collection = getCollection(collectionName);
-        return collection.find().into(new ArrayList<>());
-    }
-
-    public static void close() {
-        if (mongoClient != null) {
-            mongoClient.close();
-            mongoClient = null;
-            System.out.println("Disconnected from MongoDB.");
-        }
-    }
-
-    public static void mando(){
-        try {
-            // Insert a document
-            Document doc = new Document("name", "Project A")
-                    .append("description", "A sample project")
-                    .append("status", "active");
-            insertDocument("proyecto", doc);
-
-            // Find and print all documents
-            List<Document> documents = findDocuments("proyecto");
-            for (Document document : documents) {
-                System.out.println(document.toJson());
-            }
-        } finally {
-            // Close the connection
-            close();
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -395,8 +332,6 @@ private static boolean connect() {
         JB_ConfirmarCrearEmpresa = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        TF_CrearIdEmpresa = new javax.swing.JTextField();
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
         jLabel129 = new javax.swing.JLabel();
@@ -1994,8 +1929,8 @@ private static boolean connect() {
         JP_CrearEmpresa.setBackground(new java.awt.Color(255, 255, 255));
         JP_CrearEmpresa.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_CrearEmpresa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JP_CrearEmpresa.add(TF_CrearUsuarioEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 310, 30));
-        JP_CrearEmpresa.add(TF_CrearContrasenaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 310, 30));
+        JP_CrearEmpresa.add(TF_CrearUsuarioEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 310, 30));
+        JP_CrearEmpresa.add(TF_CrearContrasenaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 310, 30));
 
         JB_ConfirmarCrearEmpresa.setBackground(new java.awt.Color(44, 65, 114));
         JB_ConfirmarCrearEmpresa.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -2010,16 +1945,11 @@ private static boolean connect() {
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel6.setText("Contrasena");
-        JP_CrearEmpresa.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 129, 30));
+        JP_CrearEmpresa.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 129, 30));
 
         jLabel36.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel36.setText("Usuario");
-        JP_CrearEmpresa.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 102, 30));
-
-        jLabel61.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel61.setText("Id de Empresa");
-        JP_CrearEmpresa.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 25));
-        JP_CrearEmpresa.add(TF_CrearIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 310, 30));
+        JP_CrearEmpresa.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 102, 30));
 
         jLabel127.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel127.setText("Nombre de Empresa");
@@ -2048,8 +1978,8 @@ private static boolean connect() {
 
         jLabel133.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel133.setText("Sector de Actividad");
-        JP_CrearEmpresa.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 190, -1));
-        JP_CrearEmpresa.add(TF_CrearSectorActividadEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 310, 30));
+        JP_CrearEmpresa.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 190, -1));
+        JP_CrearEmpresa.add(TF_CrearSectorActividadEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 310, 30));
 
         jPanel6.add(JP_CrearEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
@@ -2377,7 +2307,7 @@ private static boolean connect() {
         JP_CrearPuesto.add(jLabel157, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 360, 180, -1));
 
         jLabel158.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel158.setText("Enfermedades");
+        jLabel158.setText("Enfermedades No Permitidas");
         JP_CrearPuesto.add(jLabel158, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, -1, 25));
 
         JT_CrearPuestroDeTrabajo.setModel(new javax.swing.table.DefaultTableModel(
@@ -3985,16 +3915,7 @@ private static boolean connect() {
 
     private void JB_CrearSiguientePersonalPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguientePersonalPersonaMouseClicked
         JP_CrearPersonaPersonal.setVisible(false);
-        String id = TF_CrearIdPersona.getText();
-        String nombre = TF_CrearNombrePersona.getText();
-        String apellido = TF_CrearApellidoPersona.getText();
-        String direccion = TF_DireccionCrearPersona.getText();
-        String email = TF_CrearCorreoPersona.getText();
-        String telefono = TF_CrearCelular.getText();
-        String usuario = TF_CrearUsuarioPersona.getText();
-        String contrasena = TF_CrearPasswordPersona.getText();
-        String fechaNacimiento = TF_CrearFechaPersona.getText();
-        String genero = CB_CrearGeneroPersona.getSelectedItem().toString();
+
         JP_CrearPersonaFamiliares_Sanitarios.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguientePersonalPersonaMouseClicked
 
@@ -4003,18 +3924,7 @@ private static boolean connect() {
     }//GEN-LAST:event_CB_CrearGrupoSanguineoPersonaActionPerformed
 
     private void JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked
-        JP_CrearPersonaFamiliares_Sanitarios.setVisible(false);
-        String EstadoCivil = CB_CrearEstadoCivilPersona.getSelectedItem().toString();
-        String conyuge = TF_CrearConyugePersona.getText();
-        String hijo1 = TF_Crear1HijoPersona.getText();
-        String hijo2 = TF_Crear2HijoPersona.getText();
-        String hijo3 = TF_Crear3HijoPersona.getText();
-        String dependiente1 = TF_CrearDependiente1Persona.getText();
-        String dependiente2 = TF_CrearDependiente2Persona.getText();
-        String dependiente3 = TF_CrearDependiente3Persona.getText();
-        String alergias = TF_CrearAlergiasPersona.getText();
-        String enfermedades = TF_CrearEnfermedadesCronicasPersona.getText();
-        String sangre = CB_CrearGrupoSanguineoPersona.getSelectedItem().toString();
+        
         JP_CrearPersonaLegales_Academicos.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked
 
@@ -4024,17 +3934,8 @@ private static boolean connect() {
 
     private void JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked
         JP_CrearPersonaLegales_Academicos.setVisible(false);
-        String dni = TF_CrearDNIPersona.getText();
-        String estadoLegal = CB_CrearEstadoLegalPersona.getSelectedItem().toString();
-        String antecedentes = TF_CrearAntecedentesPenalesPersona.getText();
-        String servicioMilitar = CB_CrearServicioMilitarPersona.getSelectedItem().toString();
-        String nivelEducativo = CB_CrearNivelEducacionPersona.getSelectedItem().toString();
-        String institucion = TF_CrearInstitucionEducativaPersona.getText();
-        String titulo1 = TF_CrearTitulosObtenidos1Persona.getText();
-        String titulo2 = TF_CrearTitulosObtenidos2Persona.getText();
-        String titulo3 = TF_CrearTitulosObtenidos3Persona.getText();
-        String especializacion = TF_CrearEspecializacionPersona.getText();
-        int promedio = (Integer) JS_CrearPromedioGraduacionPersona.getValue();
+        
+        
         JP_CrearPersonaProfesional_Laboral.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked
 
@@ -4044,26 +3945,17 @@ private static boolean connect() {
 
     private void JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked
         JP_CrearPersonaProfesional_Laboral.setVisible(false);
-        String experiencia = CB_CrearExperienciaLaboralPersona.getSelectedItem().toString();
-        String habilidades = TF_CrearHabilidadesPersona.getText();
-        String certificacion1 = TF_CrearCertificaciones1Persona.getText();
-        String certificacion2 = TF_CrearCertificaciones2Persona.getText();
-        String certificacion3 = TF_CrearCertificaciones3Persona.getText();
-        String historial = TA_CrearHistorialEmpleoPersona.getText();
-        int yearsExperiencia = (Integer) JS_CrearYearsExperienciaPersona.getValue();
+        
         JP_CrearPersonaRequisitos_Condiciones.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked
 
     private void JB_ConfirmarCrearPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearPersonaMouseClicked
-        String puestosDeseados = TA_CrearPuestosDeseadosPersona.getText();
-        String puestosNoDeseados = TA_CrearPuestosNoDeseadosPersona.getText();
-        String horario = CB_CrearDisponibilidadHorariaPersona.getSelectedItem().toString();
-        String contrato = CB_CrearTipoContratoPersona.getSelectedItem().toString();
-        Double salario = (Double) JS_CrearSalarioDeseadoPersona.getValue();
+
         
-        JOptionPane.showMessageDialog(this, "La persona se ha creado exitosamente");
+                JOptionPane.showMessageDialog(this, "La persona se ha creado exitosamente");
+
         JP_CrearPersonaRequisitos_Condiciones.setVisible(false);
-        
+
         TF_CrearIdPersona.setText("");
         TF_CrearUsuarioPersona.setText("");
         TF_CrearPasswordPersona.setText("");
@@ -4275,19 +4167,9 @@ private static boolean connect() {
     }//GEN-LAST:event_JB_ConfirmarEliminarEmpresaMouseClicked
 
     private void JB_ConfirmarCrearEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearEmpresaMouseClicked
+
+        addEmpresa();
         JP_CrearEmpresa.setVisible(false);
-        String id = TF_CrearIdEmpresa.getText();
-        String usuario = TF_CrearUsuarioEmpresa.getText();
-        String contrasena = TF_CrearContrasenaEmpresa.getText();
-        String sector = TF_CrearSectorActividadEmpresa.getText();
-        String nombre = TF_CrearNombreEmpresa.getText();
-        String CIF = TF_CrearCIFEmpresa.getText();
-        String direccion = TF_CrearDireccionEmpresa.getText();
-        String telefono = TF_CrearTelefonoEmpresa.getText();
-        String email = TF_CrearCorreoEmpresa.getText();
-        JOptionPane.showMessageDialog(this, "La empresa se ha creado exitosamente");
-        
-        TF_CrearIdEmpresa.setText("");
         TF_CrearUsuarioEmpresa.setText("");
         TF_CrearContrasenaEmpresa.setText("");
         TF_CrearSectorActividadEmpresa.setText("");
@@ -4426,8 +4308,7 @@ private static boolean connect() {
     private void JB_ConfirmarCrearSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearSolicitudMouseClicked
         JP_CrearSolicitud.setVisible(false);
         JOptionPane.showMessageDialog(this, "La solicitud se ha creado exitosamente");
-        
-        
+
         TF_CrearSolicitudAniosExperiencia.setText("");
         TF_CrearSolicitudAntecedentes.setText("");
         TF_CrearSolicitudApellido.setText("");
@@ -4658,6 +4539,120 @@ private static boolean connect() {
             }
         });
     }
+    public void addPersona () {
+     String id = TF_CrearIdPersona.getText();
+        String nombre = TF_CrearNombrePersona.getText();
+        String apellido = TF_CrearApellidoPersona.getText();
+        String direccion = TF_DireccionCrearPersona.getText();
+        String email = TF_CrearCorreoPersona.getText();
+        String telefono = TF_CrearCelular.getText();
+        String usuario = TF_CrearUsuarioPersona.getText();
+        String contrasena = TF_CrearPasswordPersona.getText();
+        String fechaNacimiento = TF_CrearFechaPersona.getText();
+        String genero = CB_CrearGeneroPersona.getSelectedItem().toString();
+        String puestosDeseados = TA_CrearPuestosDeseadosPersona.getText();
+        String puestosNoDeseados = TA_CrearPuestosNoDeseadosPersona.getText();
+        String horario = CB_CrearDisponibilidadHorariaPersona.getSelectedItem().toString();
+        String contrato = CB_CrearTipoContratoPersona.getSelectedItem().toString();
+        Double salario = (Double) JS_CrearSalarioDeseadoPersona.getValue();
+        JP_CrearPersonaFamiliares_Sanitarios.setVisible(false);
+        String EstadoCivil = CB_CrearEstadoCivilPersona.getSelectedItem().toString();
+        String conyuge = TF_CrearConyugePersona.getText();
+        String hijo1 = TF_Crear1HijoPersona.getText();
+        String hijo2 = TF_Crear2HijoPersona.getText();
+        String hijo3 = TF_Crear3HijoPersona.getText();
+        String dependiente1 = TF_CrearDependiente1Persona.getText();
+        String dependiente2 = TF_CrearDependiente2Persona.getText();
+        String dependiente3 = TF_CrearDependiente3Persona.getText();
+        String alergias = TF_CrearAlergiasPersona.getText();
+        String enfermedades = TF_CrearEnfermedadesCronicasPersona.getText();
+        String sangre = CB_CrearGrupoSanguineoPersona.getSelectedItem().toString();
+        String dni = TF_CrearDNIPersona.getText();
+        String estadoLegal = CB_CrearEstadoLegalPersona.getSelectedItem().toString();
+        String antecedentes = TF_CrearAntecedentesPenalesPersona.getText();
+        String servicioMilitar = CB_CrearServicioMilitarPersona.getSelectedItem().toString();
+        String nivelEducativo = CB_CrearNivelEducacionPersona.getSelectedItem().toString();
+        String institucion = TF_CrearInstitucionEducativaPersona.getText();
+        String titulo1 = TF_CrearTitulosObtenidos1Persona.getText();
+        String titulo2 = TF_CrearTitulosObtenidos2Persona.getText();
+        String titulo3 = TF_CrearTitulosObtenidos3Persona.getText();
+        String especializacion = TF_CrearEspecializacionPersona.getText();
+        int promedio = (Integer) JS_CrearPromedioGraduacionPersona.getValue();
+        String experiencia = CB_CrearExperienciaLaboralPersona.getSelectedItem().toString();
+        String habilidades = TF_CrearHabilidadesPersona.getText();
+        String certificacion1 = TF_CrearCertificaciones1Persona.getText();
+        String certificacion2 = TF_CrearCertificaciones2Persona.getText();
+        String certificacion3 = TF_CrearCertificaciones3Persona.getText();
+        String historial = TA_CrearHistorialEmpleoPersona.getText();
+        int yearsExperiencia = (Integer) JS_CrearYearsExperienciaPersona.getValue();
+}
+   
+    public void addAdmin(){
+       ConexionMongo conexionMongo = new ConexionMongo("localhost", 27017, "empresa_db");
+
+        // Crear una instancia de la clase AdminDAO
+        AdminDAO adminDAO = new AdminDAO(conexionMongo);
+
+        // Crear un nuevo objeto Admin
+        Admin admin = new Admin();
+        admin.setNombre("Nombre del Admin");
+        admin.setApellido("Apellido del Admin");
+        admin.setNombreUsuario("usuario_admin");
+        admin.setContrasena("contrasena_admin");
+
+        // Insertar el nuevo admin en la base de datos
+        try {
+            adminDAO.insertarAdmin(admin);
+            System.out.println("Admin insertado con éxito");
+        } catch (Exception e) {
+            System.err.println("Error al insertar el admin: " + e.getMessage());
+        } finally {
+            // Cerrar la conexión a la base de datos
+            conexionMongo.cerrarConexion();
+        }
+    }
+    
+public void addEmpresa() {
+    try {
+        String nombre = TF_CrearNombreEmpresa.getText();
+        String cif = TF_CrearCIFEmpresa.getText();
+        String direccion = TF_CrearDireccionEmpresa.getText();
+        String telefono = TF_CrearTelefonoEmpresa.getText();
+        String email = TF_CrearCorreoEmpresa.getText();
+        String sectorActividad = TF_CrearSectorActividadEmpresa.getText();
+        String usuario = TF_CrearUsuarioEmpresa.getText(); // Obtener usuario
+        String contrasena = TF_CrearContrasenaEmpresa.getText(); // Obtener contraseña
+
+        // Crear una instancia de la clase Empresa con los datos ingresados
+        Empresa empresa = new Empresa();
+        empresa.setNombre(nombre);
+        empresa.setCIF(cif);
+        empresa.setDireccion(direccion);
+        empresa.setTelefono(telefono);
+        empresa.setEmail(email);
+        empresa.setSectorActividad(sectorActividad);
+        empresa.setUsuario(usuario); // Establecer usuario
+        empresa.setContrasena(contrasena); // Establecer contraseña
+
+        // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
+        ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
+
+        // Crear una instancia de la clase EmpresaDAO para realizar las operaciones en la base de datos
+        EmpresaDAO empresaDAO = new EmpresaDAO(conexion);
+
+        // Insertar la empresa en la base de datos
+        empresaDAO.insertarEmpresa(empresa);
+
+        // Cerrar la conexión a la base de datos
+        conexion.cerrarConexion();
+        
+        // Mostrar mensaje de éxito
+        JOptionPane.showMessageDialog(null, "Empresa insertada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    } catch (Exception ex) {
+        // Mostrar mensaje de error en caso de excepción
+        JOptionPane.showMessageDialog(null, "Error al insertar la empresa: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADMIN;
@@ -4839,7 +4834,6 @@ private static boolean connect() {
     private javax.swing.JTextField TF_CrearFechaPersona;
     private javax.swing.JTextField TF_CrearHabilidadesPersona;
     private javax.swing.JTextField TF_CrearHabilidadesPuesto;
-    private javax.swing.JTextField TF_CrearIdEmpresa;
     private javax.swing.JTextField TF_CrearIdPersona;
     private javax.swing.JTextField TF_CrearInstitucionEducativaPersona;
     private javax.swing.JTextField TF_CrearNivelEducacionPuesto;
@@ -5101,7 +5095,6 @@ private static boolean connect() {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;

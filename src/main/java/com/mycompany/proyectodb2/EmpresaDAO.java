@@ -60,7 +60,9 @@ public class EmpresaDAO {
                 .append("direccion", empresa.getDireccion())
                 .append("telefono", empresa.getTelefono())
                 .append("email", empresa.getEmail())
-                .append("representante", empresa.getRepresentante());
+                .append("sectorActividad", empresa.getSectorActividad())
+                .append("usuario", empresa.getUsuario()) // Agregar usuario
+                .append("contrasena", empresa.getContrasena()); // Agregar contraseña
         return documento;
     }
 
@@ -73,7 +75,9 @@ public class EmpresaDAO {
         empresa.setDireccion(documento.getString("direccion"));
         empresa.setTelefono(documento.getString("telefono"));
         empresa.setEmail(documento.getString("email"));
-        empresa.setRepresentante(documento.getString("representante"));
+        empresa.setSectorActividad(documento.getString("sectorActividad"));
+        empresa.setUsuario(documento.getString("usuario")); // Obtener usuario
+        empresa.setContrasena(documento.getString("contrasena")); // Obtener contraseña
         return empresa;
     }
 }
