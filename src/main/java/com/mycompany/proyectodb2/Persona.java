@@ -1,4 +1,3 @@
-
 package com.mycompany.proyectodb2;
 
 public class Persona {
@@ -9,16 +8,58 @@ public class Persona {
     private String direccion;
     private String telefono;
     private String email;
-    private String estadoCivil;
     private DatosFamiliares datosFamiliares;
     private DatosSanitarios datosSanitarios;
     private DatosLegales datosLegales;
-    private DatosAcademicos datosAcademicos;
-    private DatosProfesionales datosProfesionales;
     private DatosLaborales datosLaborales;
-    private RequisitosEmpleo requisitosEmpleo;
-    private RequisitosCondicionesEmpleo requisitosCondicionesEmpleo;
+    private DatosProfesionales datosProfesionales;
+    private RequisitosTrabajo requisitos;
+    private String usuario;
+    private String contrasena;
+    private String genero; // Nuevo atributo
+    private String fecha_nac;
 
+    // Constructor
+    public Persona() {
+        // Constructor vacío
+    }
+
+    public DatosProfesionales getDatosProfesionales() {
+        return datosProfesionales;
+    }
+
+    public void setDatosProfesionales(DatosProfesionales datosProfesionales) {
+        this.datosProfesionales = datosProfesionales;
+    }
+
+    
+    
+    public DatosLaborales getDatosLaborales() {
+        return datosLaborales;
+    }
+
+    public void setDatosLaborales(DatosLaborales datosLaborales) {
+        this.datosLaborales = datosLaborales;
+    }
+
+    public RequisitosTrabajo getRequisitos() {
+        return requisitos;
+    }
+
+    public void setRequisitos(RequisitosTrabajo requisitos) {
+        this.requisitos = requisitos;
+    }
+    
+
+    public String getFecha_nac() {
+        return fecha_nac;
+    }
+
+    public void setFecha_nac(String fecha_nacl) {
+        this.fecha_nac = fecha_nacl;
+    }
+
+    // Getters y setters para todos los atributos, incluyendo los nuevos
     public String getId() {
         return id;
     }
@@ -75,14 +116,6 @@ public class Persona {
         this.email = email;
     }
 
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
     public DatosFamiliares getDatosFamiliares() {
         return datosFamiliares;
     }
@@ -107,44 +140,27 @@ public class Persona {
         this.datosLegales = datosLegales;
     }
 
-    public DatosAcademicos getDatosAcademicos() {
-        return datosAcademicos;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setDatosAcademicos(DatosAcademicos datosAcademicos) {
-        this.datosAcademicos = datosAcademicos;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public DatosProfesionales getDatosProfesionales() {
-        return datosProfesionales;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setDatosProfesionales(DatosProfesionales datosProfesionales) {
-        this.datosProfesionales = datosProfesionales;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
-    public DatosLaborales getDatosLaborales() {
-        return datosLaborales;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setDatosLaborales(DatosLaborales datosLaborales) {
-        this.datosLaborales = datosLaborales;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
-
-    public RequisitosEmpleo getRequisitosEmpleo() {
-        return requisitosEmpleo;
-    }
-
-    public void setRequisitosEmpleo(RequisitosEmpleo requisitosEmpleo) {
-        this.requisitosEmpleo = requisitosEmpleo;
-    }
-
-    public RequisitosCondicionesEmpleo getRequisitosCondicionesEmpleo() {
-        return requisitosCondicionesEmpleo;
-    }
-
-    public void setRequisitosCondicionesEmpleo(RequisitosCondicionesEmpleo requisitosCondicionesEmpleo) {
-        this.requisitosCondicionesEmpleo = requisitosCondicionesEmpleo;
-    }
-    
 }

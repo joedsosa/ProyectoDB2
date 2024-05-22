@@ -52,14 +52,15 @@ com\mycompany\proyectodb2\LogIn$60.class
 com\mycompany\proyectodb2\LogIn$67.class
 com\mycompany\proyectodb2\LogIn$32.class
 com\mycompany\proyectodb2\LogIn$55.class
-PersonaDAO.class
 com\mycompany\proyectodb2\LogIn.class
 com\mycompany\proyectodb2\ConexionMongo.class
 com\mycompany\proyectodb2\DatosFamiliares.class
 com\mycompany\proyectodb2\LogIn$6.class
 com\mycompany\proyectodb2\LogIn$3.class
 com\mycompany\proyectodb2\LogIn$34.class
+com\mycompany\proyectodb2\LogIn$82.class
 com\mycompany\proyectodb2\LogIn$62.class
+com\mycompany\proyectodb2\PersonaDAO.class
 com\mycompany\proyectodb2\LogIn$77.class
 com\mycompany\proyectodb2\Persona.class
 com\mycompany\proyectodb2\LogIn$74.class
@@ -86,6 +87,7 @@ com\mycompany\proyectodb2\DatosLaborales.class
 com\mycompany\proyectodb2\LogIn$19.class
 com\mycompany\proyectodb2\LogIn$11.class
 com\mycompany\proyectodb2\LogIn$51.class
+com\mycompany\proyectodb2\LogIn$81.class
 com\mycompany\proyectodb2\LogIn$2.class
 com\mycompany\proyectodb2\LogIn$24.class
 com\mycompany\proyectodb2\LogIn$59.class
@@ -95,5 +97,6 @@ com\mycompany\proyectodb2\LogIn$75.class
 com\mycompany\proyectodb2\LogIn$12.class
 com\mycompany\proyectodb2\LogIn$40.class
 com\mycompany\proyectodb2\LogIn$47.class
+com\mycompany\proyectodb2\LogIn$80.class
 com\mycompany\proyectodb2\LogIn$52.class
 com\mycompany\proyectodb2\RequisitosCondicionesEmpleo.class

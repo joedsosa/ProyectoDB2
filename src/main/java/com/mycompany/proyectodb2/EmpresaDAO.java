@@ -69,7 +69,7 @@ public class EmpresaDAO {
     // Método para convertir un Documento MongoDB a un objeto Empresa
     private Empresa convertirDocumentoAEmpresa(Document documento) {
         Empresa empresa = new Empresa();
-        empresa.setId(documento.getString("_id"));
+        empresa.setId(documento.getObjectId("_id").toString());
         empresa.setNombre(documento.getString("nombre"));
         empresa.setCIF(documento.getString("CIF"));
         empresa.setDireccion(documento.getString("direccion"));
@@ -80,4 +80,14 @@ public class EmpresaDAO {
         empresa.setContrasena(documento.getString("contrasena")); // Obtener contraseña
         return empresa;
     }
+
+    public Empresa buscarEmpresaPorUsuario(String usuario) {
+        Document filtro = new Document("usuario", usuario);
+        Document resultado = collection.find(filtro).first();
+        if (resultado != null) {
+            return convertirDocumentoAEmpresa(resultado);
+        }
+        return null; // Retorna null si no se encontró ningún resultado
+    }
+
 }

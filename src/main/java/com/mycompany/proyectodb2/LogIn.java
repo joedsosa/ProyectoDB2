@@ -25,7 +25,6 @@ import java.util.List;
 //import org.bson.BsonInt64;
 //import org.bson.Document;
 //import org.bson.conversions.Bson;
-
 /**
  *
  * @author HTS
@@ -40,7 +39,6 @@ public class LogIn extends javax.swing.JFrame {
      */
     public LogIn() {
         initComponents();
-        addAdmin();
         this.setExtendedState(MAXIMIZED_BOTH);
         JP_Contrataciones.setVisible(false);
         JP_CrearEmpresa.setVisible(false);
@@ -136,69 +134,58 @@ public class LogIn extends javax.swing.JFrame {
         CB_CrearGeneroPersona = new javax.swing.JComboBox<>();
         jLabel65 = new javax.swing.JLabel();
         TF_CrearIdPersona = new javax.swing.JTextField();
+        DNI = new javax.swing.JLabel();
+        TF_CrearDNI = new javax.swing.JTextField();
         JP_CrearPersonaFamiliares_Sanitarios = new javax.swing.JPanel();
         TF_CrearConyugePersona = new javax.swing.JTextField();
-        TF_Crear2HijoPersona = new javax.swing.JTextField();
         CB_CrearGrupoSanguineoPersona = new javax.swing.JComboBox<>();
         JB_CrearSiguienteFamiliar_SanitariosPersona = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        TF_CrearDependiente2Persona = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
         jLabel74 = new javax.swing.JLabel();
         TF_CrearAlergiasPersona = new javax.swing.JTextField();
         jLabel76 = new javax.swing.JLabel();
         TF_CrearEnfermedadesCronicasPersona = new javax.swing.JTextField();
         jLabel80 = new javax.swing.JLabel();
-        TF_CrearDependiente3Persona = new javax.swing.JTextField();
-        TF_CrearDependiente1Persona = new javax.swing.JTextField();
-        TF_Crear3HijoPersona = new javax.swing.JTextField();
-        TF_Crear1HijoPersona = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
         CB_CrearEstadoCivilPersona = new javax.swing.JComboBox<>();
+        JS_NumHijos = new javax.swing.JSpinner();
         JP_CrearPersonaLegales_Academicos = new javax.swing.JPanel();
-        TF_CrearAntecedentesPenalesPersona = new javax.swing.JTextField();
         CB_CrearNivelEducacionPersona = new javax.swing.JComboBox<>();
         JB_CrearSiguienteLegales_AcademicosPersona = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
-        TF_CrearDNIPersona = new javax.swing.JTextField();
         jLabel85 = new javax.swing.JLabel();
         jLabel86 = new javax.swing.JLabel();
         jLabel87 = new javax.swing.JLabel();
         jl_TelefonoCompania4 = new javax.swing.JLabel();
-        TF_CrearTitulosObtenidos2Persona = new javax.swing.JTextField();
         TF_CrearEspecializacionPersona = new javax.swing.JTextField();
         jLabel88 = new javax.swing.JLabel();
         TF_CrearInstitucionEducativaPersona = new javax.swing.JTextField();
         CB_CrearServicioMilitarPersona = new javax.swing.JComboBox<>();
-        TF_CrearTitulosObtenidos3Persona = new javax.swing.JTextField();
         TF_CrearTitulosObtenidos1Persona = new javax.swing.JTextField();
-        jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
         JS_CrearPromedioGraduacionPersona = new javax.swing.JSpinner();
         jLabel34 = new javax.swing.JLabel();
         CB_CrearEstadoLegalPersona = new javax.swing.JComboBox<>();
+        CB_CrearServicioMilitarAntecedentes = new javax.swing.JComboBox<>();
         JP_CrearPersonaProfesional_Laboral = new javax.swing.JPanel();
-        TF_CrearHabilidadesPersona = new javax.swing.JTextField();
-        TF_CrearCertificaciones2Persona = new javax.swing.JTextField();
         CB_CrearExperienciaLaboralPersona = new javax.swing.JComboBox<>();
         JB_CrearSiguienteProfesional_LaboralPersona = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
         jLabel90 = new javax.swing.JLabel();
-        TF_CrearCertificaciones3Persona = new javax.swing.JTextField();
-        TF_CrearCertificaciones1Persona = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TA_CrearHistorialEmpleoPersona = new javax.swing.JTextArea();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
         JS_CrearYearsExperienciaPersona = new javax.swing.JSpinner();
         jLabel132 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        TA_CrearHabilidadesPersona = new javax.swing.JTextArea();
         JP_CrearPersonaRequisitos_Condiciones = new javax.swing.JPanel();
         JB_ConfirmarCrearPersona = new javax.swing.JButton();
         jLabel94 = new javax.swing.JLabel();
@@ -1040,6 +1027,12 @@ public class LogIn extends javax.swing.JFrame {
         JP_CrearPersonaPersonal.setBackground(new java.awt.Color(255, 255, 255));
         JP_CrearPersonaPersonal.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_CrearPersonaPersonal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TF_CrearUsuarioPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CrearUsuarioPersonaActionPerformed(evt);
+            }
+        });
         JP_CrearPersonaPersonal.add(TF_CrearUsuarioPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 300, 30));
         JP_CrearPersonaPersonal.add(TF_CrearPasswordPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 310, 30));
 
@@ -1052,7 +1045,7 @@ public class LogIn extends javax.swing.JFrame {
                 JB_CrearSiguientePersonalPersonaMouseClicked(evt);
             }
         });
-        JP_CrearPersonaPersonal.add(JB_CrearSiguientePersonalPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
+        JP_CrearPersonaPersonal.add(JB_CrearSiguientePersonalPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 600, 198, 58));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel5.setText("Contrasena");
@@ -1109,13 +1102,18 @@ public class LogIn extends javax.swing.JFrame {
         JP_CrearPersonaPersonal.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 130, -1));
         JP_CrearPersonaPersonal.add(TF_CrearIdPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 310, 30));
 
+        DNI.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DNI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DNI.setText("DNI");
+        JP_CrearPersonaPersonal.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 79, -1));
+        JP_CrearPersonaPersonal.add(TF_CrearDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 310, 30));
+
         jPanel3.add(JP_CrearPersonaPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
         JP_CrearPersonaFamiliares_Sanitarios.setBackground(new java.awt.Color(255, 255, 255));
         JP_CrearPersonaFamiliares_Sanitarios.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_CrearPersonaFamiliares_Sanitarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         JP_CrearPersonaFamiliares_Sanitarios.add(TF_CrearConyugePersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 310, 30));
-        JP_CrearPersonaFamiliares_Sanitarios.add(TF_Crear2HijoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 310, 30));
 
         CB_CrearGrupoSanguineoPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
         CB_CrearGrupoSanguineoPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -1134,15 +1132,11 @@ public class LogIn extends javax.swing.JFrame {
                 JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked(evt);
             }
         });
-        JP_CrearPersonaFamiliares_Sanitarios.add(JB_CrearSiguienteFamiliar_SanitariosPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
+        JP_CrearPersonaFamiliares_Sanitarios.add(JB_CrearSiguienteFamiliar_SanitariosPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 198, 58));
 
         jLabel10.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel10.setText("Hijos");
         JP_CrearPersonaFamiliares_Sanitarios.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 129, 30));
-
-        jLabel12.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel12.setText("Dependientes");
-        JP_CrearPersonaFamiliares_Sanitarios.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 160, 30));
 
         jLabel13.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel13.setText("Conyuge");
@@ -1151,7 +1145,6 @@ public class LogIn extends javax.swing.JFrame {
         jLabel72.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel72.setText("Datos Familiares");
         JP_CrearPersonaFamiliares_Sanitarios.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, 25));
-        JP_CrearPersonaFamiliares_Sanitarios.add(TF_CrearDependiente2Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 310, 30));
 
         jLabel73.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel73.setText("Datos Sanitarios");
@@ -1170,10 +1163,6 @@ public class LogIn extends javax.swing.JFrame {
         jLabel80.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel80.setText("Estado Civil");
         JP_CrearPersonaFamiliares_Sanitarios.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 25));
-        JP_CrearPersonaFamiliares_Sanitarios.add(TF_CrearDependiente3Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 310, 30));
-        JP_CrearPersonaFamiliares_Sanitarios.add(TF_CrearDependiente1Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 310, 30));
-        JP_CrearPersonaFamiliares_Sanitarios.add(TF_Crear3HijoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 310, 30));
-        JP_CrearPersonaFamiliares_Sanitarios.add(TF_Crear1HijoPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 310, 30));
 
         jLabel81.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel81.setText("Alergias");
@@ -1186,13 +1175,13 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
         JP_CrearPersonaFamiliares_Sanitarios.add(CB_CrearEstadoCivilPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 146, 30));
+        JP_CrearPersonaFamiliares_Sanitarios.add(JS_NumHijos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 120, 40));
 
         jPanel3.add(JP_CrearPersonaFamiliares_Sanitarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
         JP_CrearPersonaLegales_Academicos.setBackground(new java.awt.Color(255, 255, 255));
         JP_CrearPersonaLegales_Academicos.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_CrearPersonaLegales_Academicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JP_CrearPersonaLegales_Academicos.add(TF_CrearAntecedentesPenalesPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 310, 30));
 
         CB_CrearNivelEducacionPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EGB", "BUP", "COU", " " }));
         CB_CrearNivelEducacionPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -1211,20 +1200,19 @@ public class LogIn extends javax.swing.JFrame {
                 JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked(evt);
             }
         });
-        JP_CrearPersonaLegales_Academicos.add(JB_CrearSiguienteLegales_AcademicosPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
+        JP_CrearPersonaLegales_Academicos.add(JB_CrearSiguienteLegales_AcademicosPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 198, 58));
 
         jLabel19.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel19.setText("Antecedentes Penales");
-        JP_CrearPersonaLegales_Academicos.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 210, 30));
+        JP_CrearPersonaLegales_Academicos.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 210, 30));
 
         jLabel21.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel21.setText("Estado Legal");
-        JP_CrearPersonaLegales_Academicos.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 150, 30));
+        JP_CrearPersonaLegales_Academicos.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 150, 30));
 
         jLabel84.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel84.setText("Datos Legales");
         JP_CrearPersonaLegales_Academicos.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, 25));
-        JP_CrearPersonaLegales_Academicos.add(TF_CrearDNIPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 310, 30));
 
         jLabel85.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel85.setText("Datos Academicos");
@@ -1236,13 +1224,12 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel87.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel87.setText("Especializacion");
-        JP_CrearPersonaLegales_Academicos.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 430, 140, -1));
+        JP_CrearPersonaLegales_Academicos.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 350, 140, -1));
 
         jl_TelefonoCompania4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jl_TelefonoCompania4.setText("Promedio de Graduacion");
-        JP_CrearPersonaLegales_Academicos.add(jl_TelefonoCompania4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 510, 230, -1));
-        JP_CrearPersonaLegales_Academicos.add(TF_CrearTitulosObtenidos2Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 340, 310, 30));
-        JP_CrearPersonaLegales_Academicos.add(TF_CrearEspecializacionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 460, 310, 30));
+        JP_CrearPersonaLegales_Academicos.add(jl_TelefonoCompania4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 230, -1));
+        JP_CrearPersonaLegales_Academicos.add(TF_CrearEspecializacionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 380, 310, 30));
 
         jLabel88.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel88.setText("Institucion Educativa");
@@ -1255,22 +1242,17 @@ public class LogIn extends javax.swing.JFrame {
                 CB_CrearServicioMilitarPersonaActionPerformed(evt);
             }
         });
-        JP_CrearPersonaLegales_Academicos.add(CB_CrearServicioMilitarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 146, 30));
-        JP_CrearPersonaLegales_Academicos.add(TF_CrearTitulosObtenidos3Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 380, 310, 30));
+        JP_CrearPersonaLegales_Academicos.add(CB_CrearServicioMilitarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 146, 30));
         JP_CrearPersonaLegales_Academicos.add(TF_CrearTitulosObtenidos1Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 300, 310, 30));
-
-        jLabel99.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel99.setText("DNI");
-        JP_CrearPersonaLegales_Academicos.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 25));
 
         jLabel100.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel100.setText("Nivel de Educacion");
         JP_CrearPersonaLegales_Academicos.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 80, 190, -1));
-        JP_CrearPersonaLegales_Academicos.add(JS_CrearPromedioGraduacionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 540, 90, 30));
+        JP_CrearPersonaLegales_Academicos.add(JS_CrearPromedioGraduacionPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 90, 30));
 
         jLabel34.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel34.setText("Servicio Militar");
-        JP_CrearPersonaLegales_Academicos.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 210, 30));
+        JP_CrearPersonaLegales_Academicos.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 210, 30));
 
         CB_CrearEstadoLegalPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ciudadano", "Residente Permanente", "Estudiante Internacional", "Trabajador con visado temporal", " " }));
         CB_CrearEstadoLegalPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -1278,15 +1260,21 @@ public class LogIn extends javax.swing.JFrame {
                 CB_CrearEstadoLegalPersonaActionPerformed(evt);
             }
         });
-        JP_CrearPersonaLegales_Academicos.add(CB_CrearEstadoLegalPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 146, 30));
+        JP_CrearPersonaLegales_Academicos.add(CB_CrearEstadoLegalPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 146, 30));
+
+        CB_CrearServicioMilitarAntecedentes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " " }));
+        CB_CrearServicioMilitarAntecedentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_CrearServicioMilitarAntecedentesActionPerformed(evt);
+            }
+        });
+        JP_CrearPersonaLegales_Academicos.add(CB_CrearServicioMilitarAntecedentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 146, 30));
 
         jPanel3.add(JP_CrearPersonaLegales_Academicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
         JP_CrearPersonaProfesional_Laboral.setBackground(new java.awt.Color(255, 255, 255));
         JP_CrearPersonaProfesional_Laboral.setPreferredSize(new java.awt.Dimension(1920, 1080));
         JP_CrearPersonaProfesional_Laboral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JP_CrearPersonaProfesional_Laboral.add(TF_CrearHabilidadesPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 300, 30));
-        JP_CrearPersonaProfesional_Laboral.add(TF_CrearCertificaciones2Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 310, 30));
 
         CB_CrearExperienciaLaboralPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No", " ", " " }));
         CB_CrearExperienciaLaboralPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -1294,7 +1282,7 @@ public class LogIn extends javax.swing.JFrame {
                 CB_CrearExperienciaLaboralPersonaActionPerformed(evt);
             }
         });
-        JP_CrearPersonaProfesional_Laboral.add(CB_CrearExperienciaLaboralPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 146, 39));
+        JP_CrearPersonaProfesional_Laboral.add(CB_CrearExperienciaLaboralPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 146, 39));
 
         JB_CrearSiguienteProfesional_LaboralPersona.setBackground(new java.awt.Color(44, 65, 114));
         JB_CrearSiguienteProfesional_LaboralPersona.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -1305,25 +1293,19 @@ public class LogIn extends javax.swing.JFrame {
                 JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked(evt);
             }
         });
-        JP_CrearPersonaProfesional_Laboral.add(JB_CrearSiguienteProfesional_LaboralPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
-
-        jLabel22.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel22.setText("Certificaciones");
-        JP_CrearPersonaProfesional_Laboral.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 160, 30));
+        JP_CrearPersonaProfesional_Laboral.add(JB_CrearSiguienteProfesional_LaboralPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 460, 198, 58));
 
         jLabel24.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel24.setText("Habilidades");
-        JP_CrearPersonaProfesional_Laboral.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 170, 30));
+        JP_CrearPersonaProfesional_Laboral.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 170, 30));
 
         jLabel89.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel89.setText("Datos Profesionales");
-        JP_CrearPersonaProfesional_Laboral.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, 25));
+        JP_CrearPersonaProfesional_Laboral.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, 25));
 
         jLabel90.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel90.setText("Datos Laborales");
-        JP_CrearPersonaProfesional_Laboral.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 40, 390, -1));
-        JP_CrearPersonaProfesional_Laboral.add(TF_CrearCertificaciones3Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 310, 30));
-        JP_CrearPersonaProfesional_Laboral.add(TF_CrearCertificaciones1Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 310, 30));
+        JP_CrearPersonaProfesional_Laboral.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 40, 390, -1));
 
         TA_CrearHistorialEmpleoPersona.setColumns(20);
         TA_CrearHistorialEmpleoPersona.setRows(5);
@@ -1333,7 +1315,7 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel95.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel95.setText("Experiencia Laboral");
-        JP_CrearPersonaProfesional_Laboral.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, 25));
+        JP_CrearPersonaProfesional_Laboral.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, 25));
 
         jLabel96.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel96.setText("Historial de empleo (empresa, cargo, fecha)");
@@ -1343,6 +1325,12 @@ public class LogIn extends javax.swing.JFrame {
         jLabel132.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel132.setText("Años de experiencia");
         JP_CrearPersonaProfesional_Laboral.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 260, 390, -1));
+
+        TA_CrearHabilidadesPersona.setColumns(20);
+        TA_CrearHabilidadesPersona.setRows(5);
+        jScrollPane14.setViewportView(TA_CrearHabilidadesPersona);
+
+        JP_CrearPersonaProfesional_Laboral.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 380, 120));
 
         jPanel3.add(JP_CrearPersonaProfesional_Laboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1920, 900));
 
@@ -1939,6 +1927,11 @@ public class LogIn extends javax.swing.JFrame {
         JB_ConfirmarCrearEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JB_ConfirmarCrearEmpresaMouseClicked(evt);
+            }
+        });
+        JB_ConfirmarCrearEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_ConfirmarCrearEmpresaActionPerformed(evt);
             }
         });
         JP_CrearEmpresa.add(JB_ConfirmarCrearEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 198, 58));
@@ -3858,9 +3851,7 @@ public class LogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_LogInMouseClicked
-        String username = TF_UserName.getText();
-        String password = TF_Password.getText();
-
+        iniciarSesion();
     }//GEN-LAST:event_JB_LogInMouseClicked
 
     private void JB_CrudAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrudAdminMouseClicked
@@ -3924,7 +3915,7 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_CB_CrearGrupoSanguineoPersonaActionPerformed
 
     private void JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked
-        
+        JP_CrearPersonaFamiliares_Sanitarios.setVisible(false);
         JP_CrearPersonaLegales_Academicos.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteFamiliar_SanitariosPersonaMouseClicked
 
@@ -3934,8 +3925,7 @@ public class LogIn extends javax.swing.JFrame {
 
     private void JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked
         JP_CrearPersonaLegales_Academicos.setVisible(false);
-        
-        
+
         JP_CrearPersonaProfesional_Laboral.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteLegales_AcademicosPersonaMouseClicked
 
@@ -3945,14 +3935,13 @@ public class LogIn extends javax.swing.JFrame {
 
     private void JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked
         JP_CrearPersonaProfesional_Laboral.setVisible(false);
-        
+
         JP_CrearPersonaRequisitos_Condiciones.setVisible(true);
     }//GEN-LAST:event_JB_CrearSiguienteProfesional_LaboralPersonaMouseClicked
 
     private void JB_ConfirmarCrearPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearPersonaMouseClicked
-
-        
-                JOptionPane.showMessageDialog(this, "La persona se ha creado exitosamente");
+        addPersona();
+        JOptionPane.showMessageDialog(this, "La persona se ha creado exitosamente");
 
         JP_CrearPersonaRequisitos_Condiciones.setVisible(false);
 
@@ -3966,25 +3955,11 @@ public class LogIn extends javax.swing.JFrame {
         TF_CrearCelular.setText("");
         TF_CrearCorreoPersona.setText("");
         TF_CrearConyugePersona.setText("");
-        TF_Crear1HijoPersona.setText("");
-        TF_Crear2HijoPersona.setText("");
-        TF_Crear3HijoPersona.setText("");
-        TF_CrearDependiente1Persona.setText("");
-        TF_CrearDependiente2Persona.setText("");
-        TF_CrearDependiente3Persona.setText("");
         TF_CrearAlergiasPersona.setText("");
         TF_CrearEnfermedadesCronicasPersona.setText("");
-        TF_CrearDNIPersona.setText("");
-        TF_CrearAntecedentesPenalesPersona.setText("");
         TF_CrearInstitucionEducativaPersona.setText("");
         TF_CrearTitulosObtenidos1Persona.setText("");
-        TF_CrearTitulosObtenidos2Persona.setText("");
-        TF_CrearTitulosObtenidos3Persona.setText("");
         TF_CrearEspecializacionPersona.setText("");
-        TF_CrearHabilidadesPersona.setText("");
-        TF_CrearCertificaciones1Persona.setText("");
-        TF_CrearCertificaciones2Persona.setText("");
-        TF_CrearCertificaciones3Persona.setText("");
         TA_CrearHistorialEmpleoPersona.setText("");
         TA_CrearPuestosDeseadosPersona.setText("");
         TA_CrearPuestosNoDeseadosPersona.setText("");
@@ -4502,6 +4477,18 @@ public class LogIn extends javax.swing.JFrame {
         JF_Empresa.setVisible(true);
     }//GEN-LAST:event_EMPRESAMouseClicked
 
+    private void TF_CrearUsuarioPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CrearUsuarioPersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CrearUsuarioPersonaActionPerformed
+
+    private void CB_CrearServicioMilitarAntecedentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_CrearServicioMilitarAntecedentesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_CrearServicioMilitarAntecedentesActionPerformed
+
+    private void JB_ConfirmarCrearEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearEmpresaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_ConfirmarCrearEmpresaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4539,56 +4526,238 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
     }
-    public void addPersona () {
-     String id = TF_CrearIdPersona.getText();
-        String nombre = TF_CrearNombrePersona.getText();
+
+    public void addPersona() {
+        String idecito = TF_CrearIdPersona.getText();
+        String name = TF_CrearNombrePersona.getText();
         String apellido = TF_CrearApellidoPersona.getText();
-        String direccion = TF_DireccionCrearPersona.getText();
-        String email = TF_CrearCorreoPersona.getText();
-        String telefono = TF_CrearCelular.getText();
-        String usuario = TF_CrearUsuarioPersona.getText();
-        String contrasena = TF_CrearPasswordPersona.getText();
+        String direction = TF_DireccionCrearPersona.getText();
+        String gmail = TF_CrearCorreoPersona.getText();
+        String phone = TF_CrearCelular.getText();
+        String user = TF_CrearUsuarioPersona.getText();
+        String pass = TF_CrearPasswordPersona.getText();
         String fechaNacimiento = TF_CrearFechaPersona.getText();
         String genero = CB_CrearGeneroPersona.getSelectedItem().toString();
         String puestosDeseados = TA_CrearPuestosDeseadosPersona.getText();
         String puestosNoDeseados = TA_CrearPuestosNoDeseadosPersona.getText();
         String horario = CB_CrearDisponibilidadHorariaPersona.getSelectedItem().toString();
         String contrato = CB_CrearTipoContratoPersona.getSelectedItem().toString();
-        Double salario = (Double) JS_CrearSalarioDeseadoPersona.getValue();
-        JP_CrearPersonaFamiliares_Sanitarios.setVisible(false);
+        int salario = (int) JS_CrearSalarioDeseadoPersona.getValue();
         String EstadoCivil = CB_CrearEstadoCivilPersona.getSelectedItem().toString();
-        String conyuge = TF_CrearConyugePersona.getText();
-        String hijo1 = TF_Crear1HijoPersona.getText();
-        String hijo2 = TF_Crear2HijoPersona.getText();
-        String hijo3 = TF_Crear3HijoPersona.getText();
-        String dependiente1 = TF_CrearDependiente1Persona.getText();
-        String dependiente2 = TF_CrearDependiente2Persona.getText();
-        String dependiente3 = TF_CrearDependiente3Persona.getText();
-        String alergias = TF_CrearAlergiasPersona.getText();
+        String novi = TF_CrearConyugePersona.getText();
+        int numhijos = (int) JS_NumHijos.getValue();
+        String alergis = TF_CrearAlergiasPersona.getText();
         String enfermedades = TF_CrearEnfermedadesCronicasPersona.getText();
         String sangre = CB_CrearGrupoSanguineoPersona.getSelectedItem().toString();
-        String dni = TF_CrearDNIPersona.getText();
+        String identidaddni = TF_CrearDNI.getText();
         String estadoLegal = CB_CrearEstadoLegalPersona.getSelectedItem().toString();
-        String antecedentes = TF_CrearAntecedentesPenalesPersona.getText();
-        String servicioMilitar = CB_CrearServicioMilitarPersona.getSelectedItem().toString();
+        String antecedentes = CB_CrearServicioMilitarAntecedentes.getSelectedItem().toString();
+        String servicioMilitarYN = CB_CrearServicioMilitarPersona.getSelectedItem().toString();
         String nivelEducativo = CB_CrearNivelEducacionPersona.getSelectedItem().toString();
         String institucion = TF_CrearInstitucionEducativaPersona.getText();
         String titulo1 = TF_CrearTitulosObtenidos1Persona.getText();
-        String titulo2 = TF_CrearTitulosObtenidos2Persona.getText();
-        String titulo3 = TF_CrearTitulosObtenidos3Persona.getText();
         String especializacion = TF_CrearEspecializacionPersona.getText();
         int promedio = (Integer) JS_CrearPromedioGraduacionPersona.getValue();
         String experiencia = CB_CrearExperienciaLaboralPersona.getSelectedItem().toString();
-        String habilidades = TF_CrearHabilidadesPersona.getText();
-        String certificacion1 = TF_CrearCertificaciones1Persona.getText();
-        String certificacion2 = TF_CrearCertificaciones2Persona.getText();
-        String certificacion3 = TF_CrearCertificaciones3Persona.getText();
+        String habilidades = TA_CrearHabilidadesPersona.getText();
         String historial = TA_CrearHistorialEmpleoPersona.getText();
         int yearsExperiencia = (Integer) JS_CrearYearsExperienciaPersona.getValue();
-}
-   
-    public void addAdmin(){
-       ConexionMongo conexionMongo = new ConexionMongo("localhost", 27017, "empresa_db");
+
+        try {
+            String nombre = name;
+            String apellidos = apellido;
+            String dni = identidaddni;
+            String direccion = direction;
+            String telefono = phone;
+            String email = gmail;
+            String id = idecito;
+            String usuario = user;
+            String contrasena = pass;
+
+            // Datos familiares
+            String estadoCivilFamiliar = EstadoCivil;
+            int numeroHijos = numhijos;
+            String nombreConyuge = novi;
+
+            // Datos sanitarios
+            String grupoSanguineo = sangre;
+            String alergias = alergis;
+            String enfermedadesCronicas = enfermedades;
+
+            // Datos legales
+            boolean servicioMilitar;
+            if (servicioMilitarYN.equalsIgnoreCase("SI")) {
+                servicioMilitar = true;
+            } else {
+                servicioMilitar = false;
+            }
+            boolean ant;
+            if (antecedentes.equalsIgnoreCase("SI")) {
+                ant = true;
+            } else {
+                ant = false;
+            }
+            boolean tieneExp;
+            if (experiencia.equalsIgnoreCase("SI")) {
+                tieneExp = true;
+            } else {
+                tieneExp = false;
+            }
+
+            DatosProfesionales prof = new DatosProfesionales();
+            prof.setExpLab(tieneExp);
+            prof.setHabilidades(habilidades);
+
+            DatosLaborales dl = new DatosLaborales();
+            dl.setAniosExperiencia(yearsExperiencia);
+            dl.setHistorialEmp(historial);
+
+            RequisitosTrabajo req = new RequisitosTrabajo();
+            req.setContrato(contrato);
+            req.setDisponibilidad(horario);
+            req.setPuestosNO(puestosNoDeseados);
+            req.setPuestosSI(puestosDeseados);
+            req.setSalario(salario);
+
+            // Crear instancias de las clases de datos anidados
+            DatosFamiliares datosFamiliares = new DatosFamiliares();
+            datosFamiliares.setEstadoCivil(estadoCivilFamiliar);
+            datosFamiliares.setNumeroHijos(numeroHijos);
+            datosFamiliares.setNombreConyuge(nombreConyuge);
+
+            DatosSanitarios datosSanitarios = new DatosSanitarios();
+            datosSanitarios.setGrupoSanguineo(grupoSanguineo);
+            datosSanitarios.setAlergias(alergias);
+            datosSanitarios.setEnfermedadesCronicas(enfermedadesCronicas);
+
+            DatosLegales datosLegales = new DatosLegales();
+            datosLegales.setServicioMilitar(servicioMilitar);
+            datosLegales.setAntecedentesPenales(ant);
+            datosLegales.setEspecializacion(especializacion);
+            datosLegales.setEstadoLegal(estadoLegal);
+            datosLegales.setInstitucionEducativa(institucion);
+            datosLegales.setNivelEducacion(nivelEducativo);
+            datosLegales.setPromedioGrad(promedio);
+            datosLegales.setTitulosObtenidos(titulo1);
+
+            // Crear una instancia de la clase Persona con los datos ingresados
+            Persona persona = new Persona();
+            persona.setId(id);
+            persona.setNombre(nombre);
+            persona.setApellidos(apellidos);
+            persona.setDni(dni);
+            persona.setDireccion(direccion);
+            persona.setTelefono(telefono);
+            persona.setEmail(email);
+            persona.setUsuario(usuario); // Establecer usuario
+            persona.setContrasena(contrasena); // Establecer contraseña
+            persona.setDatosFamiliares(datosFamiliares);
+            persona.setDatosSanitarios(datosSanitarios);
+            persona.setDatosLegales(datosLegales);
+            persona.setRequisitos(req);
+            persona.setFecha_nac(fechaNacimiento);
+            persona.setDatosLaborales(dl);
+            persona.setDatosProfesionales(prof);
+            persona.setGenero(genero);
+
+            // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
+            ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
+
+            // Crear una instancia de la clase PersonaDAO para realizar las operaciones en la base de datos
+            PersonaDAO personaDAO = new PersonaDAO(conexion);
+
+            // Insertar la persona en la base de datos
+            personaDAO.insertarPersona(persona);
+
+            // Cerrar la conexión a la base de datos
+            conexion.cerrarConexion();
+
+            // Mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Persona insertada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            // Mostrar mensaje de error en caso de excepción
+            JOptionPane.showMessageDialog(null, "Error al insertar la persona: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void iniciarSesion() {
+        try {
+            String usuario = TF_UserName.getText(); // Obtener usuario ingresado
+            String contrasena = new String(TF_Password.getPassword()); // Obtener contraseña ingresada
+
+            // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
+            ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
+
+            // Buscar el usuario en la base de datos
+            PersonaDAO personaDAO = new PersonaDAO(conexion);
+            EmpresaDAO empresaDAO = new EmpresaDAO(conexion);
+            AdminDAO adminDAO = new AdminDAO(conexion);
+
+//        // Verificar si el usuario es una persona
+            Persona persona = personaDAO.buscarPersonaPorUsuario(usuario);
+            if (persona != null) {
+                // Verificar la contraseña
+                if (persona.getContrasena().equals(contrasena)) {
+                    this.setVisible(false);
+                    JF_Persona.setVisible(true);
+                    // Acceso concedido para persona
+                    // Aquí puedes abrir la ventana correspondiente para el usuario persona
+                } else {
+                    // Contraseña incorrecta
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                return; // Salir del método después de verificar para evitar comprobar otros tipos de usuario
+            }
+            // Verificar si el usuario es una empresa
+            Empresa empresa = empresaDAO.buscarEmpresaPorUsuario(usuario);
+            if (empresa != null) {
+                // Verificar la contraseña
+                if (empresa.getContrasena().equals(contrasena)) {
+                    this.setVisible(false);
+                    JF_Empresa.pack();
+                    JF_Empresa.setLocationRelativeTo(this);
+                    JF_Empresa.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                    JF_Empresa.setVisible(true);
+                    JF_Empresa.setExtendedState(MAXIMIZED_BOTH);
+                    // Acceso concedido para empresa
+                    // Aquí puedes abrir la ventana correspondiente para la empresa
+                } else {
+                    // Contraseña incorrecta
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                return; // Salir del método después de verificar para evitar comprobar otros tipos de usuario
+            }
+
+            // Verificar si el usuario es un administrador
+            Admin admin = adminDAO.buscarAdminPorUsuario(usuario);
+            if (admin != null) {
+                // Verificar la contraseña
+                if (admin.getContrasena().equals(contrasena)) {
+                    this.setVisible(false);
+                    JF_Admin.setVisible(true);
+                    JF_Admin.setExtendedState(MAXIMIZED_BOTH);
+                    // Acceso concedido para admin
+                    // Aquí puedes abrir la ventana correspondiente para el admin
+                } else {
+                    // Contraseña incorrecta
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                return; // Salir del método después de verificar para evitar comprobar otros tipos de usuario
+            }
+
+            // Si el usuario no existe en ninguna categoría
+            JOptionPane.showMessageDialog(null, "Usuario no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+
+            // Cerrar la conexión a la base de datos
+            conexion.cerrarConexion();
+        } catch (Exception ex) {
+            // Mostrar mensaje de error en caso de excepción
+            JOptionPane.showMessageDialog(null, "Error al iniciar sesión: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void addAdmin() {
+        ConexionMongo conexionMongo = new ConexionMongo("localhost", 27017, "empresa_db");
 
         // Crear una instancia de la clase AdminDAO
         AdminDAO adminDAO = new AdminDAO(conexionMongo);
@@ -4597,8 +4766,8 @@ public class LogIn extends javax.swing.JFrame {
         Admin admin = new Admin();
         admin.setNombre("Nombre del Admin");
         admin.setApellido("Apellido del Admin");
-        admin.setNombreUsuario("usuario_admin");
-        admin.setContrasena("contrasena_admin");
+        admin.setNombreUsuario("grupo");
+        admin.setContrasena("123");
 
         // Insertar el nuevo admin en la base de datos
         try {
@@ -4611,48 +4780,48 @@ public class LogIn extends javax.swing.JFrame {
             conexionMongo.cerrarConexion();
         }
     }
-    
-public void addEmpresa() {
-    try {
-        String nombre = TF_CrearNombreEmpresa.getText();
-        String cif = TF_CrearCIFEmpresa.getText();
-        String direccion = TF_CrearDireccionEmpresa.getText();
-        String telefono = TF_CrearTelefonoEmpresa.getText();
-        String email = TF_CrearCorreoEmpresa.getText();
-        String sectorActividad = TF_CrearSectorActividadEmpresa.getText();
-        String usuario = TF_CrearUsuarioEmpresa.getText(); // Obtener usuario
-        String contrasena = TF_CrearContrasenaEmpresa.getText(); // Obtener contraseña
 
-        // Crear una instancia de la clase Empresa con los datos ingresados
-        Empresa empresa = new Empresa();
-        empresa.setNombre(nombre);
-        empresa.setCIF(cif);
-        empresa.setDireccion(direccion);
-        empresa.setTelefono(telefono);
-        empresa.setEmail(email);
-        empresa.setSectorActividad(sectorActividad);
-        empresa.setUsuario(usuario); // Establecer usuario
-        empresa.setContrasena(contrasena); // Establecer contraseña
+    public void addEmpresa() {
+        try {
+            String nombre = TF_CrearNombreEmpresa.getText();
+            String cif = TF_CrearCIFEmpresa.getText();
+            String direccion = TF_CrearDireccionEmpresa.getText();
+            String telefono = TF_CrearTelefonoEmpresa.getText();
+            String email = TF_CrearCorreoEmpresa.getText();
+            String sectorActividad = TF_CrearSectorActividadEmpresa.getText();
+            String usuario = TF_CrearUsuarioEmpresa.getText(); // Obtener usuario
+            String contrasena = TF_CrearContrasenaEmpresa.getText(); // Obtener contraseña
 
-        // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
-        ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
+            // Crear una instancia de la clase Empresa con los datos ingresados
+            Empresa empresa = new Empresa();
+            empresa.setNombre(nombre);
+            empresa.setCIF(cif);
+            empresa.setDireccion(direccion);
+            empresa.setTelefono(telefono);
+            empresa.setEmail(email);
+            empresa.setSectorActividad(sectorActividad);
+            empresa.setUsuario(usuario); // Establecer usuario
+            empresa.setContrasena(contrasena); // Establecer contraseña
 
-        // Crear una instancia de la clase EmpresaDAO para realizar las operaciones en la base de datos
-        EmpresaDAO empresaDAO = new EmpresaDAO(conexion);
+            // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
+            ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
 
-        // Insertar la empresa en la base de datos
-        empresaDAO.insertarEmpresa(empresa);
+            // Crear una instancia de la clase EmpresaDAO para realizar las operaciones en la base de datos
+            EmpresaDAO empresaDAO = new EmpresaDAO(conexion);
 
-        // Cerrar la conexión a la base de datos
-        conexion.cerrarConexion();
-        
-        // Mostrar mensaje de éxito
-        JOptionPane.showMessageDialog(null, "Empresa insertada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    } catch (Exception ex) {
-        // Mostrar mensaje de error en caso de excepción
-        JOptionPane.showMessageDialog(null, "Error al insertar la empresa: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            // Insertar la empresa en la base de datos
+            empresaDAO.insertarEmpresa(empresa);
+
+            // Cerrar la conexión a la base de datos
+            conexion.cerrarConexion();
+
+            // Mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Empresa insertada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            // Mostrar mensaje de error en caso de excepción
+            JOptionPane.showMessageDialog(null, "Error al insertar la empresa: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADMIN;
@@ -4667,6 +4836,7 @@ public void addEmpresa() {
     private javax.swing.JComboBox<String> CB_CrearGrupoSanguineoPersona;
     private javax.swing.JComboBox<String> CB_CrearHorarioSueldo;
     private javax.swing.JComboBox<String> CB_CrearNivelEducacionPersona;
+    private javax.swing.JComboBox<String> CB_CrearServicioMilitarAntecedentes;
     private javax.swing.JComboBox<String> CB_CrearServicioMilitarPersona;
     private javax.swing.JComboBox<String> CB_CrearServicioMilitarPuesto;
     private javax.swing.JComboBox<String> CB_CrearTipoContratoPersona;
@@ -4684,6 +4854,7 @@ public void addEmpresa() {
     private javax.swing.JComboBox<String> CB_ModServicioMilitarPersona;
     private javax.swing.JComboBox<String> CB_ModServicioMilitarPuesto;
     private javax.swing.JComboBox<String> CB_ModTipoContratoPersona;
+    private javax.swing.JLabel DNI;
     private javax.swing.JButton EMPRESA;
     private javax.swing.JButton JB_Busqueda;
     private javax.swing.JButton JB_Busqueda1;
@@ -4780,6 +4951,7 @@ public void addEmpresa() {
     private javax.swing.JSpinner JS_ModPromedioGraduacionPuesto;
     private javax.swing.JSpinner JS_ModSalarioDeseadoPersona;
     private javax.swing.JSpinner JS_ModSueldoPuesto;
+    private javax.swing.JSpinner JS_NumHijos;
     private javax.swing.JTable JT_BuscarSolicitudesEmpresa;
     private javax.swing.JTable JT_CrearPuestroDeTrabajo;
     private javax.swing.JTable JT_EliminarEmpresa;
@@ -4795,6 +4967,7 @@ public void addEmpresa() {
     private javax.swing.JTable JT_Solicitudes;
     private javax.swing.JButton ModSiguientePersonaPersonal;
     private javax.swing.JButton PERSONA;
+    private javax.swing.JTextArea TA_CrearHabilidadesPersona;
     private javax.swing.JTextArea TA_CrearHistorialEmpleoPersona;
     private javax.swing.JTextArea TA_CrearPuestosDeseadosPersona;
     private javax.swing.JTextArea TA_CrearPuestosNoDeseadosPersona;
@@ -4806,33 +4979,22 @@ public void addEmpresa() {
     private javax.swing.JTextField TF_BarraBusquedaEmpresa;
     private javax.swing.JTextField TF_BarraBusquedaPersona;
     private javax.swing.JTextField TF_CodigoReferenciaSolicitudEliminar;
-    private javax.swing.JTextField TF_Crear1HijoPersona;
-    private javax.swing.JTextField TF_Crear2HijoPersona;
-    private javax.swing.JTextField TF_Crear3HijoPersona;
     private javax.swing.JTextField TF_CrearAlergiasPersona;
-    private javax.swing.JTextField TF_CrearAntecedentesPenalesPersona;
     private javax.swing.JTextField TF_CrearAntecedentesPuesto;
     private javax.swing.JTextField TF_CrearApellidoPersona;
     private javax.swing.JTextField TF_CrearCIFEmpresa;
     private javax.swing.JTextField TF_CrearCelular;
-    private javax.swing.JTextField TF_CrearCertificaciones1Persona;
-    private javax.swing.JTextField TF_CrearCertificaciones2Persona;
-    private javax.swing.JTextField TF_CrearCertificaciones3Persona;
     private javax.swing.JTextField TF_CrearContrasenaEmpresa;
     private javax.swing.JTextField TF_CrearConyugePersona;
     private javax.swing.JTextField TF_CrearCorreoEmpresa;
     private javax.swing.JTextField TF_CrearCorreoPersona;
-    private javax.swing.JTextField TF_CrearDNIPersona;
-    private javax.swing.JTextField TF_CrearDependiente1Persona;
-    private javax.swing.JTextField TF_CrearDependiente2Persona;
-    private javax.swing.JTextField TF_CrearDependiente3Persona;
+    private javax.swing.JTextField TF_CrearDNI;
     private javax.swing.JTextField TF_CrearDireccionEmpresa;
     private javax.swing.JTextField TF_CrearDireccionPuesto;
     private javax.swing.JTextField TF_CrearEnfermedadesCronicasPersona;
     private javax.swing.JTextField TF_CrearEnfermedadesPuesto;
     private javax.swing.JTextField TF_CrearEspecializacionPersona;
     private javax.swing.JTextField TF_CrearFechaPersona;
-    private javax.swing.JTextField TF_CrearHabilidadesPersona;
     private javax.swing.JTextField TF_CrearHabilidadesPuesto;
     private javax.swing.JTextField TF_CrearIdPersona;
     private javax.swing.JTextField TF_CrearInstitucionEducativaPersona;
@@ -4861,8 +5023,6 @@ public void addEmpresa() {
     private javax.swing.JTextField TF_CrearTipodePuesto;
     private javax.swing.JTextField TF_CrearTituloPuesto;
     private javax.swing.JTextField TF_CrearTitulosObtenidos1Persona;
-    private javax.swing.JTextField TF_CrearTitulosObtenidos2Persona;
-    private javax.swing.JTextField TF_CrearTitulosObtenidos3Persona;
     private javax.swing.JTextField TF_CrearUsuarioEmpresa;
     private javax.swing.JTextField TF_CrearUsuarioPersona;
     private javax.swing.JTextField TF_DireccionCrearPersona;
@@ -4952,7 +5112,6 @@ public void addEmpresa() {
     private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
@@ -5054,7 +5213,6 @@ public void addEmpresa() {
     private javax.swing.JLabel jLabel215;
     private javax.swing.JLabel jLabel216;
     private javax.swing.JLabel jLabel217;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel222;
     private javax.swing.JLabel jLabel223;
     private javax.swing.JLabel jLabel23;
@@ -5133,7 +5291,6 @@ public void addEmpresa() {
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
-    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -5170,6 +5327,7 @@ public void addEmpresa() {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;

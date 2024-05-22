@@ -3,17 +3,17 @@ package com.mycompany.proyectodb2;
 
 
 public class DatosProfesionales {
-    private String conocimientos;
+    private boolean ExpLab;
     private String habilidades;
 
    
 
-    public String getConocimientos() {
-        return conocimientos;
+    public boolean isExpLab() {
+        return ExpLab;
     }
 
-    public void setConocimientos(String conocimientos) {
-        this.conocimientos = conocimientos;
+    public void setExpLab(boolean ExpLab) {
+        this.ExpLab = ExpLab;
     }
 
     public String getHabilidades() {

@@ -3,28 +3,20 @@ package com.mycompany.proyectodb2;
 
 
 public class DatosLaborales {
-    private String empresa;
-    private String puesto;
+    private String HistorialEmp;
     private int aniosExperiencia;
 
     // Getters y Setters
     // (Métodos getter y setter para cada atributo)
 
-    public String getEmpresa() {
-        return empresa;
+    public String getHistorialEmp() {
+        return HistorialEmp;
     }
 
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
+    public void setHistorialEmp(String historial) {
+        this.HistorialEmp = historial;
     }
 
-    public String getPuesto() {
-        return puesto;
-    }
-
-    public void setPuesto(String puesto) {
-        this.puesto = puesto;
-    }
 
     public int getAniosExperiencia() {
         return aniosExperiencia;
