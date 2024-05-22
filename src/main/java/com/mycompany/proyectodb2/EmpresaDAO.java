@@ -6,6 +6,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.types.ObjectId;
 
 public class EmpresaDAO {
 
@@ -35,10 +36,20 @@ public class EmpresaDAO {
     }
 
     // Método para eliminar una empresa
-    public void eliminarEmpresa(String idEmpresa) {
-        Document filtro = new Document("_id", idEmpresa);
-        collection.deleteOne(filtro);
+   public void eliminarEmpresa(String id) {
+    MongoDatabase database = conexion.obtenerBaseDatos();
+    MongoCollection<Document> collection = database.getCollection("empresas");
+
+    try {
+        ObjectId objectId = new ObjectId(id);
+        Document query = new Document("_id", objectId);
+        collection.deleteOne(query);
+    } catch (IllegalArgumentException e) {
+        // Manejar el caso donde el ID no es un ObjectId válido
+        e.printStackTrace();
     }
+}
+
 
     // Método para obtener todas las empresas
     public List<Empresa> obtenerTodasLasEmpresas() {

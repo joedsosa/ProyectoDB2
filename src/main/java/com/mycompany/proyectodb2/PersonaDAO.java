@@ -1,7 +1,10 @@
 package com.mycompany.proyectodb2;
 
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
+import java.util.List;
 import org.bson.Document;
 //prueba
 public class PersonaDAO {
@@ -21,8 +24,7 @@ public class PersonaDAO {
         MongoDatabase database = conexion.obtenerBaseDatos();
         MongoCollection<Document> collection = database.getCollection("personas");
 
-        Document doc = new Document("id", persona.getId())
-                .append("nombre", persona.getNombre())
+        Document doc = new Document("nombre", persona.getNombre())
                 .append("apellidos", persona.getApellidos())
                 .append("dni", persona.getDni())
                 .append("direccion", persona.getDireccion())
@@ -63,12 +65,12 @@ public class PersonaDAO {
         MongoDatabase database = conexion.obtenerBaseDatos();
         MongoCollection<Document> collection = database.getCollection("personas");
 
-        Document query = new Document("id", id);
+        Document query = new Document("_id", id);
         Document result = collection.find(query).first();
 
         if (result != null) {
             Persona persona = new Persona();
-            persona.setId(result.getString("id"));
+            persona.setId(result.getString("_id"));
             persona.setNombre(result.getString("nombre"));
             persona.setApellidos(result.getString("apellidos"));
             persona.setDni(result.getString("dni"));
@@ -141,7 +143,7 @@ public class PersonaDAO {
         MongoDatabase database = conexion.obtenerBaseDatos();
         MongoCollection<Document> collection = database.getCollection("personas");
 
-        Document query = new Document("id", persona.getId());
+        Document query = new Document("_id", persona.getId());
         Document update = new Document("$set", new Document("nombre", persona.getNombre())
                 .append("apellidos", persona.getApellidos())
                 .append("dni", persona.getDni())
@@ -188,7 +190,7 @@ public class PersonaDAO {
 
     private Persona convertirDocumentoAPersona(Document result) {
         Persona persona = new Persona();
-        persona.setId(result.getString("id"));
+        persona.setId(result.getString("_id"));
         persona.setNombre(result.getString("nombre"));
         persona.setApellidos(result.getString("apellidos"));
         persona.setDni(result.getString("dni"));
@@ -243,5 +245,17 @@ public class PersonaDAO {
         prof.setHabilidades(datosProfesionales.getString("habilidades"));
         prof.setExpLab(datosProfesionales.getBoolean("expLab"));
         return persona;
+    }
+     public List<Persona> obtenerTodasLasPersonas() {
+        List<Persona> personas = new ArrayList<>();
+        try (MongoCursor<Document> cursor = collection.find().iterator()) {
+            while (cursor.hasNext()) {
+                Document personaDocument = cursor.next();
+                Persona persona = convertirDocumentoAPersona(personaDocument);
+                personas.add(persona);
+                System.out.println(persona.toString());
+            }
+        }
+        return personas;
     }
 }

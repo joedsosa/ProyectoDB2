@@ -15,10 +15,12 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 //import com.mongodb.*;
 //import org.bson.BsonDocument;
@@ -132,8 +134,6 @@ public class LogIn extends javax.swing.JFrame {
         TF_CrearFechaPersona = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         CB_CrearGeneroPersona = new javax.swing.JComboBox<>();
-        jLabel65 = new javax.swing.JLabel();
-        TF_CrearIdPersona = new javax.swing.JTextField();
         DNI = new javax.swing.JLabel();
         TF_CrearDNI = new javax.swing.JTextField();
         JP_CrearPersonaFamiliares_Sanitarios = new javax.swing.JPanel();
@@ -1096,11 +1096,6 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
         JP_CrearPersonaPersonal.add(CB_CrearGeneroPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 430, 146, 39));
-
-        jLabel65.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel65.setText("Id de Persona");
-        JP_CrearPersonaPersonal.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 130, -1));
-        JP_CrearPersonaPersonal.add(TF_CrearIdPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 310, 30));
 
         DNI.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         DNI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -3877,12 +3872,26 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_ModificarPersonaMouseClicked
 
     private void JB_EliminarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarPersonaMouseClicked
+
+        personaDAO = new PersonaDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Nombre", "Apellido", "Usuario"}, 0);
+        JT_EliminarPersona.setModel(tableModel);
+        llenarTablaEliminarPersona();
         JP_CrearPersonaPersonal.setVisible(false);
         JP_EliminarPersona.setVisible(true);
         JP_ModPersonaPersonal.setVisible(false);
+
     }//GEN-LAST:event_JB_EliminarPersonaMouseClicked
 
     private void JB_ConfirmarEliminarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarEliminarPersonaMouseClicked
+        int selectedRow = JT_EliminarPersona.getSelectedRow();
+        if (selectedRow != -1) {
+            String id = (String) tableModel.getValueAt(selectedRow, 0);
+            personaDAO.eliminarPersona(id);
+            tableModel.removeRow(selectedRow);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona una persona para eliminar.");
+        }
         JOptionPane.showMessageDialog(this, "La persona se ha eliminado exitosamente");
         JP_EliminarEmpresa.setVisible(false);
 
@@ -3945,7 +3954,6 @@ public class LogIn extends javax.swing.JFrame {
 
         JP_CrearPersonaRequisitos_Condiciones.setVisible(false);
 
-        TF_CrearIdPersona.setText("");
         TF_CrearUsuarioPersona.setText("");
         TF_CrearPasswordPersona.setText("");
         TF_CrearNombrePersona.setText("");
@@ -4091,6 +4099,11 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_ModificarEmpresaMouseClicked
 
     private void JB_EliminarEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarEmpresaMouseClicked
+        empresaDAO = new EmpresaDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        // Configurar el modelo de la tabla
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Nombre", "CIF", "Usuario"}, 0);
+        JT_EliminarEmpresa.setModel(tableModel);
+        llenarTablaEliminarEmpresa();
         JP_CrearEmpresa.setVisible(false);
         JP_EliminarEmpresa.setVisible(true);
         JP_ModEmpresa.setVisible(false);
@@ -4130,9 +4143,16 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JT_ModEmpresaMouseClicked
 
     private void JB_ConfirmarEliminarEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarEliminarEmpresaMouseClicked
-
+         int selectedRow = JT_EliminarEmpresa.getSelectedRow();
+        if (selectedRow != -1) {
+            String id = (String) tableModel.getValueAt(selectedRow, 0);
+            empresaDAO.eliminarEmpresa(id);
+            tableModel.removeRow(selectedRow);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona una empresa para eliminar.");
+        }
+        JOptionPane.showMessageDialog(this, "La persona se ha eliminado exitosamente");
         JP_EliminarEmpresa.setVisible(false);
-        JOptionPane.showMessageDialog(this, "La empresa se ha eliminado exitosamente");
         JF_CrudEmpresa.setVisible(false);
 
         JF_Admin.pack();
@@ -4527,159 +4547,6 @@ public class LogIn extends javax.swing.JFrame {
         });
     }
 
-    public void addPersona() {
-        String idecito = TF_CrearIdPersona.getText();
-        String name = TF_CrearNombrePersona.getText();
-        String apellido = TF_CrearApellidoPersona.getText();
-        String direction = TF_DireccionCrearPersona.getText();
-        String gmail = TF_CrearCorreoPersona.getText();
-        String phone = TF_CrearCelular.getText();
-        String user = TF_CrearUsuarioPersona.getText();
-        String pass = TF_CrearPasswordPersona.getText();
-        String fechaNacimiento = TF_CrearFechaPersona.getText();
-        String genero = CB_CrearGeneroPersona.getSelectedItem().toString();
-        String puestosDeseados = TA_CrearPuestosDeseadosPersona.getText();
-        String puestosNoDeseados = TA_CrearPuestosNoDeseadosPersona.getText();
-        String horario = CB_CrearDisponibilidadHorariaPersona.getSelectedItem().toString();
-        String contrato = CB_CrearTipoContratoPersona.getSelectedItem().toString();
-        int salario = (int) JS_CrearSalarioDeseadoPersona.getValue();
-        String EstadoCivil = CB_CrearEstadoCivilPersona.getSelectedItem().toString();
-        String novi = TF_CrearConyugePersona.getText();
-        int numhijos = (int) JS_NumHijos.getValue();
-        String alergis = TF_CrearAlergiasPersona.getText();
-        String enfermedades = TF_CrearEnfermedadesCronicasPersona.getText();
-        String sangre = CB_CrearGrupoSanguineoPersona.getSelectedItem().toString();
-        String identidaddni = TF_CrearDNI.getText();
-        String estadoLegal = CB_CrearEstadoLegalPersona.getSelectedItem().toString();
-        String antecedentes = CB_CrearServicioMilitarAntecedentes.getSelectedItem().toString();
-        String servicioMilitarYN = CB_CrearServicioMilitarPersona.getSelectedItem().toString();
-        String nivelEducativo = CB_CrearNivelEducacionPersona.getSelectedItem().toString();
-        String institucion = TF_CrearInstitucionEducativaPersona.getText();
-        String titulo1 = TF_CrearTitulosObtenidos1Persona.getText();
-        String especializacion = TF_CrearEspecializacionPersona.getText();
-        int promedio = (Integer) JS_CrearPromedioGraduacionPersona.getValue();
-        String experiencia = CB_CrearExperienciaLaboralPersona.getSelectedItem().toString();
-        String habilidades = TA_CrearHabilidadesPersona.getText();
-        String historial = TA_CrearHistorialEmpleoPersona.getText();
-        int yearsExperiencia = (Integer) JS_CrearYearsExperienciaPersona.getValue();
-
-        try {
-            String nombre = name;
-            String apellidos = apellido;
-            String dni = identidaddni;
-            String direccion = direction;
-            String telefono = phone;
-            String email = gmail;
-            String id = idecito;
-            String usuario = user;
-            String contrasena = pass;
-
-            // Datos familiares
-            String estadoCivilFamiliar = EstadoCivil;
-            int numeroHijos = numhijos;
-            String nombreConyuge = novi;
-
-            // Datos sanitarios
-            String grupoSanguineo = sangre;
-            String alergias = alergis;
-            String enfermedadesCronicas = enfermedades;
-
-            // Datos legales
-            boolean servicioMilitar;
-            if (servicioMilitarYN.equalsIgnoreCase("SI")) {
-                servicioMilitar = true;
-            } else {
-                servicioMilitar = false;
-            }
-            boolean ant;
-            if (antecedentes.equalsIgnoreCase("SI")) {
-                ant = true;
-            } else {
-                ant = false;
-            }
-            boolean tieneExp;
-            if (experiencia.equalsIgnoreCase("SI")) {
-                tieneExp = true;
-            } else {
-                tieneExp = false;
-            }
-
-            DatosProfesionales prof = new DatosProfesionales();
-            prof.setExpLab(tieneExp);
-            prof.setHabilidades(habilidades);
-
-            DatosLaborales dl = new DatosLaborales();
-            dl.setAniosExperiencia(yearsExperiencia);
-            dl.setHistorialEmp(historial);
-
-            RequisitosTrabajo req = new RequisitosTrabajo();
-            req.setContrato(contrato);
-            req.setDisponibilidad(horario);
-            req.setPuestosNO(puestosNoDeseados);
-            req.setPuestosSI(puestosDeseados);
-            req.setSalario(salario);
-
-            // Crear instancias de las clases de datos anidados
-            DatosFamiliares datosFamiliares = new DatosFamiliares();
-            datosFamiliares.setEstadoCivil(estadoCivilFamiliar);
-            datosFamiliares.setNumeroHijos(numeroHijos);
-            datosFamiliares.setNombreConyuge(nombreConyuge);
-
-            DatosSanitarios datosSanitarios = new DatosSanitarios();
-            datosSanitarios.setGrupoSanguineo(grupoSanguineo);
-            datosSanitarios.setAlergias(alergias);
-            datosSanitarios.setEnfermedadesCronicas(enfermedadesCronicas);
-
-            DatosLegales datosLegales = new DatosLegales();
-            datosLegales.setServicioMilitar(servicioMilitar);
-            datosLegales.setAntecedentesPenales(ant);
-            datosLegales.setEspecializacion(especializacion);
-            datosLegales.setEstadoLegal(estadoLegal);
-            datosLegales.setInstitucionEducativa(institucion);
-            datosLegales.setNivelEducacion(nivelEducativo);
-            datosLegales.setPromedioGrad(promedio);
-            datosLegales.setTitulosObtenidos(titulo1);
-
-            // Crear una instancia de la clase Persona con los datos ingresados
-            Persona persona = new Persona();
-            persona.setId(id);
-            persona.setNombre(nombre);
-            persona.setApellidos(apellidos);
-            persona.setDni(dni);
-            persona.setDireccion(direccion);
-            persona.setTelefono(telefono);
-            persona.setEmail(email);
-            persona.setUsuario(usuario); // Establecer usuario
-            persona.setContrasena(contrasena); // Establecer contraseña
-            persona.setDatosFamiliares(datosFamiliares);
-            persona.setDatosSanitarios(datosSanitarios);
-            persona.setDatosLegales(datosLegales);
-            persona.setRequisitos(req);
-            persona.setFecha_nac(fechaNacimiento);
-            persona.setDatosLaborales(dl);
-            persona.setDatosProfesionales(prof);
-            persona.setGenero(genero);
-
-            // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
-            ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
-
-            // Crear una instancia de la clase PersonaDAO para realizar las operaciones en la base de datos
-            PersonaDAO personaDAO = new PersonaDAO(conexion);
-
-            // Insertar la persona en la base de datos
-            personaDAO.insertarPersona(persona);
-
-            // Cerrar la conexión a la base de datos
-            conexion.cerrarConexion();
-
-            // Mostrar mensaje de éxito
-            JOptionPane.showMessageDialog(null, "Persona insertada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception ex) {
-            // Mostrar mensaje de error en caso de excepción
-            JOptionPane.showMessageDialog(null, "Error al insertar la persona: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
     public void iniciarSesion() {
         try {
             String usuario = TF_UserName.getText(); // Obtener usuario ingresado
@@ -4756,6 +4623,156 @@ public class LogIn extends javax.swing.JFrame {
         }
     }
 
+    public void addPersona() {
+        String name = TF_CrearNombrePersona.getText();
+        String apellido = TF_CrearApellidoPersona.getText();
+        String direction = TF_DireccionCrearPersona.getText();
+        String gmail = TF_CrearCorreoPersona.getText();
+        String phone = TF_CrearCelular.getText();
+        String user = TF_CrearUsuarioPersona.getText();
+        String pass = TF_CrearPasswordPersona.getText();
+        String fechaNacimiento = TF_CrearFechaPersona.getText();
+        String genero = CB_CrearGeneroPersona.getSelectedItem().toString();
+        String puestosDeseados = TA_CrearPuestosDeseadosPersona.getText();
+        String puestosNoDeseados = TA_CrearPuestosNoDeseadosPersona.getText();
+        String horario = CB_CrearDisponibilidadHorariaPersona.getSelectedItem().toString();
+        String contrato = CB_CrearTipoContratoPersona.getSelectedItem().toString();
+        int salario = (int) JS_CrearSalarioDeseadoPersona.getValue();
+        String EstadoCivil = CB_CrearEstadoCivilPersona.getSelectedItem().toString();
+        String novi = TF_CrearConyugePersona.getText();
+        int numhijos = (int) JS_NumHijos.getValue();
+        String alergis = TF_CrearAlergiasPersona.getText();
+        String enfermedades = TF_CrearEnfermedadesCronicasPersona.getText();
+        String sangre = CB_CrearGrupoSanguineoPersona.getSelectedItem().toString();
+        String identidaddni = TF_CrearDNI.getText();
+        String estadoLegal = CB_CrearEstadoLegalPersona.getSelectedItem().toString();
+        String antecedentes = CB_CrearServicioMilitarAntecedentes.getSelectedItem().toString();
+        String servicioMilitarYN = CB_CrearServicioMilitarPersona.getSelectedItem().toString();
+        String nivelEducativo = CB_CrearNivelEducacionPersona.getSelectedItem().toString();
+        String institucion = TF_CrearInstitucionEducativaPersona.getText();
+        String titulo1 = TF_CrearTitulosObtenidos1Persona.getText();
+        String especializacion = TF_CrearEspecializacionPersona.getText();
+        int promedio = (Integer) JS_CrearPromedioGraduacionPersona.getValue();
+        String experiencia = CB_CrearExperienciaLaboralPersona.getSelectedItem().toString();
+        String habilidades = TA_CrearHabilidadesPersona.getText();
+        String historial = TA_CrearHistorialEmpleoPersona.getText();
+        int yearsExperiencia = (Integer) JS_CrearYearsExperienciaPersona.getValue();
+
+        try {
+            String nombre = name;
+            String apellidos = apellido;
+            String dni = identidaddni;
+            String direccion = direction;
+            String telefono = phone;
+            String email = gmail;
+            String usuario = user;
+            String contrasena = pass;
+
+            // Datos familiares
+            String estadoCivilFamiliar = EstadoCivil;
+            int numeroHijos = numhijos;
+            String nombreConyuge = novi;
+
+            // Datos sanitarios
+            String grupoSanguineo = sangre;
+            String alergias = alergis;
+            String enfermedadesCronicas = enfermedades;
+
+            // Datos legales
+            boolean servicioMilitar;
+            if (servicioMilitarYN.equalsIgnoreCase("SI")) {
+                servicioMilitar = true;
+            } else {
+                servicioMilitar = false;
+            }
+            boolean ant;
+            if (antecedentes.equalsIgnoreCase("SI")) {
+                ant = true;
+            } else {
+                ant = false;
+            }
+            boolean tieneExp;
+            if (experiencia.equalsIgnoreCase("SI")) {
+                tieneExp = true;
+            } else {
+                tieneExp = false;
+            }
+
+            DatosProfesionales prof = new DatosProfesionales();
+            prof.setExpLab(tieneExp);
+            prof.setHabilidades(habilidades);
+
+            DatosLaborales dl = new DatosLaborales();
+            dl.setAniosExperiencia(yearsExperiencia);
+            dl.setHistorialEmp(historial);
+
+            RequisitosTrabajo req = new RequisitosTrabajo();
+            req.setContrato(contrato);
+            req.setDisponibilidad(horario);
+            req.setPuestosNO(puestosNoDeseados);
+            req.setPuestosSI(puestosDeseados);
+            req.setSalario(salario);
+
+            // Crear instancias de las clases de datos anidados
+            DatosFamiliares datosFamiliares = new DatosFamiliares();
+            datosFamiliares.setEstadoCivil(estadoCivilFamiliar);
+            datosFamiliares.setNumeroHijos(numeroHijos);
+            datosFamiliares.setNombreConyuge(nombreConyuge);
+
+            DatosSanitarios datosSanitarios = new DatosSanitarios();
+            datosSanitarios.setGrupoSanguineo(grupoSanguineo);
+            datosSanitarios.setAlergias(alergias);
+            datosSanitarios.setEnfermedadesCronicas(enfermedadesCronicas);
+
+            DatosLegales datosLegales = new DatosLegales();
+            datosLegales.setServicioMilitar(servicioMilitar);
+            datosLegales.setAntecedentesPenales(ant);
+            datosLegales.setEspecializacion(especializacion);
+            datosLegales.setEstadoLegal(estadoLegal);
+            datosLegales.setInstitucionEducativa(institucion);
+            datosLegales.setNivelEducacion(nivelEducativo);
+            datosLegales.setPromedioGrad(promedio);
+            datosLegales.setTitulosObtenidos(titulo1);
+
+            // Crear una instancia de la clase Persona con los datos ingresados
+            Persona persona = new Persona();
+            persona.setNombre(nombre);
+            persona.setApellidos(apellidos);
+            persona.setDni(dni);
+            persona.setDireccion(direccion);
+            persona.setTelefono(telefono);
+            persona.setEmail(email);
+            persona.setUsuario(usuario); // Establecer usuario
+            persona.setContrasena(contrasena); // Establecer contraseña
+            persona.setDatosFamiliares(datosFamiliares);
+            persona.setDatosSanitarios(datosSanitarios);
+            persona.setDatosLegales(datosLegales);
+            persona.setRequisitos(req);
+            persona.setFecha_nac(fechaNacimiento);
+            persona.setDatosLaborales(dl);
+            persona.setDatosProfesionales(prof);
+            persona.setGenero(genero);
+
+            // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
+            ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
+
+            // Crear una instancia de la clase PersonaDAO para realizar las operaciones en la base de datos
+            PersonaDAO personaDAO = new PersonaDAO(conexion);
+
+            // Insertar la persona en la base de datos
+            personaDAO.insertarPersona(persona);
+
+            // Cerrar la conexión a la base de datos
+            conexion.cerrarConexion();
+
+            // Mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Persona insertada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            // Mostrar mensaje de error en caso de excepción
+            JOptionPane.showMessageDialog(null, "Error al insertar la persona: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     public void addAdmin() {
         ConexionMongo conexionMongo = new ConexionMongo("localhost", 27017, "empresa_db");
 
@@ -4822,6 +4839,21 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al insertar la empresa: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void llenarTablaEliminarPersona() {
+        List<Persona> personas = personaDAO.obtenerTodasLasPersonas();
+        for (Persona persona : personas) {
+            tableModel.addRow(new Object[]{persona.getId(), persona.getNombre(), persona.getApellidos(), persona.getUsuario()});
+        }
+    }
+
+    private void llenarTablaEliminarEmpresa() {
+        List<Empresa> empresas = empresaDAO.obtenerTodasLasEmpresas();
+        for (Empresa empresa : empresas) {
+            tableModel.addRow(new Object[]{empresa.getId(), empresa.getNombre(), empresa.getCIF(), empresa.getUsuario()});
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADMIN;
@@ -4996,7 +5028,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextField TF_CrearEspecializacionPersona;
     private javax.swing.JTextField TF_CrearFechaPersona;
     private javax.swing.JTextField TF_CrearHabilidadesPuesto;
-    private javax.swing.JTextField TF_CrearIdPersona;
     private javax.swing.JTextField TF_CrearInstitucionEducativaPersona;
     private javax.swing.JTextField TF_CrearNivelEducacionPuesto;
     private javax.swing.JTextField TF_CrearNombreEmpresa;
@@ -5256,7 +5287,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
@@ -5357,5 +5387,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jl_TelefonoCompania8;
     private javax.swing.JLabel jl_TelefonoCompania9;
     // End of variables declaration//GEN-END:variables
-
+private PersonaDAO personaDAO;
+    private EmpresaDAO empresaDAO;
+    private DefaultTableModel tableModel;
 }
