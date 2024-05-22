@@ -4374,6 +4374,24 @@ private static boolean connect() {
 
     private void JB_ConfirmarModEmpresa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarModEmpresa1MouseClicked
         JP_ModPuesto.setVisible(false);
+        String nombre = TF_CrearSolicitudNombre.getText();
+        String apellido = TF_CrearSolicitudApellido.getText();
+        String direccion = TF_CrearSolicitudDireccion.getText();
+        String genero = TF_CrearSolicitudGenero.getText();
+        String educacion = TF_CrearSolicitudNivelEdicacion.getText();
+        String titulo = TF_CrearSolicitudTitulo.getText();
+        String promedio = TF_CrearSolicitudPromedioGraduacion.getText();
+        String enfermedades = TF_CrearSolicitudEnfermedades.getText();
+        String antecedentes = TF_CrearSolicitudAntecedentes.getText();
+        String servicioMilitar = TF_CrearSolicitudServicioMilitar.getText();
+        String experiencia = TF_CrearSolicitudExperiencia.getText();
+        String years = TF_CrearSolicitudAniosExperiencia.getText();
+        String habilidades = TF_CrearSolicitudHabilidades.getText();
+        String puestosDeseados = TA_CrearSolicitudPuestoDeseado.getText();
+        String puestosNoDeseados = TA_CrearSolicitudPuestoNoDeseado.getText();
+        String sueldo = TF_CrearSolicitudSueldo.getText();
+        String horario = TF_CrearSolicitudHorario.getText();
+        String contrato = TF_CrearSolicitudContrato.getText();
         JOptionPane.showMessageDialog(this, "El puesto de trabajo se ha modificado exitosamente");
 
         TF_ModDireccionPuesto.setText("");
@@ -4408,6 +4426,8 @@ private static boolean connect() {
     private void JB_ConfirmarCrearSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearSolicitudMouseClicked
         JP_CrearSolicitud.setVisible(false);
         JOptionPane.showMessageDialog(this, "La solicitud se ha creado exitosamente");
+        
+        
         TF_CrearSolicitudAniosExperiencia.setText("");
         TF_CrearSolicitudAntecedentes.setText("");
         TF_CrearSolicitudApellido.setText("");
