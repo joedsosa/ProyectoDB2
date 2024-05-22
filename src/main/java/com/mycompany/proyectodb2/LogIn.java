@@ -4276,8 +4276,17 @@ private static boolean connect() {
 
     private void JB_ConfirmarCrearEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearEmpresaMouseClicked
         JP_CrearEmpresa.setVisible(false);
+        String id = TF_CrearIdEmpresa.getText();
+        String usuario = TF_CrearUsuarioEmpresa.getText();
+        String contrasena = TF_CrearContrasenaEmpresa.getText();
+        String sector = TF_CrearSectorActividadEmpresa.getText();
+        String nombre = TF_CrearNombreEmpresa.getText();
+        String CIF = TF_CrearCIFEmpresa.getText();
+        String direccion = TF_CrearDireccionEmpresa.getText();
+        String telefono = TF_CrearTelefonoEmpresa.getText();
+        String email = TF_CrearCorreoEmpresa.getText();
         JOptionPane.showMessageDialog(this, "La empresa se ha creado exitosamente");
-
+        
         TF_CrearIdEmpresa.setText("");
         TF_CrearUsuarioEmpresa.setText("");
         TF_CrearContrasenaEmpresa.setText("");
