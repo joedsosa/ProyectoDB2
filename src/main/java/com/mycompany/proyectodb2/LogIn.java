@@ -4327,6 +4327,18 @@ private static boolean connect() {
 
     private void JB_ConfirmarCrearPuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearPuestoMouseClicked
         JP_CrearPuesto.setVisible(false);
+        String direccion = TF_CrearDireccionPuesto.getText();
+        String genero = CB_CrearGeneroPuesto.getSelectedItem().toString();
+        String educacion = TF_CrearNivelEducacionPuesto.getText();
+        String titulo = TF_CrearTituloPuesto.getText();
+        String enfermedades = TF_CrearEnfermedadesPuesto.getText();
+        String experiencia = CB_CrearExperienciaPuesto.getSelectedItem().toString();
+        String habilidades = TF_CrearHabilidadesPuesto.getText();
+        String antecedentes = TF_CrearAntecedentesPuesto.getText();
+        String servicioMilitar = CB_CrearServicioMilitarPuesto.getSelectedItem().toString();
+        String horario = CB_CrearHorarioSueldo.getSelectedItem().toString();
+        String contrato = CB_CrearContratoPuesto.getSelectedItem().toString();
+        String tipo = TF_CrearTipodePuesto.getText();
         JOptionPane.showMessageDialog(this, "El puesto de trabajo se ha creado exitosamente");
 
         TF_CrearDireccionPuesto.setText("");
