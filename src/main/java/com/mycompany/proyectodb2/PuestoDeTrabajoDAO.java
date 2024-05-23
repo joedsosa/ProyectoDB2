@@ -61,9 +61,27 @@ public class PuestoDeTrabajoDAO {
     }
 
     public void actualizarPuestoDeTrabajo(PuestoDeTrabajo puesto) {
-        Document filtro = new Document("_id", puesto.getId());
-        Document nuevoPuesto = convertirPuestoDeTrabajoADocumento(puesto);
-        collection.replaceOne(filtro, nuevoPuesto);
+        MongoDatabase database = conexion.obtenerBaseDatos();
+        MongoCollection<Document> collection = database.getCollection("puestosDeTrabajo");
+        ObjectId objectId = new ObjectId(puesto.getId());
+        Document query = new Document("_id", objectId);
+        Document update = new Document("$set", new Document("empresa", puesto.getEmpresa())
+                .append("tipoPuesto", puesto.getTipoPuesto())
+                .append("ubicacion", puesto.getUbicacion())
+                .append("genero", puesto.getGenero())
+                .append("nivelEducacion", puesto.getNivelEducacion())
+                .append("titulo", puesto.getTitulo())
+                .append("promedioGraduacion", puesto.getPromedioGraduacion()) // Agregar usuario
+                .append("enfermedadesNoPermitidas", puesto.getEnfermedadesNoPermitidas())
+                .append("antecedentesPenalesPermitidos", puesto.getAntecedentesPenalesPermitidos())
+                .append("servicioMilitar", puesto.getServicioMilitar())
+                .append("sueldo", puesto.getSueldo())
+                .append("horario", puesto.getHorario())
+                .append("tipoContrato", puesto.getTipoContrato())
+                .append("experiencia", puesto.isExperiencia())
+                .append("anosExperiencia", puesto.getAnosExperiencia())
+                .append("habilidadesRequeridas", puesto.getHabilidadesRequeridas()));
+        collection.updateOne(query, update);
     }
 
     public void eliminarPuestoDeTrabajo(String id) {

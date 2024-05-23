@@ -4775,7 +4775,10 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here:puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
         puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
         solicitudDAO = new SolicitudDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
-
+        DefaultTableModel modelo1 = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel)JT_Solicitudes.getModel();
+        
+        
         int selectedRow1 = jTable1.getSelectedRow();
         int selectedRow2 = JT_Solicitudes.getSelectedRow();
         if (selectedRow1 != -1 && selectedRow2 != -1) {
@@ -4787,7 +4790,7 @@ public class LogIn extends javax.swing.JFrame {
                     nombreEmpresa = puesto.getEmpresa();
                 }
             }
-            tableModel.removeRow(selectedRow1);
+            modelo1.removeRow(selectedRow1);
             String idSolicitud = (String) tableModel.getValueAt(selectedRow2, 0);
             List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerSolicitudesPorPersona();
             for (SolicitudDeEmpleo solicitud : solicitudes) {
@@ -4797,7 +4800,8 @@ public class LogIn extends javax.swing.JFrame {
                     solicitudDAO.actualizarSolicitudDeEmpleo(solicitud);
                 }
             }
-            tableModel.removeRow(selectedRow2);
+            modelo2.removeRow(selectedRow2);
+            JOptionPane.showMessageDialog(this, "Se ha contratado exitosamente");
         } else {
             JOptionPane.showMessageDialog(null, "No ha seleccionado un puesto o una solicitud", "Error", JOptionPane.ERROR_MESSAGE);
         }
