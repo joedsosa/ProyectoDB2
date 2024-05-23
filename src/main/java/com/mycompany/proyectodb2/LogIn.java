@@ -605,9 +605,6 @@ public class LogIn extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         JB_LogIn = new javax.swing.JButton();
-        ADMIN = new javax.swing.JButton();
-        PERSONA = new javax.swing.JButton();
-        EMPRESA = new javax.swing.JButton();
 
         jPanel2.setPreferredSize(new java.awt.Dimension(1941, 770));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2893,8 +2890,6 @@ public class LogIn extends javax.swing.JFrame {
         ));
         jScrollPane12.setViewportView(JT_ResultadosBusqueda);
 
-        TF_BarraBusquedaPersona.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel222.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel222.setText("Introduce palabra clave");
 
@@ -3425,7 +3420,6 @@ public class LogIn extends javax.swing.JFrame {
         jLabel223.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel223.setText("Introduce el puesto ");
 
-        TF_BarraBusquedaEmpresa.setEditable(false);
         TF_BarraBusquedaEmpresa.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel28.setBackground(new java.awt.Color(44, 65, 114));
@@ -3772,27 +3766,6 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        ADMIN.setText("ADMIN");
-        ADMIN.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ADMINMouseClicked(evt);
-            }
-        });
-
-        PERSONA.setText("PERSONA");
-        PERSONA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PERSONAMouseClicked(evt);
-            }
-        });
-
-        EMPRESA.setText("EMPRESA");
-        EMPRESA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EMPRESAMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -3804,12 +3777,7 @@ public class LogIn extends javax.swing.JFrame {
                         .addGap(432, 432, 432)
                         .addComponent(JB_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ADMIN)
-                            .addComponent(PERSONA)
-                            .addComponent(EMPRESA))
-                        .addGap(198, 198, 198)
+                        .addGap(385, 385, 385)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TF_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3823,21 +3791,12 @@ public class LogIn extends javax.swing.JFrame {
                 .addGap(233, 233, 233)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TF_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ADMIN))
+                .addComponent(TF_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(PERSONA))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(TF_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(EMPRESA)))
-                .addGap(63, 63, 63)
+                .addComponent(jLabel8)
+                .addGap(26, 26, 26)
+                .addComponent(TF_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
                 .addComponent(JB_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -4709,6 +4668,7 @@ public class LogIn extends javax.swing.JFrame {
         JP_PuestosDispiniblesPersona.setVisible(false);
         JP_BusquedaDetallada.setVisible(false);
         JP_MiSolicitudPersona.setVisible(true);
+        miSolicitud();
     }//GEN-LAST:event_JB_MiSolicitudPersonasMouseClicked
 
     private void TF_MiSolicitudNombreEmpresaPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_MiSolicitudNombreEmpresaPersonaActionPerformed
@@ -4716,6 +4676,7 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_TF_MiSolicitudNombreEmpresaPersonaActionPerformed
 
     private void JB_ContratacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ContratacionesMouseClicked
+        
         puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
         tableModel = new DefaultTableModel(new Object[]{"ID", "Empresa", "Sueldo", "Titulo", "Nivel de Educacion", "Titulo", "Horario"}, 0);
         jTable1.setModel(tableModel);
@@ -4870,30 +4831,6 @@ public class LogIn extends javax.swing.JFrame {
         JF_Empresa.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_JB_CerrarSesionEmpresaMouseClicked
-
-    private void ADMINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ADMINMouseClicked
-        this.setVisible(false);
-        JF_Admin.pack();
-        JF_Admin.setLocationRelativeTo(this);
-        JF_Admin.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        JF_Admin.setVisible(true);
-    }//GEN-LAST:event_ADMINMouseClicked
-
-    private void PERSONAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PERSONAMouseClicked
-        this.setVisible(false);
-        JF_Persona.pack();
-        JF_Persona.setLocationRelativeTo(this);
-        JF_Persona.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        JF_Persona.setVisible(true);
-    }//GEN-LAST:event_PERSONAMouseClicked
-
-    private void EMPRESAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EMPRESAMouseClicked
-        this.setVisible(false);
-        JF_Empresa.pack();
-        JF_Empresa.setLocationRelativeTo(this);
-        JF_Empresa.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        JF_Empresa.setVisible(true);
-    }//GEN-LAST:event_EMPRESAMouseClicked
 
     private void TF_CrearUsuarioPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CrearUsuarioPersonaActionPerformed
         // TODO add your handling code here:
@@ -5315,21 +5252,25 @@ public class LogIn extends javax.swing.JFrame {
     private void llenarTablaSolicitudesEmpresa() {
         List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerTodasLasSolicitudes();
         for (SolicitudDeEmpleo solicitud : solicitudes) {
+            if(solicitud.getEstado().equalsIgnoreCase("Pendiente"))
             tableModel.addRow(new Object[]{solicitud.getId(), solicitud.getNombre(), solicitud.getApellido(), solicitud.getGenero(), solicitud.getNivelEducacion(), solicitud.getTitulo(), solicitud.getExperiencia()});
             //"ID", "Nombre", "Apellido", "Genero","NivelEducacion","Titulo"," Experiencia"
         }
     }
 
     private void llenarTablaPuestos() {
+        
         List<PuestoDeTrabajo> puestos = puestoDAO.obtenerTodosLosPuestosDeTrabajo();
+        
         for (PuestoDeTrabajo puesto : puestos) {
-            tableModel.addRow(new Object[]{puesto.getId(), puesto.getEmpresa(), puesto.getSueldo(), puesto.getTitulo(), puesto.getNivelEducacion(), puesto.getTitulo(), puesto.getHorario()});
+            if(puesto.isDisponible()==true){
+                tableModel.addRow(new Object[]{puesto.getId(), puesto.getEmpresa(), puesto.getSueldo(), puesto.getTitulo(), puesto.getNivelEducacion(), puesto.getTitulo(), puesto.getHorario()});
+            }
         }
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ADMIN;
     private javax.swing.JComboBox<String> CB_CrearContratoPuesto;
     private javax.swing.JComboBox<String> CB_CrearDisponibilidadHorariaPersona;
     private javax.swing.JComboBox<String> CB_CrearEstadoCivilPersona;
@@ -5361,7 +5302,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_ModServiciorPersona;
     private javax.swing.JComboBox<String> CB_ModTipoContratoPersona;
     private javax.swing.JLabel DNI;
-    private javax.swing.JButton EMPRESA;
     private javax.swing.JButton JB_Busqueda;
     private javax.swing.JButton JB_Busqueda1;
     private javax.swing.JButton JB_BusquedaDetalladaPersonas;
@@ -5473,7 +5413,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTable JT_ResultadosBusqueda;
     private javax.swing.JTable JT_Solicitudes;
     private javax.swing.JButton ModSiguientePersonaPersonal;
-    private javax.swing.JButton PERSONA;
     private javax.swing.JTextArea TA_CrearHabilidadesPersona;
     private javax.swing.JTextArea TA_CrearHistorialEmpleoPersona;
     private javax.swing.JTextArea TA_CrearPuestosDeseadosPersona;
@@ -6027,7 +5966,7 @@ public class LogIn extends javax.swing.JFrame {
     private void llenarTablaBusquedaPersona(String busqueda) {
         List<PuestoDeTrabajo> puestos = puestoDAO.obtenerTodosLosPuestosDeTrabajo();
         for (PuestoDeTrabajo puesto : puestos) {
-            if ((puesto.getEmpresa().equals(busqueda)) || (puesto.getTipoPuesto().equals(busqueda)) || (puesto.getUbicacion().equals(busqueda)) || (Double.toString(puesto.getSueldo()).equals(busqueda))) {
+            if ((puesto.getEmpresa().equals(busqueda)) || (puesto.getTipoPuesto().equals(busqueda)) || (puesto.getUbicacion().equals(busqueda)) || (Double.toString(puesto.getSueldo()).equals(busqueda)) && puesto.isDisponible()==true) {
                 tableModel.addRow(new Object[]{puesto.getEmpresa(), puesto.getTipoPuesto(), puesto.getUbicacion(), puesto.getSueldo()});
             } else {
                 JOptionPane.showMessageDialog(this, "No hay resultados con esa busqueda.");
@@ -6103,7 +6042,24 @@ public class LogIn extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Puesto insertado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
     }
-
+private void miSolicitud(){
+        List <Persona> personas = personaDAO.obtenerTodasLasPersonas();
+        for (Persona persona : personas){
+            if (persona.getUsuario().equals(usuarioLogIN) && persona.getContrasena().equals(contrasenaLogIN)){
+                List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerTodasLasSolicitudes();
+                for (SolicitudDeEmpleo solicitud : solicitudes) {
+                    if (solicitud.getIdPersona().equals(persona.getId())) {
+                        TF_MiSolicitudCodigoReferenciaPersona.setText(solicitud.getId());
+                        TF_MiSolicitudEstadoSolicitudPersona.setText(solicitud.getEstado());
+                        TF_MiSolicitudPuestoTrabajoaPersona.setText(solicitud.getPuestosDeseados());
+                        TF_MiSolicitudNombreEmpresaPersona.setText(solicitud.getNombreEmpresa());
+                    } else {
+                        JOptionPane.showMessageDialog(this, "No ha hecho ninguna solicitud");
+                    }
+                }
+            }
+        }
+        }
     private void llenarTablaEmpresasPuestos() {
         List<Empresa> empresas = empresaDAO.obtenerTodasLasEmpresas();
         for (Empresa empresa : empresas) {
@@ -6215,6 +6171,10 @@ public class LogIn extends javax.swing.JFrame {
 
                 // Mostrar mensaje de éxito
                 JOptionPane.showMessageDialog(null, "Solicitud de empleo creada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                TF_MiSolicitudEstadoSolicitudPersona.setText("Pendiente");
+                TF_MiSolicitudCodigoReferenciaPersona.setText(solicitud.getId());
+                TF_MiSolicitudNombreEmpresaPersona.setText("N/A");
+                TF_MiSolicitudPuestoTrabajoaPersona.setText("Pediente");
 
                 // Limpiar los campos de texto después de la creación de la solicitud
                 limpiarCampos();
