@@ -1,66 +1,88 @@
-//
-//package com.mycompany.proyectodb2;
-//
-//import com.mongodb.client.MongoCollection;
-//import com.mongodb.client.MongoCursor;
-//import org.bson.Document;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class SolicitudDAO {
-//    private final MongoCollection<Document> collection;
-//    private final ConexionMongo conexion;
-//
-//    public SolicitudDAO() {
-//        // Conectar a la base de datos
-//        conexion = new ConexionMongo();
-//        // Obtener la colección
-//        this.collection = conexion.obtenerBaseDatos().getCollection("solicitudes_de_empleo");
-//    }
-//
-//    // Método para insertar una nueva solicitud de empleo
-//    public void insertarSolicitud(SolicitudDeEmpleo solicitud) {
-//        Document solicitudDocument = convertirSolicitudADocumento(solicitud);
-//        collection.insertOne(solicitudDocument);
-//    }
-//
-//    // Método para obtener todas las solicitudes de empleo
-//    public List<SolicitudDeEmpleo> obtenerTodasLasSolicitudes() {
-//        List<SolicitudDeEmpleo> solicitudes = new ArrayList<>();
-//        try (MongoCursor<Document> cursor = collection.find().iterator()) {
-//            while (cursor.hasNext()) {
-//                Document solicitudDocument = cursor.next();
-//                SolicitudDeEmpleo solicitud = convertirDocumentoASolicitud(solicitudDocument);
-//                solicitudes.add(solicitud);
-//            }
-//        }
-//        return solicitudes;
-//    }
-//
-//    // Método para convertir un objeto SolicitudDeEmpleo a un Documento MongoDB
-//    private Document convertirSolicitudADocumento(SolicitudDeEmpleo solicitud) {
-//        Document documento = new Document("idPersona", solicitud.getIdPersona())
-//                .append("idEmpresa", solicitud.getIdEmpresa())
-//                .append("puesto", solicitud.getPuesto())
-//                .append("estado", solicitud.getEstado())
-//                .append("descripcion", solicitud.getDescripcion());
-//        return documento;
-//    }
-//
-//    // Método para convertir un Documento MongoDB a un objeto SolicitudDeEmpleo
-//    private SolicitudDeEmpleo convertirDocumentoASolicitud(Document documento) {
-//        SolicitudDeEmpleo solicitud = new SolicitudDeEmpleo();
-//        solicitud.setId(documento.getString("_id"));
-//        solicitud.setIdPersona(documento.getString("idPersona"));
-//        solicitud.setIdEmpresa(documento.getString("idEmpresa"));
-//        solicitud.setPuesto(documento.getString("puesto"));
-//        solicitud.setEstado(documento.getString("estado"));
-//        solicitud.setDescripcion(documento.getString("descripcion"));
-//        return solicitud;
-//    }
-//
-//    // Método para cerrar la conexión a la base de datos
-//    public void cerrarConexion() {
-//        conexion.cerrarConexion();
-//    }
-//}
+
+package com.mycompany.proyectodb2;
+
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+
+public class SolicitudDAO {
+    private final MongoCollection<Document> collection;
+    private ConexionMongo conexion;
+
+    public SolicitudDAO(ConexionMongo conexion) {
+        this.conexion = conexion;
+        // Conectar a la base de datos
+        MongoDatabase database = conexion.obtenerBaseDatos();
+        // Obtener la colección
+        this.collection = database.getCollection("solicitudes_empleo");
+    }
+
+    public void insertarSolicitud(SolicitudDeEmpleo solicitud) {
+        MongoDatabase database = conexion.obtenerBaseDatos();
+        MongoCollection<Document> collection = database.getCollection("solicitudes_empleo");
+
+        Document doc = new Document("idPersona", solicitud.getIdPersona())
+                .append("nombre", solicitud.getNombre())
+                .append("apellido", solicitud.getApellido())
+                .append("direccion", solicitud.getDireccion())
+                .append("genero", solicitud.getGenero())
+                .append("nivelEducacion", solicitud.getNivelEducacion())
+                .append("titulo", solicitud.getTitulo())
+                .append("promedioGraduacion", solicitud.getPromedioGraduacion())
+                .append("enfermedades", solicitud.getEnfermedades())
+                .append("antecedentes", solicitud.getAntecedentes())
+                .append("servicioMilitar", solicitud.getServicioMilitar())
+                .append("experiencia", solicitud.getExperiencia())
+                .append("anosExperiencia", solicitud.getAnosExperiencia())
+                .append("habilidades", solicitud.getHabilidades());
+
+        collection.insertOne(doc);
+    }
+
+    public List<SolicitudDeEmpleo> obtenerSolicitudesPorPersona(String idPersona) {
+        List<SolicitudDeEmpleo> solicitudes = new ArrayList<>();
+        Document query = new Document("idPersona", idPersona);
+        try (MongoCursor<Document> cursor = collection.find(query).iterator()) {
+            while (cursor.hasNext()) {
+                Document solicitudDoc = cursor.next();
+                SolicitudDeEmpleo solicitud = convertirDocumentoASolicitud(solicitudDoc);
+                solicitudes.add(solicitud);
+            }
+        }
+        return solicitudes;
+    }
+
+    public void eliminarSolicitud(String id) {
+        MongoDatabase database = conexion.obtenerBaseDatos();
+        MongoCollection<Document> collection = database.getCollection("solicitudes_empleo");
+
+        Document query = new Document("id", id);
+        collection.deleteOne(query);
+    }
+
+    private SolicitudDeEmpleo convertirDocumentoASolicitud(Document solicitudDoc) {
+        SolicitudDeEmpleo solicitud = new SolicitudDeEmpleo();
+        solicitud.setId(solicitudDoc.getObjectId("_id").toString());
+        solicitud.setIdPersona(solicitudDoc.getString("idPersona"));
+        solicitud.setNombre(solicitudDoc.getString("nombre"));
+        solicitud.setApellido(solicitudDoc.getString("apellido"));
+        solicitud.setDireccion(solicitudDoc.getString("direccion"));
+        solicitud.setGenero(solicitudDoc.getString("genero"));
+        solicitud.setNivelEducacion(solicitudDoc.getString("nivelEducacion"));
+        solicitud.setTitulo(solicitudDoc.getString("titulo"));
+        solicitud.setPromedioGraduacion(solicitudDoc.getString("promedioGraduacion"));
+        solicitud.setEnfermedades(solicitudDoc.getString("enfermedades"));
+        solicitud.setAntecedentes(solicitudDoc.getString("antecedentes"));
+        solicitud.setServicioMilitar(solicitudDoc.getString("servicioMilitar"));
+        solicitud.setExperiencia(solicitudDoc.getString("experiencia"));
+        solicitud.setAnosExperiencia(solicitudDoc.getString("anosExperiencia"));
+        solicitud.setHabilidades(solicitudDoc.getString("habilidades"));
+        return solicitud;
+    }
+}
