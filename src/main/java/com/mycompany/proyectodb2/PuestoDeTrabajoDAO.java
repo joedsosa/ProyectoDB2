@@ -37,7 +37,8 @@ public class PuestoDeTrabajoDAO {
                 .append("experiencia", puesto.isExperiencia())
                 .append("empresa", puesto.getEmpresa())
                 .append("anosExperiencia", puesto.getAnosExperiencia())
-                .append("habilidadesRequeridas", puesto.getHabilidadesRequeridas());
+                .append("habilidadesRequeridas", puesto.getHabilidadesRequeridas())
+                .append("disponible", puesto.isDisponible());
         collection.insertOne(doc);
     }
 
@@ -80,7 +81,8 @@ public class PuestoDeTrabajoDAO {
                 .append("tipoContrato", puesto.getTipoContrato())
                 .append("experiencia", puesto.isExperiencia())
                 .append("anosExperiencia", puesto.getAnosExperiencia())
-                .append("habilidadesRequeridas", puesto.getHabilidadesRequeridas()));
+                .append("habilidadesRequeridas", puesto.getHabilidadesRequeridas())
+                .append("disponible", puesto.isDisponible()));
         collection.updateOne(query, update);
     }
 
@@ -113,6 +115,7 @@ public class PuestoDeTrabajoDAO {
         puesto.setEmpresa(documento.getString("empresa"));
         puesto.setAnosExperiencia(documento.getInteger("anosExperiencia"));
         puesto.setHabilidadesRequeridas(documento.getString("habilidadesRequeridas"));
+        puesto.setDisponible(documento.getBoolean("disponible"));
         return puesto;
     }
 }

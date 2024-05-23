@@ -4778,16 +4778,17 @@ public class LogIn extends javax.swing.JFrame {
         DefaultTableModel modelo1 = (DefaultTableModel)jTable1.getModel();
         DefaultTableModel modelo2 = (DefaultTableModel)JT_Solicitudes.getModel();
         
-        
+        String nombreEmpresa = "N/A";
         int selectedRow1 = jTable1.getSelectedRow();
         int selectedRow2 = JT_Solicitudes.getSelectedRow();
         if (selectedRow1 != -1 && selectedRow2 != -1) {
-            String nombreEmpresa = "N/A";
             String idPuesto = (String) tableModel.getValueAt(selectedRow1, 0);
             List<PuestoDeTrabajo> puestos = puestoDAO.obtenerTodosLosPuestosDeTrabajo();
             for (PuestoDeTrabajo puesto : puestos) {
                 if (puesto.getId().equals(idPuesto)) {
                     nombreEmpresa = puesto.getEmpresa();
+                    puesto.setDisponible(false);
+                    puestoDAO.actualizarPuestoDeTrabajo(puesto);
                 }
             }
             modelo1.removeRow(selectedRow1);
@@ -4796,6 +4797,7 @@ public class LogIn extends javax.swing.JFrame {
             for (SolicitudDeEmpleo solicitud : solicitudes) {
                 if (solicitud.getId().equals(idSolicitud)) {
                     solicitud.setEstado("Contratado");
+                    System.out.println(nombreEmpresa);
                     solicitud.setNombreEmpresa(nombreEmpresa);
                     solicitudDAO.actualizarSolicitudDeEmpleo(solicitud);
                 }
@@ -6065,6 +6067,7 @@ public class LogIn extends javax.swing.JFrame {
 
         // Crear una instancia de la clase Puesto De Trabajo con los datos ingresados
         PuestoDeTrabajo puesto = new PuestoDeTrabajo();
+        puesto.setDisponible(true);
         puesto.setEmpresa(empresa);
         puesto.setUbicacion(direccion);
         puesto.setGenero(genero);
