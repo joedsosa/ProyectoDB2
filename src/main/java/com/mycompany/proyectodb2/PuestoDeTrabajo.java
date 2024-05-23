@@ -71,4 +71,5 @@ public class PuestoDeTrabajo {
     public String getHabilidadesRequeridas() { return habilidadesRequeridas; }
     public void setHabilidadesRequeridas(String habilidadesRequeridas) { this.habilidadesRequeridas = habilidadesRequeridas; }
    
+    
 }

@@ -951,9 +951,9 @@ public class LogIn extends javax.swing.JFrame {
                         .addGroup(JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
                             .addComponent(jScrollPane10))
-                        .addContainerGap(42, Short.MAX_VALUE))
+                        .addContainerGap(66, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_ContratacionesLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
                         .addComponent(JB_Contratar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(348, 348, 348))))
         );
@@ -2896,7 +2896,6 @@ public class LogIn extends javax.swing.JFrame {
         ));
         jScrollPane12.setViewportView(JT_ResultadosBusqueda);
 
-        TF_BarraBusquedaPersona.setEditable(false);
         TF_BarraBusquedaPersona.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel222.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
@@ -3010,7 +3009,7 @@ public class LogIn extends javax.swing.JFrame {
         JP_MiSolicitudPersona.setPreferredSize(new java.awt.Dimension(1290, 730));
 
         jLabel214.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
-        jLabel214.setText("Codigo de Referencia");
+        jLabel214.setText("Codigo Solicitud");
 
         TF_MiSolicitudEstadoSolicitudPersona.setEditable(false);
         TF_MiSolicitudEstadoSolicitudPersona.setBackground(new java.awt.Color(255, 255, 255));
@@ -3078,7 +3077,7 @@ public class LogIn extends javax.swing.JFrame {
                         .addComponent(TF_MiSolicitudPuestoTrabajoaPersona)
                         .addComponent(jLabel216, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(TF_MiSolicitudNombreEmpresaPersona, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(264, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_MiSolicitudPersonaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel54)
@@ -4404,8 +4403,23 @@ public class LogIn extends javax.swing.JFrame {
 
     private void JB_ConfirmarEliminarPuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarEliminarPuestoMouseClicked
         JP_EliminarPuesto.setVisible(false);
+        int selectedRow = JT_EliminarPuesto.getSelectedRow();
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Tipo de Puesto", "Empresa", "Ubicacion"}, 0);
+        if (selectedRow != -1) {
+            String id = (String) tableModel.getValueAt(selectedRow, 0);
+            puestoDAO.eliminarPuestoDeTrabajo(id);
+            tableModel.removeRow(selectedRow);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona un puesto para eliminar.");
+        }
         JOptionPane.showMessageDialog(this, "El puesto de trabajo se ha eliminado exitosamente");
 
+        JP_EliminarPuesto.setVisible(false);
+        JF_CrudPuestoDeTrabajo.setVisible(false);
+        JF_Admin.pack();
+        JF_Admin.setLocationRelativeTo(this);
+        JF_Admin.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        JF_Admin.setVisible(true);
         JF_CrudPuestoDeTrabajo.setVisible(false);
         JF_Admin.pack();
         JF_Admin.setLocationRelativeTo(this);
@@ -4414,30 +4428,125 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_ConfirmarEliminarPuestoMouseClicked
 
     private void JT_ModPuestroDeTrabajoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_ModPuestroDeTrabajoMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:int selectedRow = JT_ModPuestroDeTrabajo.getSelectedRow();
+        int selectedRow = JT_ModPuestroDeTrabajo.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            String selectedId = tableModel.getValueAt(selectedRow, 0).toString();
+            //System.out.println(selectedId + " de la tabla");
+            PuestoDeTrabajo selectedPuesto = puestoDAO.buscarPuestoDeTrabajoPorId(selectedId);
+            //System.out.println(selectedPuesto + "   codigo puesto, objeto");
+            if (selectedPuesto != null) {
+                TF_ModTipodePuesto.setText(selectedPuesto.getTipoPuesto());
+                TF_ModDireccionPuesto.setText(selectedPuesto.getUbicacion());
+                TF_ModNivelEducacionPuesto.setText(selectedPuesto.getNivelEducacion());
+                TF_ModTituloPuesto.setText(selectedPuesto.getTitulo());
+                TF_ModEnfermedadesPuesto.setText(selectedPuesto.getEnfermedadesNoPermitidas());
+                TF_ModHabilidadesPuesto.setText(selectedPuesto.getHabilidadesRequeridas());
+                TF_ModAntecedentesPuesto.setText(selectedPuesto.getAntecedentesPenalesPermitidos());
+                //Combo box de genero
+                if (selectedPuesto.getGenero().equalsIgnoreCase("Mujer")) {
+                    CB_ModGeneroPuesto.setSelectedIndex(0);
+                } else {
+                    CB_ModGeneroPuesto.setSelectedIndex(1);
+                }
+                //Combo box de experiencia
+                if (selectedPuesto.isExperiencia() == true) {
+                    CB_ModExperienciaPuesto.setSelectedIndex(0);
+                } else {
+                    CB_ModExperienciaPuesto.setSelectedIndex(1);
+                }
+                //Combo box de servicio militar
+                if (selectedPuesto.getServicioMilitar().equals("Si")) {
+                    CB_ModServicioMilitarPuesto.setSelectedIndex(0);
+                } else {
+                    CB_ModServicioMilitarPuesto.setSelectedIndex(1);
+                }
+                //Combo box de horario
+                if (selectedPuesto.getHorario().equals("AM")) {
+                    CB_ModHorarioSueldo.setSelectedIndex(0);
+                } else if (selectedPuesto.getHorario().equals("PM")) {
+                    CB_ModHorarioSueldo.setSelectedIndex(1);
+                } else {
+                    CB_ModHorarioSueldo.setSelectedItem(2);
+                }
+                //Combo box de contrato
+                if (selectedPuesto.getTipoContrato().equalsIgnoreCase("Contrato Indefinido")) {
+                    CB_ModContratoPuesto.setSelectedIndex(0);
+                } else if (selectedPuesto.getTipoContrato().equalsIgnoreCase("Contrato Temporal")) {
+                    CB_ModContratoPuesto.setSelectedIndex(1);
+                } else if (selectedPuesto.getTipoContrato().equalsIgnoreCase("Contrato para la informacion")) {
+                    CB_ModContratoPuesto.setSelectedItem(2);
+                } else {
+                    CB_ModContratoPuesto.setSelectedItem(3);
+                }
+
+                JS_ModPromedioGraduacionPuesto.setValue(selectedPuesto.getPromedioGraduacion());
+                JS_ModAñosExperienciaPuesto.setValue(selectedPuesto.getAnosExperiencia());
+                JS_ModSueldoPuesto.setValue(selectedPuesto.getSueldo());
+            }
+        }
     }//GEN-LAST:event_JT_ModPuestroDeTrabajoMouseClicked
 
     private void JB_ConfirmarModEmpresa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarModEmpresa1MouseClicked
         JP_ModPuesto.setVisible(false);
-        String nombre = TF_CrearSolicitudNombre.getText();
-        String apellido = TF_CrearSolicitudApellido.getText();
-        String direccion = TF_CrearSolicitudDireccion.getText();
-        String genero = TF_CrearSolicitudGenero.getText();
-        String educacion = TF_CrearSolicitudNivelEdicacion.getText();
-        String titulo = TF_CrearSolicitudTitulo.getText();
-        String promedio = TF_CrearSolicitudPromedioGraduacion.getText();
-        String enfermedades = TF_CrearSolicitudEnfermedades.getText();
-        String antecedentes = TF_CrearSolicitudAntecedentes.getText();
-        String servicioMilitar = TF_CrearSolicitudServicioMilitar.getText();
-        String experiencia = TF_CrearSolicitudExperiencia.getText();
-        String years = TF_CrearSolicitudAniosExperiencia.getText();
-        String habilidades = TF_CrearSolicitudHabilidades.getText();
-        String puestosDeseados = TA_CrearSolicitudPuestoDeseado.getText();
-        String puestosNoDeseados = TA_CrearSolicitudPuestoNoDeseado.getText();
-        String sueldo = TF_CrearSolicitudSueldo.getText();
-        String horario = TF_CrearSolicitudHorario.getText();
-        String contrato = TF_CrearSolicitudContrato.getText();
+        int selectedRow = JT_ModPuestroDeTrabajo.getSelectedRow();
+        String tipoPuesto = TF_ModTipodePuesto.getText();
+        String ubicacion = TF_ModDireccionPuesto.getText();
+        String educacion = TF_ModNivelEducacionPuesto.getText();
+        String titulo = TF_ModTituloPuesto.getText();
+        String enfermedades = TF_ModEnfermedadesPuesto.getText();
+        String habilidades = TF_ModHabilidadesPuesto.getText();
+        String antecedentes = TF_ModAntecedentesPuesto.getText();
+        String genero = CB_ModGeneroPuesto.getSelectedItem().toString();
+        boolean experiencia;
+        if (CB_ModExperienciaPuesto.getSelectedIndex() == 0) {
+            experiencia = true;
+        } else {
+            experiencia = false;
+        }
+        String servicioMilitar = CB_ModServicioMilitarPuesto.getSelectedItem().toString();
+        String horario = CB_ModHorarioSueldo.getSelectedItem().toString();
+        String tipoContrato = CB_ModContratoPuesto.getSelectedItem().toString();
+        int promedio = (int) JS_ModPromedioGraduacionPuesto.getValue();
+        int years = (int) JS_ModAñosExperienciaPuesto.getValue();
+        int sueldo = (int) JS_ModSueldoPuesto.getValue();
+
+        PuestoDeTrabajo puesto = new PuestoDeTrabajo();
+        puesto.setId(tableModel.getValueAt(selectedRow, 0).toString());
+        puesto.setTipoPuesto(tipoPuesto);
+        puesto.setUbicacion(ubicacion);
+        puesto.setNivelEducacion(educacion);
+        puesto.setTitulo(titulo);
+        puesto.setEnfermedadesNoPermitidas(enfermedades);
+        puesto.setHabilidadesRequeridas(habilidades);
+        puesto.setAntecedentesPenalesPermitidos(antecedentes);
+        puesto.setGenero(genero);
+        puesto.setExperiencia(experiencia);
+        puesto.setServicioMilitar(servicioMilitar);
+        puesto.setHorario(horario);
+        puesto.setTipoContrato(tipoContrato);
+        puesto.setPromedioGraduacion(promedio);
+        puesto.setAnosExperiencia(years);
+        puesto.setSueldo(sueldo);
+        puestoDAO.actualizarPuestoDeTrabajo(puesto);
+
+        JP_ModPuesto.setVisible(false);
         JOptionPane.showMessageDialog(this, "El puesto de trabajo se ha modificado exitosamente");
+
+        TF_ModDireccionPuesto.setText("");
+        TF_ModTipodePuesto.setText("");
+        TF_ModNivelEducacionPuesto.setText("");
+        TF_ModTituloPuesto.setText("");
+        TF_ModEnfermedadesPuesto.setText("");
+        TF_ModHabilidadesPuesto.setText("");
+        TF_ModAntecedentesPuesto.setText("");
+
+        JF_CrudPuestoDeTrabajo.setVisible(false);
+        JF_Admin.pack();
+        JF_Admin.setLocationRelativeTo(this);
+        JF_Admin.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        JF_Admin.setVisible(true);
 
         TF_ModDireccionPuesto.setText("");
         TF_ModTipodePuesto.setText("");
@@ -4493,11 +4602,9 @@ public class LogIn extends javax.swing.JFrame {
 
     private void JB_ConfirmarCrearSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarCrearSolicitudMouseClicked
         crearSolicitud();
-       
+
         JP_CrearSolicitud.setVisible(false);
         JOptionPane.showMessageDialog(this, "La solicitud se ha creado exitosamente");
-
-       
 
         JF_CrudSolicitudEmpleo.setVisible(false);
 
@@ -4675,6 +4782,12 @@ public class LogIn extends javax.swing.JFrame {
     private void JB_PuestosOfrecidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_PuestosOfrecidosMouseClicked
         JP_PuestosOfrecidosEmpresa.setVisible(true);
         JP_SolicitudesEmpresas.setVisible(false);
+        tableModel = new DefaultTableModel(new Object[]{"Nombre de Puesto", "Salario"}, 0);
+        JT_PuestosOfrecidos.setModel(tableModel);
+
+        empresaDAO = new EmpresaDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        llenarTablaPuestosEmpresa();
     }//GEN-LAST:event_JB_PuestosOfrecidosMouseClicked
 
     private void JB_SolicitudesEmpleoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_SolicitudesEmpleoMouseClicked
@@ -4790,11 +4903,28 @@ public class LogIn extends javax.swing.JFrame {
         });
     }
 
+    private void llenarTablaPuestosEmpresa() {
+        List<Empresa> empresas = empresaDAO.obtenerTodasLasEmpresas();
+        for (Empresa empresa : empresas) {
+            if (empresa.getUsuario().equals(usuarioLogIN) && (empresa.getContrasena().equals(contrasenaLogIN))) {
+                List<PuestoDeTrabajo> puestos = puestoDAO.obtenerTodosLosPuestosDeTrabajo();
+                for (PuestoDeTrabajo puesto : puestos) {
+                    if (puesto.getEmpresa().equalsIgnoreCase(empresa.getNombre())) {
+                        tableModel.addRow(new Object[]{puesto.getTipoPuesto(), puesto.getSueldo()});
+                    } else {
+                        JOptionPane.showMessageDialog(this, "No hay puestos ofrecidos en este momento");
+                    }
+                }
+            }
+        }
+    }
+
     public void iniciarSesion() {
         try {
             String usuario = TF_UserName.getText(); // Obtener usuario ingresado
             String contrasena = new String(TF_Password.getPassword()); // Obtener contraseña ingresada
-
+            usuarioLogIN = TF_UserName.getText(); // Obtener usuario ingresado
+            contrasenaLogIN = new String(TF_Password.getPassword()); // Obtener contraseña ingresada
             // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
             ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
 
@@ -4865,26 +4995,28 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al iniciar sesión: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-private void limpiarCampos() {
-    TF_CrearSolicitudNombre.setText("");
-    TF_CrearSolicitudApellido.setText("");
-    TF_CrearSolicitudDireccion.setText("");
-    TF_CrearSolicitudGenero.setText("");
-    TF_CrearSolicitudNivelEdicacion.setText("");
-    TF_CrearSolicitudTitulo.setText("");
-    TF_CrearSolicitudPromedioGraduacion.setText("");
-    TF_CrearSolicitudEnfermedades.setText("");
-    TF_CrearSolicitudAntecedentes.setText("");
-    TF_CrearSolicitudServicioMilitar.setText("");
-    TF_CrearSolicitudExperiencia.setText("");
-    TF_CrearSolicitudAniosExperiencia.setText("");
-    TF_CrearSolicitudHabilidades.setText("");
-    TA_CrearSolicitudPuestoDeseado.setText("");
-    TA_CrearSolicitudPuestoNoDeseado.setText("");
-    TF_CrearSolicitudHorario.setText("");
-    TF_CrearSolicitudSueldo.setText("");
-    TF_CrearSolicitudContrato.setText("");
-}
+
+    private void limpiarCampos() {
+        TF_CrearSolicitudNombre.setText("");
+        TF_CrearSolicitudApellido.setText("");
+        TF_CrearSolicitudDireccion.setText("");
+        TF_CrearSolicitudGenero.setText("");
+        TF_CrearSolicitudNivelEdicacion.setText("");
+        TF_CrearSolicitudTitulo.setText("");
+        TF_CrearSolicitudPromedioGraduacion.setText("");
+        TF_CrearSolicitudEnfermedades.setText("");
+        TF_CrearSolicitudAntecedentes.setText("");
+        TF_CrearSolicitudServicioMilitar.setText("");
+        TF_CrearSolicitudExperiencia.setText("");
+        TF_CrearSolicitudAniosExperiencia.setText("");
+        TF_CrearSolicitudHabilidades.setText("");
+        TA_CrearSolicitudPuestoDeseado.setText("");
+        TA_CrearSolicitudPuestoNoDeseado.setText("");
+        TF_CrearSolicitudHorario.setText("");
+        TF_CrearSolicitudSueldo.setText("");
+        TF_CrearSolicitudContrato.setText("");
+    }
+
     public void addPersona() {
         String name = TF_CrearNombrePersona.getText();
         String apellido = TF_CrearApellidoPersona.getText();
@@ -5664,7 +5796,8 @@ private void limpiarCampos() {
     private EmpresaDAO empresaDAO;
     private DefaultTableModel tableModel;
     private PuestoDeTrabajoDAO puestoDAO;
-
+    String usuarioLogIN;
+    String contrasenaLogIN;
     private void modpersona() {
         int selectedRow = JT_ModPersona.getSelectedRow();
         String name = TF_ModNombrePersona.getText();
@@ -5953,77 +6086,79 @@ private void limpiarCampos() {
             tableModel.addRow(new Object[]{persona.getId(), persona.getNombre(), persona.getApellidos(), persona.getUsuario()});
         }
     }
+
     public void crearSolicitud() {
-    try {
-        // Obtener los valores de los campos de texto
-        String nombre = TF_CrearSolicitudNombre.getText();
-        String apellido = TF_CrearSolicitudApellido.getText();
-        String direccion = TF_CrearSolicitudDireccion.getText();
-        String genero = TF_CrearSolicitudGenero.getText();
-        String nivelEducacion = TF_CrearSolicitudNivelEdicacion.getText();
-        String titulo = TF_CrearSolicitudTitulo.getText();
-        String promedioGraduacion= TF_CrearSolicitudPromedioGraduacion.getText();
-        String enfermedades = TF_CrearSolicitudEnfermedades.getText();
-        String antecedentes = TF_CrearSolicitudAntecedentes.getText();
-        String servicioMilitar = TF_CrearSolicitudServicioMilitar.getText();
-        String experiencia = TF_CrearSolicitudExperiencia.getText();
-        String anosExperiencia = TF_CrearSolicitudAniosExperiencia.getText();
-        String habilidades = TF_CrearSolicitudHabilidades.getText();
-        String puestosDeseados = TA_CrearSolicitudPuestoDeseado.getText();
-        String puestosNoDeseados = TA_CrearSolicitudPuestoNoDeseado.getText();
-        String horario = TF_CrearSolicitudHorario.getText();
-        String sueldo = TF_CrearSolicitudSueldo.getText();
-        String contrato = TF_CrearSolicitudContrato.getText();
+        try {
+            // Obtener los valores de los campos de texto
+            String nombre = TF_CrearSolicitudNombre.getText();
+            String apellido = TF_CrearSolicitudApellido.getText();
+            String direccion = TF_CrearSolicitudDireccion.getText();
+            String genero = TF_CrearSolicitudGenero.getText();
+            String nivelEducacion = TF_CrearSolicitudNivelEdicacion.getText();
+            String titulo = TF_CrearSolicitudTitulo.getText();
+            String promedioGraduacion = TF_CrearSolicitudPromedioGraduacion.getText();
+            String enfermedades = TF_CrearSolicitudEnfermedades.getText();
+            String antecedentes = TF_CrearSolicitudAntecedentes.getText();
+            String servicioMilitar = TF_CrearSolicitudServicioMilitar.getText();
+            String experiencia = TF_CrearSolicitudExperiencia.getText();
+            String anosExperiencia = TF_CrearSolicitudAniosExperiencia.getText();
+            String habilidades = TF_CrearSolicitudHabilidades.getText();
+            String puestosDeseados = TA_CrearSolicitudPuestoDeseado.getText();
+            String puestosNoDeseados = TA_CrearSolicitudPuestoNoDeseado.getText();
+            String horario = TF_CrearSolicitudHorario.getText();
+            String sueldo = TF_CrearSolicitudSueldo.getText();
+            String contrato = TF_CrearSolicitudContrato.getText();
 
-        // Obtener el ID de la persona seleccionada en la tabla
-        int selectedRow = JT_ModEmpresa2.getSelectedRow();
-        if (selectedRow != -1) {
-            String personaId = tableModel.getValueAt(selectedRow, 0).toString();
+            // Obtener el ID de la persona seleccionada en la tabla
+            int selectedRow = JT_ModEmpresa2.getSelectedRow();
+            if (selectedRow != -1) {
+                String personaId = tableModel.getValueAt(selectedRow, 0).toString();
 
-            // Crear una instancia de la clase SolicitudDeEmpleo con los valores obtenidos y el ID de la persona
-            SolicitudDeEmpleo solicitud = new SolicitudDeEmpleo();
-            solicitud.setIdPersona(personaId);
-            solicitud.setNombre(nombre);
-            solicitud.setApellido(apellido);
-            solicitud.setDireccion(direccion);
-            solicitud.setGenero(genero);
-            solicitud.setNivelEducacion(nivelEducacion);
-            solicitud.setTitulo(titulo);
-            solicitud.setPromedioGraduacion(promedioGraduacion);
-            solicitud.setEnfermedades(enfermedades);
-            solicitud.setAntecedentes(antecedentes);
-            solicitud.setServicioMilitar(servicioMilitar);
-            solicitud.setExperiencia(experiencia);
-            solicitud.setAnosExperiencia(anosExperiencia);
-            solicitud.setHabilidades(habilidades);
+                // Crear una instancia de la clase SolicitudDeEmpleo con los valores obtenidos y el ID de la persona
+                SolicitudDeEmpleo solicitud = new SolicitudDeEmpleo();
+                solicitud.setEstado("Pendiente");
+                solicitud.setNombreEmpresa("N/A");
+                solicitud.setIdPersona(personaId);
+                solicitud.setNombre(nombre);
+                solicitud.setApellido(apellido);
+                solicitud.setDireccion(direccion);
+                solicitud.setGenero(genero);
+                solicitud.setNivelEducacion(nivelEducacion);
+                solicitud.setTitulo(titulo);
+                solicitud.setPromedioGraduacion(promedioGraduacion);
+                solicitud.setEnfermedades(enfermedades);
+                solicitud.setAntecedentes(antecedentes);
+                solicitud.setServicioMilitar(servicioMilitar);
+                solicitud.setExperiencia(experiencia);
+                solicitud.setAnosExperiencia(anosExperiencia);
+                solicitud.setHabilidades(habilidades);
 
-            // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
-            ConexionMongo conexion = new ConexionMongo("localhost", 27017, "nombre_de_tu_base_de_datos");
+                // Crear una instancia de la clase ConexionMongo para establecer la conexión a la base de datos
+                ConexionMongo conexion = new ConexionMongo("localhost", 27017, "empresa_db");
 
-            // Crear una instancia de la clase SolicitudDeEmpleoDAO para realizar las operaciones en la base de datos
-            SolicitudDAO solicitudDAO = new SolicitudDAO(conexion);
+                // Crear una instancia de la clase SolicitudDeEmpleoDAO para realizar las operaciones en la base de datos
+                SolicitudDAO solicitudDAO = new SolicitudDAO(conexion);
 
-            // Insertar la solicitud en la base de datos
-            solicitudDAO.insertarSolicitud(solicitud);
+                // Insertar la solicitud en la base de datos
+                solicitudDAO.insertarSolicitud(solicitud);
 
-            // Cerrar la conexión a la base de datos
-            conexion.cerrarConexion();
+                // Cerrar la conexión a la base de datos
+                conexion.cerrarConexion();
 
-            // Mostrar mensaje de éxito
-            JOptionPane.showMessageDialog(null, "Solicitud de empleo creada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                // Mostrar mensaje de éxito
+                JOptionPane.showMessageDialog(null, "Solicitud de empleo creada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
-            // Limpiar los campos de texto después de la creación de la solicitud
-            limpiarCampos();
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, seleccione una persona de la tabla", "Error", JOptionPane.ERROR_MESSAGE);
+                // Limpiar los campos de texto después de la creación de la solicitud
+                limpiarCampos();
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor, seleccione una persona de la tabla", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Por favor, asegúrate de ingresar números en los campos correspondientes", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            // Mostrar mensaje de error en caso de excepción
+            JOptionPane.showMessageDialog(null, "Error al crear la solicitud de empleo: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    } catch (NumberFormatException ex) {
-        JOptionPane.showMessageDialog(null, "Por favor, asegúrate de ingresar números en los campos correspondientes", "Error", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception ex) {
-        // Mostrar mensaje de error en caso de excepción
-        JOptionPane.showMessageDialog(null, "Error al crear la solicitud de empleo: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
 
 }
-

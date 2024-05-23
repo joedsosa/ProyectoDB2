@@ -403,10 +403,10 @@
                                       <Component id="jScrollPane11" pref="616" max="32767" attributes="0"/>
                                       <Component id="jScrollPane10" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                                  <EmptySpace pref="66" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="291" max="32767" attributes="0"/>
                                   <Component id="JB_Contratar" min="-2" pref="55" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="348" max="-2" attributes="0"/>
                               </Group>
@@ -6035,7 +6035,6 @@
                 </Container>
                 <Component class="javax.swing.JTextField" name="TF_BarraBusquedaPersona">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
@@ -6216,7 +6215,7 @@
                               </Group>
                               <Component id="TF_MiSolicitudNombreEmpresaPersona" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="206" max="32767" attributes="0"/>
+                          <EmptySpace pref="264" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
@@ -6267,7 +6266,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Rockwell" size="24" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Codigo de Referencia"/>
+                    <Property name="text" type="java.lang.String" value="Codigo Solicitud"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_MiSolicitudEstadoSolicitudPersona">

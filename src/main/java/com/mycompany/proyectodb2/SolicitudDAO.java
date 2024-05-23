@@ -20,16 +20,18 @@ public class SolicitudDAO {
         // Conectar a la base de datos
         MongoDatabase database = conexion.obtenerBaseDatos();
         // Obtener la colección
-        this.collection = database.getCollection("solicitudes_empleo");
+        this.collection = database.getCollection("solicitudes_de_empleo");
     }
 
     public void insertarSolicitud(SolicitudDeEmpleo solicitud) {
         MongoDatabase database = conexion.obtenerBaseDatos();
-        MongoCollection<Document> collection = database.getCollection("solicitudes_empleo");
+        MongoCollection<Document> collection = database.getCollection("solicitudes_de_empleo");
 
         Document doc = new Document("idPersona", solicitud.getIdPersona())
                 .append("nombre", solicitud.getNombre())
+                .append("estado", solicitud.getEstado())
                 .append("apellido", solicitud.getApellido())
+                .append("nombreEmpresa", solicitud.getNombreEmpresa())
                 .append("direccion", solicitud.getDireccion())
                 .append("genero", solicitud.getGenero())
                 .append("nivelEducacion", solicitud.getNivelEducacion())
@@ -70,9 +72,11 @@ public class SolicitudDAO {
         SolicitudDeEmpleo solicitud = new SolicitudDeEmpleo();
         solicitud.setId(solicitudDoc.getObjectId("_id").toString());
         solicitud.setIdPersona(solicitudDoc.getString("idPersona"));
+        solicitud.setEstado(solicitudDoc.getString("estado"));
         solicitud.setNombre(solicitudDoc.getString("nombre"));
         solicitud.setApellido(solicitudDoc.getString("apellido"));
         solicitud.setDireccion(solicitudDoc.getString("direccion"));
+        solicitud.setNombreEmpresa(solicitudDoc.getString("empresa"));
         solicitud.setGenero(solicitudDoc.getString("genero"));
         solicitud.setNivelEducacion(solicitudDoc.getString("nivelEducacion"));
         solicitud.setTitulo(solicitudDoc.getString("titulo"));

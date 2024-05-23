@@ -5,6 +5,8 @@ public class SolicitudDeEmpleo {
     private String idPersona; // ID de la persona que realiza la solicitud
     private String nombre;
     private String apellido;
+    private String nombreEmpresa;
+    private String estado;
     private String direccion;
     private String genero;
     private String nivelEducacion;
@@ -30,7 +32,7 @@ public class SolicitudDeEmpleo {
     public SolicitudDeEmpleo(String idPersona, String nombre, String apellido, String direccion, String genero,
             String nivelEducacion, String titulo, String promedioGraduacion, String enfermedades, String antecedentes,
             String servicioMilitar, String experiencia, String anosExperiencia, String habilidades, String puestosDeseados,
-            String puestosNoDeseados, String horario, String sueldo, String contrato) {
+            String puestosNoDeseados, String horario, String sueldo, String contrato,String estado,String empresa) {
         this.idPersona = idPersona;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -50,6 +52,24 @@ public class SolicitudDeEmpleo {
         this.horario = horario;
         this.sueldo = sueldo;
         this.contrato = contrato;
+        this.estado = estado;
+        this.nombreEmpresa = empresa;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     // Getters y setters para todos los atributos

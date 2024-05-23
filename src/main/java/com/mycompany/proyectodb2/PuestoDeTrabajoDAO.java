@@ -18,7 +18,6 @@ public class PuestoDeTrabajoDAO {
         MongoDatabase database = conexion.obtenerBaseDatos();
         this.collection = database.getCollection("puestosDeTrabajo");
     }
-    
 
     public void insertarPuestoDeTrabajo(PuestoDeTrabajo puesto) {
         MongoDatabase database = conexion.obtenerBaseDatos();
@@ -36,9 +35,21 @@ public class PuestoDeTrabajoDAO {
                 .append("horario", puesto.getHorario())
                 .append("tipoContrato", puesto.getTipoContrato())
                 .append("experiencia", puesto.isExperiencia())
+                .append("empresa", puesto.getEmpresa())
                 .append("anosExperiencia", puesto.getAnosExperiencia())
                 .append("habilidadesRequeridas", puesto.getHabilidadesRequeridas());
         collection.insertOne(doc);
+    }
+
+    public PuestoDeTrabajo buscarPuestoDeTrabajoPorId(String id) {
+        ObjectId objectId = new ObjectId(id);
+        Document filtro = new Document("_id", objectId);
+        Document resultado = collection.find(filtro).first();
+        if (resultado != null) {
+            return convertirDocumentoAPuestoDeTrabajo(resultado);
+        }
+        return null; // Retorna null si no se encontró ningún resultado
+
     }
 
     public List<PuestoDeTrabajo> obtenerTodosLosPuestosDeTrabajo() {
@@ -81,6 +92,7 @@ public class PuestoDeTrabajoDAO {
         puesto.setHorario(documento.getString("horario"));
         puesto.setTipoContrato(documento.getString("tipoContrato"));
         puesto.setExperiencia(documento.getBoolean("experiencia"));
+        puesto.setEmpresa(documento.getString("empresa"));
         puesto.setAnosExperiencia(documento.getInteger("anosExperiencia"));
         puesto.setHabilidadesRequeridas(documento.getString("habilidadesRequeridas"));
         return puesto;
