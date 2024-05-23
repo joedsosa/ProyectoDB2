@@ -18,6 +18,7 @@ public class PuestoDeTrabajo {
     private boolean experiencia;
     private int anosExperiencia;
     private String habilidadesRequeridas;
+    private boolean disponible;
 
     // Getters y Setters
     public String getId() { return id; }
@@ -70,6 +71,14 @@ public class PuestoDeTrabajo {
 
     public String getHabilidadesRequeridas() { return habilidadesRequeridas; }
     public void setHabilidadesRequeridas(String habilidadesRequeridas) { this.habilidadesRequeridas = habilidadesRequeridas; }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
    
     
 }
