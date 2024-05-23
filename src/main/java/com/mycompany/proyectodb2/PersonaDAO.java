@@ -135,6 +135,13 @@ public class PersonaDAO {
             return null;
         }
     }
+    
+    public Persona obtenerPersonaPorId(String id) {
+        MongoCollection<Document> coleccion = conexion.obtenerBaseDatos().getCollection("personas");
+        Document query = new Document("_id", new ObjectId(id));
+        Document result = coleccion.find(query).first();
+        return convertirDocumentoAPersona(result);
+    }
 
     public Persona buscarPersonaPorUsuario(String usuario) {
         Document filtro = new Document("usuario", usuario);

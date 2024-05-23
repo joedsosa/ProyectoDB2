@@ -2990,7 +2990,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="TA_ModPuestosNoPersona">
+                    <Component class="javax.swing.JTextArea" name="TA_ModPuestosNoDeseadosPersona">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -3031,13 +3031,15 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="CB_ModDisponibilidadPersona">
+                <Component class="javax.swing.JComboBox" name="CB_ModDisponibilidadHorariaPersona">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
+                      <StringArray count="5">
                         <StringItem index="0" value="Ma&#xf1;ana"/>
                         <StringItem index="1" value="Tarde"/>
                         <StringItem index="2" value="Noche"/>
+                        <StringItem index="3" value=" "/>
+                        <StringItem index="4" value=" "/>
                       </StringArray>
                     </Property>
                   </Properties>

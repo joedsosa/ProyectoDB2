@@ -2,16 +2,17 @@ package com.mycompany.proyectodb2;
 
 public class PuestoDeTrabajo {
     private String id;
+    private String empresa;
     private String tipoPuesto;
     private String ubicacion;
     private String genero;
     private String nivelEducacion;
     private String titulo;
-    private double promedioGraduacion;
+    private int promedioGraduacion;
     private String enfermedadesNoPermitidas;
     private String antecedentesPenalesPermitidos;
     private String servicioMilitar;
-    private double sueldo;
+    private int sueldo;
     private String horario;
     private String tipoContrato;
     private boolean experiencia;
@@ -21,6 +22,9 @@ public class PuestoDeTrabajo {
     // Getters y Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
+    
+    public String getEmpresa() { return empresa; }
+    public void setEmpresa(String empresa) { this.empresa = empresa; }
 
     public String getTipoPuesto() { return tipoPuesto; }
     public void setTipoPuesto(String tipoPuesto) { this.tipoPuesto = tipoPuesto; }
@@ -37,8 +41,8 @@ public class PuestoDeTrabajo {
     public String getTitulo() { return titulo; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
 
-    public double getPromedioGraduacion() { return promedioGraduacion; }
-    public void setPromedioGraduacion(double promedioGraduacion) { this.promedioGraduacion = promedioGraduacion; }
+    public int getPromedioGraduacion() { return promedioGraduacion; }
+    public void setPromedioGraduacion(int promedioGraduacion) { this.promedioGraduacion = promedioGraduacion; }
 
     public String getEnfermedadesNoPermitidas() { return enfermedadesNoPermitidas; }
     public void setEnfermedadesNoPermitidas(String enfermedadesNoPermitidas) { this.enfermedadesNoPermitidas = enfermedadesNoPermitidas; }
@@ -49,8 +53,8 @@ public class PuestoDeTrabajo {
     public String getServicioMilitar() { return servicioMilitar; }
     public void setServicioMilitar(String servicioMilitar) { this.servicioMilitar = servicioMilitar; }
 
-    public double getSueldo() { return sueldo; }
-    public void setSueldo(double sueldo) { this.sueldo = sueldo; }
+    public int getSueldo() { return sueldo; }
+    public void setSueldo(int sueldo) { this.sueldo = sueldo; }
 
     public String getHorario() { return horario; }
     public void setHorario(String horario) { this.horario = horario; }
@@ -66,4 +70,5 @@ public class PuestoDeTrabajo {
 
     public String getHabilidadesRequeridas() { return habilidadesRequeridas; }
     public void setHabilidadesRequeridas(String habilidadesRequeridas) { this.habilidadesRequeridas = habilidadesRequeridas; }
+   
 }
