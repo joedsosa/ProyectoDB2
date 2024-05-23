@@ -1,4 +1,3 @@
-
 package com.mycompany.proyectodb2;
 
 import com.mongodb.client.MongoCollection;
@@ -10,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 public class SolicitudDAO {
+
     private final MongoCollection<Document> collection;
     private ConexionMongo conexion;
 
@@ -68,6 +67,41 @@ public class SolicitudDAO {
         collection.deleteOne(query);
     }
 
+    private Document convertirSolicitudDeEmpleoADocumento(SolicitudDeEmpleo solicitud) {
+        ObjectId objectId = new ObjectId(solicitud.getId());
+        return null;
+    }
+
+   public void actualizarSolicitudDeEmpleo(SolicitudDeEmpleo solicitud) {
+        MongoDatabase database = conexion.obtenerBaseDatos();
+        MongoCollection<Document> collection = database.getCollection("solicitudes_de_empleo");
+        ObjectId objectId = new ObjectId(solicitud.getId());
+        Document query = new Document("_id", objectId);
+        Document update = new Document("$set", new Document("nombre", solicitud.getNombre())
+                .append("idPersona", solicitud.getIdPersona())
+                .append("nombre", solicitud.getNombre())
+                .append("apellido", solicitud.getApellido())
+                .append("nombreEmpresa", solicitud.getNombreEmpresa())
+                .append("estado", solicitud.getEstado())
+                .append("direccion", solicitud.getDireccion()) // Agregar usuario
+                .append("genero", solicitud.getDireccion())
+                .append("nivelEducacion", solicitud.getNivelEducacion())
+                .append("titulo", solicitud.getTitulo())
+                .append("promedioGraduacion", solicitud.getPromedioGraduacion())
+                .append("enfermedades", solicitud.getEnfermedades())
+                .append("antecedentes", solicitud.getAntecedentes())
+                .append("servicioMilitar", solicitud.getServicioMilitar())
+                .append("Experiencia", solicitud.getExperiencia())
+                .append("anosExperiencia", solicitud.getAnosExperiencia())
+                .append("habilidades", solicitud.getHabilidades())
+                .append("puestosDeseados", solicitud.getPuestosDeseados())
+                .append("puestosNoDeseados", solicitud.getPuestosNoDeseados())
+                .append("horario", solicitud.getHorario())
+                .append("sueldo", solicitud.getSueldo())
+                .append("contrato", solicitud.getContrato()));
+        collection.updateOne(query, update);
+    }
+
     private SolicitudDeEmpleo convertirDocumentoASolicitud(Document solicitudDoc) {
         SolicitudDeEmpleo solicitud = new SolicitudDeEmpleo();
         solicitud.setId(solicitudDoc.getObjectId("_id").toString());
@@ -88,5 +122,25 @@ public class SolicitudDAO {
         solicitud.setAnosExperiencia(solicitudDoc.getString("anosExperiencia"));
         solicitud.setHabilidades(solicitudDoc.getString("habilidades"));
         return solicitud;
+    }
+
+    public List<SolicitudDeEmpleo> obtenerTodasLasSolicitudes() {
+        List<SolicitudDeEmpleo> solicitudes = new ArrayList<>();
+        try (MongoCursor<Document> cursor = collection.find().iterator()) {
+            while (cursor.hasNext()) {
+                Document solicitudDoc = cursor.next();
+                SolicitudDeEmpleo solicitud = convertirDocumentoASolicitud(solicitudDoc);
+                solicitudes.add(solicitud);
+            }
+        }
+        return solicitudes;
+    }
+
+    public List<SolicitudDeEmpleo> obtenerSolicitudesPorPersona() {
+        List<SolicitudDeEmpleo> solicitudes = new ArrayList<>();
+        for (Document doc : collection.find()) {
+            solicitudes.add(convertirDocumentoASolicitud(doc));
+        }
+        return solicitudes;
     }
 }

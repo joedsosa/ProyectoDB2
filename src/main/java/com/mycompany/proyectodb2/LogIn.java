@@ -925,37 +925,36 @@ public class LogIn extends javax.swing.JFrame {
             JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_ContratacionesLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(JB_Contratar, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
             .addGroup(JP_ContratacionesLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
+                .addComponent(JB_Contratar)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addGap(164, 164, 164))
         );
         JP_ContratacionesLayout.setVerticalGroup(
             JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_ContratacionesLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JP_ContratacionesLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-                            .addComponent(jScrollPane10))
-                        .addContainerGap(66, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_ContratacionesLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
-                        .addComponent(JB_Contratar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(348, 348, 348))))
+                        .addGap(43, 43, 43)
+                        .addComponent(JB_Contratar))
+                    .addGroup(JP_ContratacionesLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JP_ContratacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel2.add(JP_Contrataciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 1300, 770));
@@ -3408,16 +3407,16 @@ public class LogIn extends javax.swing.JFrame {
         JP_PuestosOfrecidosEmpresaLayout.setHorizontalGroup(
             JP_PuestosOfrecidosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_PuestosOfrecidosEmpresaLayout.createSequentialGroup()
-                .addGap(165, 165, 165)
+                .addGap(164, 164, 164)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         JP_PuestosOfrecidosEmpresaLayout.setVerticalGroup(
             JP_PuestosOfrecidosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_PuestosOfrecidosEmpresaLayout.createSequentialGroup()
-                .addGap(123, 123, 123)
+                .addGap(129, 129, 129)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jPanel30.add(JP_PuestosOfrecidosEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 1290, 730));
@@ -4639,10 +4638,9 @@ public class LogIn extends javax.swing.JFrame {
     private void JB_PuestosDisponiblesPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_PuestosDisponiblesPersonasMouseClicked
         JP_PuestosDispiniblesPersona.setVisible(true);
         puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
-        // Configurar el modelo de la tabla
-        tableModel = new DefaultTableModel(new Object[]{"ID", "Empresa", "Nombre de Puesto", "Tipo Contrato", "Sueldo", "Ubicacion"}, 0);
-        JT_ResultadosBusqueda.setModel(tableModel);
-        llenarTablaPuestosDisponiblePersona();
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Empresa", "Sueldo", "Titulo", "Nivel de Educacion", "Titulo", "Horario"}, 0);
+        JT_PropiedadesEnMercadoComprador.setModel(tableModel);
+        llenarTablaPuestos();
 
         JP_BusquedaDetallada.setVisible(false);
         JP_MiSolicitudPersona.setVisible(false);
@@ -4720,8 +4718,19 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_TF_MiSolicitudNombreEmpresaPersonaActionPerformed
 
     private void JB_ContratacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ContratacionesMouseClicked
+        puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Empresa", "Sueldo", "Titulo", "Nivel de Educacion", "Titulo", "Horario"}, 0);
+        jTable1.setModel(tableModel);
+        llenarTablaPuestos();
+        solicitudDAO = new SolicitudDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Nombre", "Apellido", "Genero", "NivelEducacion", "Titulo", " Experiencia "}, 0);
+        JT_Solicitudes.setModel(tableModel);
+        llenarTablaSolicitudesEmpresa();
+
         JP_CRUD.setVisible(false);
         JP_Contrataciones.setVisible(true);
+
+
     }//GEN-LAST:event_JB_ContratacionesMouseClicked
 
     private void jLabel45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel45MouseClicked
@@ -4763,7 +4772,35 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_CRUDPersonasMouseClicked
 
     private void JB_ContratarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ContratarMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        solicitudDAO = new SolicitudDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+
+        int selectedRow1 = jTable1.getSelectedRow();
+        int selectedRow2 = JT_Solicitudes.getSelectedRow();
+        if (selectedRow1 != -1 && selectedRow2 != -1) {
+            String nombreEmpresa = "N/A";
+            String idPuesto = (String) tableModel.getValueAt(selectedRow1, 0);
+            List<PuestoDeTrabajo> puestos = puestoDAO.obtenerTodosLosPuestosDeTrabajo();
+            for (PuestoDeTrabajo puesto : puestos) {
+                if (puesto.getId().equals(idPuesto)) {
+                    nombreEmpresa = puesto.getEmpresa();
+                }
+            }
+            tableModel.removeRow(selectedRow1);
+            String idSolicitud = (String) tableModel.getValueAt(selectedRow2, 0);
+            List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerSolicitudesPorPersona();
+            for (SolicitudDeEmpleo solicitud : solicitudes) {
+                if (solicitud.getId().equals(idSolicitud)) {
+                    solicitud.setEstado("Contratado");
+                    solicitud.setNombreEmpresa(nombreEmpresa);
+                    solicitudDAO.actualizarSolicitudDeEmpleo(solicitud);
+                }
+            }
+            tableModel.removeRow(selectedRow2);
+        } else {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado un puesto o una solicitud", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_JB_ContratarMouseClicked
 
     private void JB_ContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ContratarActionPerformed
@@ -4791,8 +4828,13 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_PuestosOfrecidosMouseClicked
 
     private void JB_SolicitudesEmpleoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_SolicitudesEmpleoMouseClicked
+        solicitudDAO = new SolicitudDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        tableModel = new DefaultTableModel(new Object[]{"ID", "Nombre", "Apellido", "Genero", "NivelEducacion", "Titulo", " Experiencia "}, 0);
+        JT_BuscarSolicitudesEmpresa.setModel(tableModel);
+        llenarTablaSolicitudesEmpresa();
         JP_PuestosOfrecidosEmpresa.setVisible(false);
         JP_SolicitudesEmpresas.setVisible(true);
+
     }//GEN-LAST:event_JB_SolicitudesEmpleoMouseClicked
 
     private void JB_ConfirmarEliminarSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ConfirmarEliminarSolicitudMouseClicked
@@ -5259,6 +5301,21 @@ public class LogIn extends javax.swing.JFrame {
         List<Empresa> empresas = empresaDAO.obtenerTodasLasEmpresas();
         for (Empresa empresa : empresas) {
             tableModel.addRow(new Object[]{empresa.getId(), empresa.getNombre(), empresa.getCIF(), empresa.getUsuario()});
+        }
+    }
+
+    private void llenarTablaSolicitudesEmpresa() {
+        List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerTodasLasSolicitudes();
+        for (SolicitudDeEmpleo solicitud : solicitudes) {
+            tableModel.addRow(new Object[]{solicitud.getId(), solicitud.getNombre(), solicitud.getApellido(), solicitud.getGenero(), solicitud.getNivelEducacion(), solicitud.getTitulo(), solicitud.getExperiencia()});
+            //"ID", "Nombre", "Apellido", "Genero","NivelEducacion","Titulo"," Experiencia"
+        }
+    }
+
+    private void llenarTablaPuestos() {
+        List<PuestoDeTrabajo> puestos = puestoDAO.obtenerTodosLosPuestosDeTrabajo();
+        for (PuestoDeTrabajo puesto : puestos) {
+            tableModel.addRow(new Object[]{puesto.getId(), puesto.getEmpresa(), puesto.getSueldo(), puesto.getTitulo(), puesto.getNivelEducacion(), puesto.getTitulo(), puesto.getHorario()});
         }
     }
 
@@ -5796,8 +5853,10 @@ public class LogIn extends javax.swing.JFrame {
     private EmpresaDAO empresaDAO;
     private DefaultTableModel tableModel;
     private PuestoDeTrabajoDAO puestoDAO;
+    private SolicitudDAO solicitudDAO;
     String usuarioLogIN;
     String contrasenaLogIN;
+
     private void modpersona() {
         int selectedRow = JT_ModPersona.getSelectedRow();
         String name = TF_ModNombrePersona.getText();
