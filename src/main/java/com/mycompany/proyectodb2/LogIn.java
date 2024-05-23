@@ -835,14 +835,14 @@ public class LogIn extends javax.swing.JFrame {
 
         JT_Solicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Nombre"
+                "ID", "Nombre"
             }
         ));
         jScrollPane10.setViewportView(JT_Solicitudes);
@@ -872,10 +872,11 @@ public class LogIn extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Puesto", "Cantidad"
+                "ID", "Puesto", "Cantidad"
             }
         ));
         jScrollPane11.setViewportView(jTable1);
@@ -4772,11 +4773,11 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here:puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
         puestoDAO = new PuestoDeTrabajoDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
         solicitudDAO = new SolicitudDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
-        DefaultTableModel modelo1 = new DefaultTableModel(new Object[]{"ID", "Empresa", "Sueldo", "Titulo", "Nivel de Educacion", "Titulo", "Horario"}, 0);
-        DefaultTableModel modelo2 = new DefaultTableModel(new Object[]{"ID", "Nombre", "Apellido", "Genero", "NivelEducacion", "Titulo", " Experiencia "}, 0);
+        DefaultTableModel modelo1 = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel)JT_Solicitudes.getModel();
         
-        jTable1.setModel(modelo1);
-        JT_Solicitudes.setModel(modelo2);
+        /*jTable1.setModel(modelo1);
+        JT_Solicitudes.setModel(modelo2);*/
         
         String nombreEmpresa = "N/A";
         int selectedRow1 = jTable1.getSelectedRow();
