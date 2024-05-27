@@ -52,7 +52,7 @@ public class SolicitudDAO {
         try (MongoCursor<Document> cursor = collection.find(query).iterator()) {
             while (cursor.hasNext()) {
                 Document solicitudDoc = cursor.next();
-                SolicitudDeEmpleo solicitud = convertirDocumentoASolicitud(solicitudDoc);
+                SolicitudDeEmpleo solicitud = convertirDocumentoASolicitud1(solicitudDoc);
                 solicitudes.add(solicitud);
             }
         }
@@ -124,6 +124,15 @@ public class SolicitudDAO {
         return solicitud;
     }
 
+     private SolicitudDeEmpleo convertirDocumentoASolicitud1(Document solicitudDoc) {
+        SolicitudDeEmpleo solicitud = new SolicitudDeEmpleo();
+        solicitud.setId(solicitudDoc.getObjectId("_id").toString());
+        solicitud.setIdPersona(solicitudDoc.getString("idPersona"));
+        solicitud.setEstado(solicitudDoc.getString("estado"));
+        solicitud.setNombreEmpresa(solicitudDoc.getString("nombreEmpresa"));
+        return solicitud;
+    }
+     
     public List<SolicitudDeEmpleo> obtenerTodasLasSolicitudes() {
         List<SolicitudDeEmpleo> solicitudes = new ArrayList<>();
         try (MongoCursor<Document> cursor = collection.find().iterator()) {

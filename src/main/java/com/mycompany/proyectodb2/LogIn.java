@@ -41,6 +41,7 @@ public class LogIn extends javax.swing.JFrame {
      */
     public LogIn() {
         initComponents();
+        addAdmin();
         this.setExtendedState(MAXIMIZED_BOTH);
         JP_Contrataciones.setVisible(false);
         JP_CrearEmpresa.setVisible(false);
@@ -519,8 +520,6 @@ public class LogIn extends javax.swing.JFrame {
         TF_MiSolicitudCodigoReferenciaPersona = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
-        jLabel216 = new javax.swing.JLabel();
-        TF_MiSolicitudPuestoTrabajoaPersona = new javax.swing.JTextField();
         jLabel217 = new javax.swing.JLabel();
         TF_MiSolicitudNombreEmpresaPersona = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
@@ -3032,12 +3031,6 @@ public class LogIn extends javax.swing.JFrame {
         jLabel54.setForeground(new java.awt.Color(44, 65, 114));
         jLabel54.setText("Detalles sobre el puesto de trabajo");
 
-        jLabel216.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
-        jLabel216.setText("Puesto de Trabajo");
-
-        TF_MiSolicitudPuestoTrabajoaPersona.setEditable(false);
-        TF_MiSolicitudPuestoTrabajoaPersona.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel217.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel217.setText("Nombre de Empresa");
 
@@ -3064,10 +3057,7 @@ public class LogIn extends javax.swing.JFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(178, 178, 178)
                 .addGroup(JP_MiSolicitudPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JP_MiSolicitudPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel217, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TF_MiSolicitudPuestoTrabajoaPersona)
-                        .addComponent(jLabel216, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jLabel217)
                     .addComponent(TF_MiSolicitudNombreEmpresaPersona, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(264, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_MiSolicitudPersonaLayout.createSequentialGroup()
@@ -3091,11 +3081,7 @@ public class LogIn extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(TF_MiSolicitudEstadoSolicitudPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JP_MiSolicitudPersonaLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(jLabel216)
-                        .addGap(39, 39, 39)
-                        .addComponent(TF_MiSolicitudPuestoTrabajoaPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
+                        .addGap(231, 231, 231)
                         .addComponent(jLabel217)
                         .addGap(26, 26, 26)
                         .addComponent(TF_MiSolicitudNombreEmpresaPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -5491,7 +5477,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextField TF_MiSolicitudCodigoReferenciaPersona;
     private javax.swing.JTextField TF_MiSolicitudEstadoSolicitudPersona;
     private javax.swing.JTextField TF_MiSolicitudNombreEmpresaPersona;
-    private javax.swing.JTextField TF_MiSolicitudPuestoTrabajoaPersona;
     private javax.swing.JTextField TF_ModAlergiasPersona;
     private javax.swing.JTextField TF_ModAntecedentesPuesto;
     private javax.swing.JTextField TF_ModApellidoPersona;
@@ -5648,7 +5633,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel213;
     private javax.swing.JLabel jLabel214;
     private javax.swing.JLabel jLabel215;
-    private javax.swing.JLabel jLabel216;
     private javax.swing.JLabel jLabel217;
     private javax.swing.JLabel jLabel222;
     private javax.swing.JLabel jLabel223;
@@ -6062,7 +6046,10 @@ private void miSolicitud(){
         if (entro == true){
             List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerSolicitudesPorPersona(idPersona);
                 for (SolicitudDeEmpleo solicitud : solicitudes) {
-                    System.out.println(solicitud.getIdPersona());
+                    System.out.println(solicitud.getNombreEmpresa());
+                    System.out.println(solicitud.getEstado());
+                    System.out.println(solicitud.getPuestosDeseados());
+                    //System.out.println(solicitud.getNombreEmpresa());
                     System.out.println("entro a solicitud");
                     TF_MiSolicitudCodigoReferenciaPersona.setText(solicitud.getId());
                     TF_MiSolicitudEstadoSolicitudPersona.setText(solicitud.getEstado());

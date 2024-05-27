@@ -6204,11 +6204,7 @@
                           <Component id="jPanel12" min="-2" pref="9" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabel217" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="TF_MiSolicitudPuestoTrabajoaPersona" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabel216" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel217" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="TF_MiSolicitudNombreEmpresaPersona" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="264" max="32767" attributes="0"/>
@@ -6237,11 +6233,7 @@
                                   <Component id="TF_MiSolicitudEstadoSolicitudPersona" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="jLabel216" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Component id="TF_MiSolicitudPuestoTrabajoaPersona" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
                                   <Component id="jLabel217" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="TF_MiSolicitudNombreEmpresaPersona" min="-2" pref="32" max="-2" attributes="0"/>
@@ -6327,22 +6319,6 @@
                       <Color blue="72" green="41" red="2c" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Detalles sobre el puesto de trabajo"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel216">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Rockwell" size="24" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Puesto de Trabajo"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="TF_MiSolicitudPuestoTrabajoaPersona">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel217">
