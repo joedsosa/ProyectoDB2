@@ -67,10 +67,7 @@ public class SolicitudDAO {
         collection.deleteOne(query);
     }
 
-    private Document convertirSolicitudDeEmpleoADocumento(SolicitudDeEmpleo solicitud) {
-        ObjectId objectId = new ObjectId(solicitud.getId());
-        return null;
-    }
+    
 
    public void actualizarSolicitudDeEmpleo(SolicitudDeEmpleo solicitud) {
         MongoDatabase database = conexion.obtenerBaseDatos();
@@ -110,7 +107,7 @@ public class SolicitudDAO {
         solicitud.setNombre(solicitudDoc.getString("nombre"));
         solicitud.setApellido(solicitudDoc.getString("apellido"));
         solicitud.setDireccion(solicitudDoc.getString("direccion"));
-        solicitud.setNombreEmpresa(solicitudDoc.getString("empresa"));
+        solicitud.setNombreEmpresa(solicitudDoc.getString("nombreEmpresa"));
         solicitud.setGenero(solicitudDoc.getString("genero"));
         solicitud.setNivelEducacion(solicitudDoc.getString("nivelEducacion"));
         solicitud.setTitulo(solicitudDoc.getString("titulo"));

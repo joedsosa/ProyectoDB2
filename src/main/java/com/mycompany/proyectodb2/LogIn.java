@@ -6053,7 +6053,6 @@ private void miSolicitud(){
                     System.out.println("entro a solicitud");
                     TF_MiSolicitudCodigoReferenciaPersona.setText(solicitud.getId());
                     TF_MiSolicitudEstadoSolicitudPersona.setText(solicitud.getEstado());
-                    TF_MiSolicitudPuestoTrabajoaPersona.setText(solicitud.getPuestosDeseados());
                     TF_MiSolicitudNombreEmpresaPersona.setText(solicitud.getNombreEmpresa());
                 }
                     
@@ -6134,7 +6133,6 @@ private void miSolicitud(){
             String sueldo = TF_CrearSolicitudSueldo.getText();
             String contrato = TF_CrearSolicitudContrato.getText();
 
-            // Obtener el ID de la persona seleccionada en la tabla
             int selectedRow = JT_ModEmpresa2.getSelectedRow();
             if (selectedRow != -1) {
                 String personaId = tableModel.getValueAt(selectedRow, 0).toString();
@@ -6175,7 +6173,6 @@ private void miSolicitud(){
                 TF_MiSolicitudEstadoSolicitudPersona.setText("Pendiente");
                 TF_MiSolicitudCodigoReferenciaPersona.setText(solicitud.getId());
                 TF_MiSolicitudNombreEmpresaPersona.setText("N/A");
-                TF_MiSolicitudPuestoTrabajoaPersona.setText("Pediente");
 
                 // Limpiar los campos de texto después de la creación de la solicitud
                 limpiarCampos();
