@@ -6043,23 +6043,37 @@ public class LogIn extends javax.swing.JFrame {
 
     }
 private void miSolicitud(){
+        personaDAO = new PersonaDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        solicitudDAO = new SolicitudDAO(new ConexionMongo("localhost", 27017, "empresa_db"));
+        
+        boolean entro = false;
+        String idPersona = "*";
         List <Persona> personas = personaDAO.obtenerTodasLasPersonas();
         for (Persona persona : personas){
             if (persona.getUsuario().equals(usuarioLogIN) && persona.getContrasena().equals(contrasenaLogIN)){
-                List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerTodasLasSolicitudes();
-                for (SolicitudDeEmpleo solicitud : solicitudes) {
-                    if (solicitud.getIdPersona().equals(persona.getId())) {
-                        TF_MiSolicitudCodigoReferenciaPersona.setText(solicitud.getId());
-                        TF_MiSolicitudEstadoSolicitudPersona.setText(solicitud.getEstado());
-                        TF_MiSolicitudPuestoTrabajoaPersona.setText(solicitud.getPuestosDeseados());
-                        TF_MiSolicitudNombreEmpresaPersona.setText(solicitud.getNombreEmpresa());
-                    } else {
-                        JOptionPane.showMessageDialog(this, "No ha hecho ninguna solicitud");
-                    }
-                }
+                
+                System.out.println("entro a persona");
+                entro = true;
+                idPersona = persona.getId();
+                System.out.println(idPersona);
+                
             }
         }
+        if (entro == true){
+            List<SolicitudDeEmpleo> solicitudes = solicitudDAO.obtenerSolicitudesPorPersona(idPersona);
+                for (SolicitudDeEmpleo solicitud : solicitudes) {
+                    System.out.println(solicitud.getIdPersona());
+                    System.out.println("entro a solicitud");
+                    TF_MiSolicitudCodigoReferenciaPersona.setText(solicitud.getId());
+                    TF_MiSolicitudEstadoSolicitudPersona.setText(solicitud.getEstado());
+                    TF_MiSolicitudPuestoTrabajoaPersona.setText(solicitud.getPuestosDeseados());
+                    TF_MiSolicitudNombreEmpresaPersona.setText(solicitud.getNombreEmpresa());
+                }
+                    
+        }else{
+            JOptionPane.showMessageDialog(this, "No ha hecho ninguna solicitud");
         }
+    }
     private void llenarTablaEmpresasPuestos() {
         List<Empresa> empresas = empresaDAO.obtenerTodasLasEmpresas();
         for (Empresa empresa : empresas) {
